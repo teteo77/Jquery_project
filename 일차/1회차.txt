@@ -1,0 +1,162 @@
+연속된 작업 수업이니까 한번 빠지면 이어지지않음
+
+수업시간에만 작업을 해서 결과물이 나오진 않는다
+	ㄴ 수업시간 외에도 해야한다
+
+
+교육커리큘럼/인정 안내
+http://ctrlcv.kr/dj04/
+-디스코드
+https://discord.gg/sSMn4Fsf
+- OT
+- 교육커리큘럼/일정 안내 :
+http://ctrlcv.kr/dj04/
+
+http://ctrlcv.kr/sample/
+
+수업 파일
+	ㄴ http://ctrlcv.kr/dj04/html/
+
+material design the color system
+색상대비 가독성
+	ㄴ https://m2.material.io/design/color/the-color-system.html#color-theme-creation
+
+	ㄴ http://hesiily.com/
+		ㄴ 포토폴리오 자기소개, 기술숙련도 부분이 마음에 든다
+
+
+
+
+- 기획
+- 자기소개 및 목표설정
+	ㄴ 목적(포폴사이트 만들기, 포폴을 만들어서 이력서를 넣을건지), 인사
+- 프로그램 설치(FTP-파일질라/설정)
+	ㄴ 파일질라 Client다운로드
+- 도메인 및 호스팅 신청 및 설정
+	ㄴ 실제 사이트를 만드는 거기 때문에 호스팅과 도메인이 필요하다.
+	ㄴ 
+- 사이트맵 작성
+- 시장조사 및 벤치마킹
+- 레퍼런스 선정
+
+
+1 짧고
+
+2 아이덴티티(이름 이니셜)이 들어가는 사전적인 단어
+	ㄴ ex)이름.디자인 ajhdesign.com 하고 중복된 도메인이면 뒤에 단어 붙여서 찾기
+	ㄴ hahadesignbox.com 로 된다
+
+도메인하고 호스팅 하고 연결을 해줘야 한다.
+로그인 유형: 비밀번호 묻기
+
+파일질리아에 호스팅 연결을 하면
+서버에 회원 계정으로 파일이 하나 만들어 진다
+	ㄴ 하위폴더에 www가 있는데 해당 파일이 홈페이지에 보여지는 파일이다.
+
+
+UX디자인
+	ㄴ 연령층에 따른 디자인
+		ㄴ 20~30대는 포켓몬
+
+UI는 그냥 디자인
+
+시장조사 및 벤치마킹
+	ㄴ 벤치마킹: 다른 홈페이지를 참조하여 어떻게 구상할지 정리 하는것
+	ㄴ 취업, 이직 용으로는 상업적, 일반적인 디자인 사이트가 좋음.
+
+가시안은 실제 예시가 와야한다
+
+벤치마킹 참조 사이트
+	https://www.dbcut.com/
+		ㄴ 디비컷
+	http://www.i-award.or.kr/Web/Prize/Default.aspx
+		ㄴ 웹어워드코리아
+
+	ㄴ 다른사람들이 만든 포폴 참조
+
+	https://jg.tjoeun.co.kr/front/portfolio/portfolio_nom_list.asp?gubun=2&pg=10
+
+	http://ctrlcv.kr/sample/
+
+
+포폴 참조 벤치마킹
+	ㄴ https://www.masigray.com:5021/main/main.asp
+		ㄴ 마시그레이를 아카데미에 블루보틀 사이트 처럼 만들고 싶다.
+	ㄴ 블루보틀 사이트 하고 더좋은 아카데미에 블루보틀 사이트 비교 예시로 보면 좋을거 같다.
+		ㄴ https://www.bluebottlecoffeekorea.com/
+		ㄴ https://jg.tjoeun.co.kr/front/portfolio/portfolio_nom_view.asp?gubun=2&idx=1635
+			ㄴ 높이 667 해당 사이트에 글씨가 움직이는 부분
+			ㄴ 높이 1883 부분
+			ㄴ 높이 3400~ 4000부분 조금식 걸리는 부분
+			ㄴ 5000 이하에서 스크롤 내리면 이미지하고 글씨가 올라오는거
+
+	ㄴ https://www.lsmtron.com/kr/ko
+		ㄴ LS Mtron
+			ㄴ 홈페이지 들어가면 글씨가 앞에서 뒤로 날아 가는거
+	
+	ㄴ https://careers.kakaobrain.com/
+		ㄴ카카오브레인 채용
+			ㄴ 검은색 원안에 마우스가 따라오는걸 자기소개 포폴에 넣고싶다.
+
+	ㄴ https://jinro.gwe.go.kr/home.do
+		ㄴ 강원특별자치도교육청 강원특별자치도교육청진로교육원
+			ㄴ 이미지를 fixed로 고정 시켜서 뒤에 고정하고 마우스를 올리면 이미지가 바꾸는 기능을 추가하고 싶다
+		
+	ㄴ http://www.kyungdong.co.kr/
+		ㄴ 경동
+			ㄴ 우측에 위치 표시 해주는 기능을 추가하고싶다
+	ㄴ https://www.hitejinro.com/
+		ㄴ 하이트진로
+			ㄴ 간단해서 좋다.
+
+	ㄴ https://www.samyang.com/kr/index
+		ㄴ 삼양
+	ㄴ https://worldwide.kia.com/kr
+		ㄴ KN
+			ㄴ 간단해서 좋다.
+	ㄴ https://www.parnashoteljeju.com/ko/main.do
+		ㄴPARNAS
+			ㄴ 이쁜데 너무 길다
+			ㄴ 부분적으로 참조하기
+			ㄴ 그냥 전체적으로 한번 따라 해보고 싶기도 하다
+	ㄴ http://superpower.monster/
+		ㄴ 다른사람이 만들 포폴 사이트
+			ㄴ 휴대폰 어플 AR어플로 자기 사진 찍어서 올리기
+
+	ㄴ https://devjeans.dev-hee.com/
+		ㄴ 개발진스 캐릭터 만드는 사이트
+
+	ㄴ 갤럭시 AR이모지로 캐릭터 만들어서 넣기
+		ㄴ 휴대폰 Samsung폴더에  AR어플 있음
+
+
+
+해당 홈페이지에 움직이는거, 마음에 드는 부분 메모하기
+
+		
+자기소개 포폴 참조 벤치마킹
+	일단 괜찮다 싶은거 다 메모했다.
+	ㄴ http://www.wsgroup.co.kr/
+		ㄴ 우성
+	ㄴ https://jinro.gwe.go.kr/home.do
+		ㄴ 강원특별자치도교육청 강원특별자치도교육청진로교육원
+	ㄴ https://careers.kakaobrain.com/
+		ㄴ카카오브레인 채용
+			ㄴ 검은색 원안에 마우스가 따라오는걸 자기소개 포폴에 넣고싶다.
+	ㄴ http://kdesign.kr/#
+		ㄴ 실제 사진이 아닌 이미지로 표현하는 사진이 마음에 든다
+
+	ㄴ http://0bin.space/
+		ㄴ 모작이 마음에 든다.
+
+	ㄴ http://hibeeny.com/
+		ㄴ 자기소개, 기술 숙련도 표현 부분이 마음에 든다.	
+
+	ㄴ http://hesiily.com/
+		ㄴ 포토폴리오 자기소개, 기술숙련도 부분이 마음에 든다
+
+포폴 사이트니까 자기 소개 페이지 구상하면 됨
+
+
+
+

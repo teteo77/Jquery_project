@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi! welcome yeonmi portpolio!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {margin:0; padding:0; list-style:none;}
+        .screen_out {display: none;}
+        summary {display: none;}
+        body {font-family: 'Noto Sans KR';}
+        header {background:#000; height:80px; position: fixed; width:100%; z-index: 100;}
+        header h1 {position: absolute; left: 50px; top:50%; transform: translateY(-50%); }
+        header h1 a {text-indent: -9999px; overflow: hidden; border:1px solid red; display: block; width:60px; height:60px;}
+        header #lang {position: absolute; right: 50px;  top:50%; transform: translateY(-50%); color:#fff;}
+        header select {background:transparent; border:none; color:#fff;}
+        header select option {color:#000;}
+        header nav {margin:auto; width:fit-content; height: 100%; display: flex; align-items: center;}
+        header nav ul {display: flex;}
+        header nav li a {display: block; padding:10px 20px; color:#fff; text-decoration: none; font-weight: 700;}
+        #home {background:url(img/main_bg.png) center/cover; height:100vh; background-color:#ccc; position: relative;}
+        #home p {text-indent: -9999px; overflow: hidden;}
+        #home #scroll {border:1px solid red; width:20px; height:30px;position: absolute; bottom:80px; left:50%; transform: translateX(-50%);}
+        #home #main_page {padding:10px;position: fixed; right:50px; top:50%; transform: translateY(-50%);}
+        #home #main_page span {display: block; width:15px; height:15px; background:#fff; margin-bottom:20px; border-radius: 15px;}
+        #home #main_page span .on {background:#333;}
+        #m2030 {height:100vh; padding-top:80px; box-sizing: border-box;}
+        #m2030>div {border:1px solid red; max-width: 1000px; margin:auto; overflow: hidden; position: relative;}
+        h2.title {font-size:30px; padding-left:90px;}
+        h2.title::before {content:"";border:1px solid red;position: absolute; width:80px; height:80px; background:url(img/title_01.png); margin:-40px 0 0 -90px;}
+        #list_2030 {display: inline-flex;}
+        #list_2030 {}
+        #list_2030>li {width:1000px; height:600px;}
+        #list_2030>li>img {display: block; border:1px solid red; width:100%; height:calc(100% - 26px); object-fit:contain;}
+        #list_2030>li>p {border:1px solid green; font-size:16px;font-weight: 400;  text-align: center;}
+        
+        #list_2030 details {display: none; position: fixed;left:0; top:0;width:100%; height:100vh; background:rgba(0,0,0,0.8); z-index: 200; backdrop-filter: blur(3px);}
+        #list_2030>li.on details {display: block;}
+        #list_2030 details>div { width:100%; max-width: 800px; height:100vh; max-height:500px; left:50%; top:50%; transform: translate(-50%, -50%); position: absolute; background:#ccc}
+        
+        #m2030 .bt button {position: absolute; left:0; top:50%;font-size: 60px; color:#ccc; cursor: pointer; background:none; border:none;}
+        #m2030 .bt button:last-child {right:0; left:auto}
+        #m2030 .bt button:hover {color:#000;}
+
+        #about { background:orange; padding:100px 0; color:#fff;}
+        #about>div {max-width:1000px; margin:auto;}
+        #about h2+p {font-size:30px; margin:30px 0 20px;}
+        #about>div>div {border:1px solid #000; display: flex; flex-direction: column; height: 500px; flex-wrap: wrap; gap:15px}
+        #about article {border:1px solid red; padding:15px;}
+        #about article:nth-of-type(1) {background:red; height:100%; width:280px;}
+        #about .date {width:145px; display: inline-block;}
+
+        #contact {padding:100px 0;}
+        #contact>div {max-width:1000px; margin:auto;}
+        #contact #sns {border:1px solid red; width: fit-content; margin:50px auto;}
+        #contact fieldset {border:none; display: flex; flex-direction: column; gap:15px;max-width: 600px; margin:auto;}
+        #contact .input_form {border:none; border-bottom: 1px solid #ccc; padding:15px 0; font-size:20px; outline: none;}
+        #contact .input_form::placeholder {font-size:14px;}
+        #contact .input_form:focus {border-color:#000}
+        #contact textarea {min-height:150px;}
+        #contact #button {width:fit-content; padding:10px 20px; font-size:20px; font-weight: 700; font-family: 'Noto Sans KR'; margin:0 0 0 auto;}
+        footer {background:#333; color:#fff; padding:30px 0; text-align: center;}
+        footer address {font-style: normal;font-weight: 500; font-size:14px}
+        footer p {font-size:12px; font-weight: 200; color:#ccc; margin-top:10px;}
+    </style>
+</head>
+<body>
+<header>
+    <h1><a href="http://yeonmis.com">yeonmi portpolio!</a></h1>
+    <h2 class="screen_out">주요서비스</h2>
+    <nav>
+        <ul>
+           <li><a href="#home">Home</a></li>
+           <li><a href="#m2030">2030</a></li>
+           <li><a href="#m4050">4050</a></li>
+           <li><a href="#reference">Reference</a></li>
+           <li><a href="#pr">It's me</a></li>
+           <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <h2 class="screen_out">언어설정</h2>
+    <div id="lang">
+        <i class="fa-solid fa-globe"></i>
+        <select>
+            <option>Language</option>
+            <option>English</option>
+            <option>한국어</option>
+            <option>中國語</option>
+        </select>
+    </div>
+</header>
+<main>
+    <section id="home">
+        <h2 class="screen_out">Intro</h2>
+        <p>연미의 웹포트폴리오</p>
+        <div id="scroll"></div>
+        <div id="main_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+    <section id="m2030">
+        <div>
+            <h2>2030<span class="screen_out"> Fashion</span></h2>       
+            <ul id="list_2030">
+                <li> 
+                    <img src="img/2030_port_01.png" alt="작품설명1">
+                    <p>10대후반 ~30대초반로맨틱빈티지(romantic vintage))</p>
+                    <details open>
+                        <summary>상세보기</summary>
+                        <div>
+                            <p>알파세대와 MZ세대를 집중공략할 키치한 로맨틱빈티지</p>
+                            <p>main Target&Positioning map Identity drawing</p>
+                            <p>drawing Color chips SWOT</p>
+                        </div>
+                    </details>
+                </li>
+                <li> 
+                    <img src="img/2030_port_01.png" alt="작품설명1">
+                    <p>10대후반 ~30대초반로맨틱빈티지(romantic vintage))</p>
+                    <details open>
+                        <summary>상세보기</summary>
+                        <div>
+                            <p>알파세대와 MZ세대를 집중공략할 키치한 로맨틱빈티지</p>
+                            <p>main Target&Positioning map Identity drawing</p>
+                            <p>drawing Color chips SWOT</p>
+                        </div>
+                    </details>
+                </li>
+                <li> 
+                    <img src="img/2030_port_01.png" alt="작품설명1">
+                    <p>10대후반 ~30대초반로맨틱빈티지(romantic vintage))</p>
+                    <details open>
+                        <summary>상세보기</summary>
+                        <div>
+                            <p>알파세대와 MZ세대를 집중공략할 키치한 로맨틱빈티지</p>
+                            <p>main Target&Positioning map Identity drawing</p>
+                            <p>drawing Color chips SWOT</p>
+                        </div>
+                    </details>
+                </li>
+                <li> 
+                    <img src="img/2030_port_01.png" alt="작품설명1">
+                    <p>10대후반 ~30대초반로맨틱빈티지(romantic vintage))</p>
+                    <details open>
+                        <summary>상세보기</summary>
+                        <div>
+                            <p>알파세대와 MZ세대를 집중공략할 키치한 로맨틱빈티지</p>
+                            <p>main Target&Positioning map Identity drawing</p>
+                            <p>drawing Color chips SWOT</p>
+                        </div>
+                    </details>
+                </li>
+            </ul>
+            <div class="bt"><button><i class="fa-solid fa-angle-left"></i><span class="screen_out">Prev</span></button> <button><span class="screen_out">Next</span><i class="fa-solid fa-chevron-right"></i></button></div>
+        </div>
+    </section>
+</section>
+<section id="4050">
+    <div class="sec">
+        <h2 class="ani"><span>4</span><span>0</span><span>5</span><span>0</span></h2>       
+        <div class="bg"></div>
+        <ul class="web_list slide list">
+            <li class="ani"> 
+                <h3>4050 Fashion portfolio<span>40에너제틱캐주얼(energetic casual))</span></h3>
+                <p>clone coding</p>
+                <div class="details">
+                    <div class="details">
+                        <span>뉴 노멀 시대를 앞서가는 영포티를 겨냥한 에너제닉 캐주얼</span>
+                        <span>main</span><span>Target&Positioning map</span><span>Identity</span><span>drawing</span>
+                        <span>drawing</span><span>Color chips</span><span>SWOT</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <!-- 메인이미지 -->
+                    <div class="4050concept">
+                        <img src="img/compassion_pc2.png" alt="Alfa and Mz's lovely vintage" class="Brand concept">
+                    </div>
+                    <!-- 효과시 보여질 이미지 -->
+                    <span class="4050name">
+                        <img src="img/compassion_tablet.png" alt="Fusia Paco" class="brandname">
+                    </span>
+                    <!-- 효과시 보여질 이미지  -->
+                    <span class="4050Color">
+                        <img src="img/compassion_m.png" alt="Color chips" class="Color">
+                    </span>
+                </div>
+                <a href="https://smartstore.naver.com/serendiv" target="_blank">포트폴리오 열기</a>
+            </li>
+    </section>
+<section>
+    <div>
+        <h2><span>R</span><span>E</span><span>F</span><span>E</span><span>R</span><span>E</span><span>N</span><span>C</span><span>E</span></h2>
+        <ul>
+            <li><img src="#" alt="Product details">  
+                    <a href="https://smartstore.naver.com/serendiv" target="_blank">스마트스토어 열기</a>
+            </li>
+                    <summary>details1</summary>
+                    <ul>
+                        <li>(주)세렌디브 근무기간</li>
+                        <li>작업시간 16h</li>
+                        <li>매년 업데이트 유지보수</li>
+                        <li>광고 및 프로모션 진행/ 네이버 카페 파우더룸과 협업</li>
+                    </ul>
+                </details>
+            </li>
+            <li><img src="#" alt="+ Package design">
+                <h3>세렌디브 코코넛비누 제품표지 디자인</h3>
+                <details open>
+                    <summary>details2</summary>
+                    <ul>
+                        <li>기존디자인을 리뉴얼</li>
+                        <li>작업시간 6h</li>
+                        <li>Tool    Illustration, photoshop</li>
+                        <li>칠흙같은 자연에서 피어난 싱그럽고 맑은 피부를 위한 천연오일함유 soup</li>
+                    </ul>
+                </details>
+            </li>
+            <li><img src="#" alt="3D디자인">
+                <h3>3D디자인</h3>
+                <details open>
+                    <summary>details3</summary>
+                    <ul>
+                        <li>의류도식화를 3D제작프로그램을 이용하여 표현</li>
+                        <li>작업시간 10h</li>
+                        <li>Tool    Clo</li>
+                        <li>인체공학적이고 자연친화적인 소재표현을 한 트위드 원피스</li>
+                    </ul>
+                </details>
+            </li>
+        </ul>        
+        <button class="l_r">left</button>
+        <button class="l_r">right</button>
+    </div>
+    <div class="page"></div>
+</section>
+<section id="about">
+    <div>
+        <h2 class="title">PR</h2>        
+        <p id="txt" class="ani text">지치지 않는 에너자이너! 상품기획과 디자인 모두 책임지겠습니다!</p>
+        <div>
+            <article>
+                <h3 class="screen_out">기본정보</h3>
+                <img src="#" alt="">
+                <p>신연미 (1991.09.20)</p>
+                <p>#양띠 #처녀자리 #ENTJ #인간비타민 #에너지 #커뮤니케이션 화합</p>
+            </article>
+            <article>
+                <h4>HISTORY</h4>
+                <ul>
+                    <li><span class="date">2011~2013</span>서울호서예술전문학교 패션디자인 전공 졸업</li>
+                    <li><span class="date">2022~2023</span>서울디지털대학교 패션디자인 전공 학사 졸업</li>
+                    <li><span class="date">2014~2016.05</span>타임닷컴 온라인 MD 근무</li>
+                    <li><span class="date">2016.10.17~재직중</span>(주)세렌디브 온라인MD &웹디자이너 근무</li>
+                </ul>
+            </article>
+            <article>
+                <h4>CERTIFICATION</h4>
+                <ul>
+                    <li>패션머천다이징 산업기사</li>
+                    <li>컬러리스트 기사</li>
+                    <li>컬러리스트 산업기사</li>
+                    <li>국제IT자격(ICDL Spreadsheet 4)</li>
+                    <li>GTQ(포토샵)1급</li>
+                    <li>GTQI(일러스트) 1급</li>
+                    <li>GTQin(인디자인) 1급</li>
+                    <li>2종보통 운전면허</li>
+                    <li>2종소형 운전면허</li>
+                </ul>
+            </article>
+            <article>
+                <h4>SKILL</h4>
+                <ul id="skill">
+                    <li>Photoshop <span><span>상</span></span></li>
+                    <li>Illustrator <span><span>상</span></span></li>
+                    <li>InDesign <span><span>상</span></span></li>
+                    <li>Excel <span><span>중</span></span></li>
+                    <li>Hangeul<span><span>상</span></span></li>
+                    <li>Copywriter<span><span>중</span></span></li>
+                    <li>design plan<span><span>상</span></span></li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div>
+        <h2 class="title">CONTACT</h2>        
+        <p>연락주시면 확인 후 빠르게 응답하겠습니다.</p>
+        <div>
+            <h3 class="screen_out">another way</h3>
+            <ul id="sns">
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="http://www.yeonmis.com">yeonmis.com</a></li>
+                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#">2cjsrkrhvk@naver.com</a></li>
+                <li><i class="fa fa-youtube-play"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+                <li><i class="fa fa-youtube-play"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+                <li><i class="fa fa-youtube-play"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+            </ul>
+        </div>
+        <form id="form">
+            <fieldset>
+                <legend class="screen_out">메시지 보내기</legend>
+                <input type="text" id="from_name" name="from_name" placeholder="이름" class="input_form">
+                <input type="text" id="reply_to"  name="reply_to" placeholder="메일주소/연락처" class="input_form">
+                <textarea id="message" name="message" placeholder="메시지" class="input_form"></textarea>
+                <input type="submit" class="button" id="button" value="Send Email"></input>
+            </fieldset>
+        </form>
+    </div>
+</section>
+</main>    
+<footer>
+        <address>ⓒ 2023. SHIN YEONMI All rights reserved.</address>
+        <p>본 사이트는 상업적 목적이 아닌  개인포트폴리오 사이트로 제작되었습니다.
+            <br>일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.</p>
+</footer>
+</body>
+</html>

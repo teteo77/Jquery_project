@@ -1,0 +1,94 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>보충설명</title>
+    <style>
+      li {
+        list-style: none;
+      }
+      li:nth-child(1) {
+      } /*가상선택자, 가상클래스*/
+      li::before {
+        content: "";
+        position: absolute;
+        border-left: 5px solid red;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        margin: 5px 0 0 -10px;
+      }
+      ::after {
+      }
+      ::placeholder {
+      }
+      ul:nth-child(3) {
+        border: 3px solid red;
+      }
+      body > ul:nth-of-type(1) {
+        background: orange;
+      }
+      li:empty::after {
+        content: "내용이 없습니다.";
+      }
+      input[type="password"] {
+        border: 5px solid red;
+      }
+      li:nth-child(3) ~ li {
+        background: red;
+      }
+      h1 + h2 ~ li {
+        border: 5px solid green;
+      }
+      h1,
+      h2,
+      ul li:nth-child(3) {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>보충설명</h1>
+    <h2>가상요소</h2>
+    <ul>
+      <li>가상요소는 가상의 태그(요소,span)가 있는것 처럼 사용</li>
+      <li>내용(콘텐츠)을 작성x, 디자인용으로만 사용</li>
+      <li>content 속성은 필수!</li>
+    </ul>
+    <h2>CSS 선택자</h2>
+    <ul>
+      <li>id(#), class(.), tag(요소)</li>
+      <li>
+        가상선택자:
+        <ul>
+          <li>:nth-child(숫자) : (숫자)번째 형제요소로 선택</li>
+          <li>:nth-of-type(숫자) : (숫자)번째 같은 요소번호로 선택</li>
+          <li>:first-child : 첫번째 요소</li>
+          <li>:last-child : 마지막째 요소</li>
+          <li>:link/:visited/:active/:hover : 링크속성/특정상황</li>
+          <li>:focus : <a href="#"> 활성화 되었을때</a></li>
+          <li>:checked/:selected : 체크가 되었을 때, 선택이 되었을 때</li>
+          <li>:empty : 비어있는 태그 일때</li>
+          <li></li>
+        </ul>
+      </li>
+      <li>&gt; : 자식선택자</li>
+      <li>(빈칸) : 자손선택자</li>
+      <li>
+        [type=password] : 속성선택자 <input type="text" /><input
+          type="password"
+        />
+      </li>
+      <li>~: 형제선택자(동생들)</li>
+      <li>+ : 앞에 형제를 지정된 경우의 요소선택</li>
+      <li>, : 그룹선택자</li>
+    </ul>
+
+    <div
+      style="
+        background: rgba(204, 204, 204, 0.333);
+        position: fixed;
+        display: none;
+        z-index: 100000000;
+      "
+    ></div>
+  </body>
+</html>

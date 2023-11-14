@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header>button {
+            background: none;
+            /* border:none;  */
+            padding: 10px;
+            color: #fff;
+            font-size: 20px;
+            position: absolute;
+            left: 50px;
+            /* display:none */
+        }
+
+        /* 여기 뭐 더 들어가는데 못따라감 */
+
+        @media(max-width:930px) {
+            header>button {
+                display: block;
+            }
+
+            header nav ul {
+                position: fixed;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.8);
+                width: 100%;
+                height: 100%;
+                z-index: 2000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button>
+        <!-- 여기안에 햄버거 버튼 가져와서 표시하기 -->
+    </button>
+    <script>
+        // 햄버거 만들기
+
+        //모바일용 버튼
+        // $("hedaer>button").click(function () {
+        //     alert();
+        // })
+
+        $("hedaer>button").click(function () {
+            $("nav ul").toggleClass("On");
+        })
+
+    </script>
+</body>
+
+</html>

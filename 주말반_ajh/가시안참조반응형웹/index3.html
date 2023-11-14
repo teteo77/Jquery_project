@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오 홈페이지</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .screen_out {
+        display: none;
+      }
+
+      header {
+        background: #ccccee;
+        height: 80px;
+        width: 100%;
+      }
+
+      header h1 {
+        position: absolute;
+        top: 70px;
+        left: 50px;
+        transform: translateY(-100%);
+      }
+
+      header h1 a {
+        text-indent: -9999px;
+        overflow: hidden;
+        border: 1px solid red;
+        display: block;
+        width: 60px;
+        height: 60px;
+      }
+      /* header nav 하나하나 자세히 보기 */
+      header nav {
+        margin: auto;
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      header nav ul {
+        display: flex;
+        /* margin-left: 250px; */
+        /* float: left; */
+      }
+
+      header ul li {
+        float: left;
+        /* padding-left: 50px; */
+        margin: 10px;
+        list-style: none;
+      }
+
+      #HOME {
+        border: 1px solid orange;
+        max-width: 1920px;
+        height: 700px;
+        margin: auto;
+        display: flex;
+        width: fit-content;
+      }
+      /* width: fit-content로 컨텐츠 크기만큼 width를 주고 있기 때문에
+      padding이나 maregin으로 넓이 줘도 되고
+      img크기를 크게 해도 된다. */
+
+      #HOME > article > p {
+        font-size: 25px;
+        font-weight: bold;
+        width: 320px;
+        margin: auto;
+      }
+
+      #HOME > article > p > span {
+        font-size: 50px;
+        font-weight: bold;
+      }
+
+      #about {
+        max-width: 1920px;
+        height: 1050px;
+        border: 1px solid #f6eace;
+        margin: auto;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      #about #about_article {
+        width: 1500px;
+        height: 33%;
+        /* margin: auto; */
+        margin-bottom: 200px;
+        width: fit-content;
+      }
+
+      #about #about_article img {
+        width: 250px;
+        height: 300px;
+        float: left;
+        margin-right: 50px;
+      }
+      /* float:left를 써도돼나? 다른거 또 뭐있지? */
+      /* 정답이 없는데 왜자꾸 정답을 찾아 */
+
+      #about #about_article section {
+        width: 900px;
+        height: 95px;
+      }
+
+      #about #about_hs {
+        display: flex;
+      }
+
+      #about #about_hs h3 {
+        text-align: center;
+      }
+
+      #about #about_hs section {
+        margin: auto;
+        width: fit-content;
+      }
+
+      #about #about_hs section ul:nth-child(2) {
+        margin-left: 50px;
+      }
+
+      #about #about_hs h4 {
+        text-align: center;
+      }
+
+      #about #about_hs section ul:nth-child(4) {
+        margin-left: 50px;
+      }
+
+      footer {
+        background: #333;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+      }
+      footer address {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      footer p {
+        font-size: 12px;
+        font-weight: 200;
+        color: #ccc;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="#">안지혁 포트폴리오 사이트</a></h1>
+      <h2 class="screen_out">메인서비스</h2>
+      <!-- nav추가 -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- @media를 이용해서 최대 1000width일때 햄버거 메뉴 보이게 표시 -->
+      <button>메뉴</button>
+    </header>
+    <main>
+      <section id="HOME">
+        <h2 class="screen_out">INTRO</h2>
+        <!-- 플랙스를 사용하기 위해 p를 감싸줬는데 어떤 표준 태그를 사용해야 하지? -->
+        <!-- width:fit-content를 줘야 자동정렬 배치가 되는데 어떻게 어느 부분에 공간이 차지되고 있어서 배치가 안되고 있지? -->
+        <article>
+          <p>
+            AN JEE HYOCK
+            <span>PORTFOLIO</span>
+          </p>
+          <p>
+            안녕하세요! 노력하는<br />
+            열정적인<br />
+            재치있는<br />
+            성장하는<br />
+            함께하는<br />
+            능력있는<br />
+            트렌디한<br />
+            센스있는<br />
+            노력하는 웹개발자 안지혁입니다.<br />
+          </p>
+        </article>
+        <img src="./image/image1.png" alt="헤더 메인 그림" />
+      </section>
+      <section id="about">
+        <article id="about_article">
+          <h2>ABOUT</h2>
+          <hr />
+          <img src="./image/image3.png" alt="자기소개 사진" />
+          <section>
+            <p>1996.01.31 안지혁</p>
+            <p>트렌디한, 세련된, 성장하는</p>
+            <p>
+              저를 표현하는 세가지 수식어입니다. <br />저는 트렌드의 흐름을
+              읽고, 웹표준에 맞는 마크업과 세련된 인터렉션을 구현하며 꾸준히
+              성장하는 웹개발자가 되고자 합니다.
+            </p>
+          </section>
+        </article>
+        <article id="about_hs">
+          <section>
+            <h3>History</h3>
+            <ul>
+              <li>1996 출생</li>
+              <li>경일대학교 휴학</li>
+              <li>대한민국 육군 병장 보안병 만기전역</li>
+              <li>HTML/CSS/JS 입문</li>
+              <li>React 입문</li>
+              <li>2023 Jquery 반응형웹 사이트 NCS과정 수료</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Skill</h4>
+            <ul>
+              <li>HTML: 90%</li>
+              <li>CSS: 80%</li>
+              <li>JAVASCRIPT: 80%</li>
+              <li>REACT: 50%</li>
+            </ul>
+          </section>
+        </article>
+      </section>
+      <section>
+        <h2>PORTFOLIO</h2>
+        <!-- 작품 부분 수정 -->
+        <!-- 슬라이드 기능을 넣어서 보기 이미지로 구성 하려면 -->
+        <!-- 이미지 3장을 넣어서 표현하자 -->
+        <!-- 23.10.28 10:15지시사항 -->
+        <h3>작품</h3>
+        <ul>
+          <li src="#" alt="Web 포트폴리오 이미지1"></li>
+          <li src="#" alt="Web 포트폴리오 이미지2"></li>
+          <li src="#" alt="Web 포트폴리오 이미지3"></li>
+          <li src="#" alt="Web 포트폴리오 이미지4"></li>
+          <li src="#" alt="Web 포트폴리오 이미지5"></li>
+          <li src="#" alt="Web 포트폴리오 이미지6"></li>
+        </ul>
+
+        <h2>CONTACTS</h2>
+        <div>
+          <p>
+            <span>ADDRESS</span>
+            Republic of Korea, Seoul
+          </p>
+          <p>
+            <span>EMAIL</span>
+            teteocom@naver.com
+          </p>
+          <p>
+            <span>Thank you for visit</span>
+            제 포트폴리오를 봐주셔서 감사합니다
+          </p>
+        </div>
+        <form>
+          <fieldset>
+            <legend>이메일 보내기</legend>
+            성명
+            <textarea type="text" placeholder="your name"></textarea> 이메일
+            주소 <textarea type="text" placeholder="your email"></textarea> 내용
+            <textarea type="text" placeholder="yout message">
+*5자 이상 입력해주세요!<button>SEND MESSAGE</button></textarea
+            >
+          </fieldset>
+        </form>
+        <p>
+          이메일 전송이 완료되었습니다.<br />
+          빠른 시일내로 답변 드리겠습니다.
+        </p>
+        >
+      </section>
+      <footer>
+        <address>Copyright &copy;2023 AJH. ALL rights reserved.</address>
+        <p>
+          상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+          <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+3일차
+
+폰트어썸
+폰트어썸 cdn
+
+구글 폰트
+
+코드팬 오픈소스 보기
+	ㄴ 오픈소스 보는법 찾아봐야함
+	ㄴ 좋은 html css소스가 많음
+
+html 마크업 가이드
+	ㄴ https://naradesign.github.io/markup-guide/
+
+수업 파일
+	ㄴ http://ctrlcv.kr/dj04/html/

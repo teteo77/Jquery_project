@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{list-style:none;}
+        li::nth-child(1){}/* 가상 선택자, 가상 클래스 */
+        /* li::before{content:""; border:1px solid red} */
+        li::before{content:""; position:absolute;border-left:5px solid red; border-top:5px solid transparent; border-bottom:5px solid transparent; border-right:5px solid transparent;
+        margin:5px 0 0 -10px;}
+        ::after{}
+        ::placeholder{}/* 가상 요소라고 칭한다 */
+        h1+h2~li:{border: 0px};
+        /* h1과h2가 붙어 있을 경우에만 작동, 부모를 지정해서 자식에게 효과를 준다 */
+    </style>
+</head>
+<body>
+    <h1>보충설명</h1>
+    <h2>가상요소</h2>
+    <ul>
+        <li>나는 진짜 글</li>
+        <li>내용(콘텐츠)을 작성x, 디자인용으로만 사용</li>
+        <li>content 속성은 필수!</li>
+    </ul>
+    <h2>CSS 선택자</h2>
+    <ul>
+        <li>id(#), class(.), tag(요소)</li>
+        <li>가상선택자:
+            <ul>
+                <li>:link/:visited/:active/:hover : 링크속성/특정상황</li>
+                <li>:focus : <a href="#">활성화 되었을때</a></li>
+            </ul>
+
+        </li>
+    </ul>
+    
+</body>
+</html>

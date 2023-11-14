@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main_page">
+
+    </div>
+    <script>
+        //페이지네이션
+        // $("nav li").each(function(){
+        //     // each가 span이 몇갠지 자동으로 세아려서 span을 표시 해준다
+        //     $("#main_page").append("<span></span>");
+        // });
+        // $("main_page span").eq(0).addClass("on");
+
+        // $("nav li").each(function(){
+        //     // each가 span이 몇갠지 자동으로 세아려서 span을 표시 해준다
+        //     $("#main_page").append("<span></span>");
+        // });
+        // $("main_page span").eq(0).addClass("on");
+
+
+        // $("#main_page span").click(function () {
+        //     // each가 span이 몇갠지 자동으로 세아려서 span을 표시 해준다
+        //     var menu = $("main_page span").index(this);
+        //     var move = $(".menu").eq(menu).offset().top;
+
+        //     $("html").animate({ scrollTop: move }, 500)
+        // });
+        // return false;
+
+
+        //스크롤 이벤트
+        // $(window).scroll(function(){
+        //     var t= $(this).scrollTop();
+        //     console.log(t)
+        // })
+
+        // $(window).scroll(function(){
+        //     var t= $(this).scrollTop();
+        //     var h =$(window).height()/2; //화면 높이의 반
+        //     var menu2 = $(".menu").eq(1).iffset().top;
+        //     var menu3 = $(".menu").eq(2).iffset().top;
+        //     var menu4 = $(".menu").eq(3).iffset().top;
+        //     var menu5 = $(".menu").eq(4).iffset().top;
+        //     var menu6 = $(".menu").eq(5).iffset().top;
+
+
+        //     $("nav li").removeClass("on");
+        //     if(t>0 && t<menu2) {
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(0).addClass("on");
+        //     } else if(t>menu2 && t<menu3){
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(1).addClass("on");
+        //     } else if(t>menu3 && t<menu4){
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(2).addClass("on");
+        //     } else if(t>menu4 && t<menu5){
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(3).addClass("on");
+        //     } else if(t>menu5 && t<menu6){
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(4).addClass("on");
+        //     } else{
+        //         $("nav li").removeClass("on");
+        //         $("nav li").eq(5).addClass("on");
+        //     }
+        // })
+
+        $(window).scroll(function () {
+            var t = $(this).scrollTop();
+            var h = $(window).height() / 2; //화면 높이의 반
+            var menu2 = $(".menu").eq(1).offset().top - h;
+            var menu3 = $(".menu").eq(2).offset().top - h;
+            var menu4 = $(".menu").eq(3).offset().top - h;
+            var menu5 = $(".menu").eq(4).offset().top - h;
+            var menu6 = $(".menu").eq(5).offset().top - h;
+
+
+            $("nav li").removeClass("on");
+            if (t > 0 && t < menu2) {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(0).addClass("on");
+            } else if (t > menu2 && t < menu3) {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(1).addClass("on");
+            } else if (t > menu3 && t < menu4) {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(2).addClass("on");
+            } else if (t > menu4 && t < menu5) {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(3).addClass("on");
+            } else if (t > menu5 && t < menu6) {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(4).addClass("on");
+            } else {
+                $("nav li").removeClass("on");
+                $("#main_page span").eq(5).addClass("on");
+            }
+        })
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+
+</html>

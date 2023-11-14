@@ -1,0 +1,31 @@
+max-width, 그냥width:100%, width없음
+    ㄴ 제일부모 section에 3개중에 하나인데 어떤 차이인지 모르겠다
+
+포트폴리오 슬라이드 부분 예시가 많다
+    ㄴ 마음에 드는거 찾아서 만들어 보자
+
+03-원본.html
+    ㄴ placeholder에만 디자인 따로주기
+    ㄴ form입력 했을때 활성화 된 느낌 주기 class="#content .inputform:focus{border:#000}"
+    ㄴ margin:0 0 0 auto;
+        ㄴ이게 왜 오른쪽 정렬이 되지?
+    ㄴ 선생님도 중앙정렬 할때 padding:30px 0; text-align:center; 주더라
+        ㄴ footer만 그랬던거 같은데 나머지 부분은?
+    
+
+03-02.html
+    ㄴ title이 존재하면 보이게 안존제 하면 안보이게 하는 부분 놓침
+
+span > .on
+    ㄴ span다음에 on이라는 클레스가 있는가
+span .on
+    ㄴ 자손중에 on이라는 클레스
+span.on
+    ㄴ 스팬 자체에 경로
+
+web developer확장 프로그램 활용
+
+제작자가 임의로 위치를 정하게 해두는 것이 아니라
+    ㄴ css를 이용해서 전체적으로 위치가 자동 정렬되게 만들어야 한다.
+        ㄴ 보이는거나 배치에 되게 민감하게 된다.
+    ㄴ 이게 기본 틀이구나 싶다

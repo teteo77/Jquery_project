@@ -1,0 +1,14 @@
+css에도 표준이 있나요?
+
+header h1 a {text-indent: -9999px}
+    ㄴ text-indent로 글자를 날리는게 표준적인 방법 인가요?
+
+header nav {margin:auto; width:fit-content; height: 100%; display: flex; align-items: center;}
+    ㄴ margin:auto 만으로도 상하좌우 중앙 정렬 되지 않나?
+        ㄴ margin: auto; /* 좌우 중앙 배치를 해준다 */
+
+    ㄴ width:fit-content는
+        ㄴ 상자 크기 조정 기능이다
+
+    ㄴ display: flex;align-items: center;
+        ㄴ 위 아래 배치를 해준다

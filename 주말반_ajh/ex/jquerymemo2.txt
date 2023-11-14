@@ -1,0 +1,12 @@
+$("nav li").click(function(){
+    var menu= $("nav li").index(this)
+    var move = $(".menu").eq(0).offset().top;
+
+    $("html").animate({
+        scrollTop:move
+    },500)
+    return false;
+})
+    ㄴeq란?
+    jquery의 변수에 인덱스 번호를 부여하여
+    메소드 요소를 뽑아낸다

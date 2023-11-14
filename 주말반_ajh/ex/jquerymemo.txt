@@ -1,0 +1,11 @@
+
+scrollTop정리하기
+      ㄴ .scrollTop()은 선택한 요소의 스크롤바 수직 위치를 반환하거나 스크롤바 수직 위치를 정합니다.
+      ㄴ 정리 예시 만들기
+
+
+$(this).parent().hasClass("on");
+
+
+
+    

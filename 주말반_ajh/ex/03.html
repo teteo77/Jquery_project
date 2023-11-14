@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi! welcome yeonmi portpolio!</title>
+    <!-- 폰트 어썸 이미지 못가져 오겠다 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0; padding:0; list-style:none;}
+        /* 마크업 표준은 아닌데 사용한다 */
+        /* 보여질 필요가 없는 부분은 screen_out사용 */
+        .screen_out{display: none;}
+
+        /* body는 상속을 준다. */
+        /* *은 모든 태그에 적용한다 */
+        /* 모든속성 태그와 body에 상속이 뭔차이? */
+        /* 구글 폰트 링크 ctrl+click해서 font-family글자 속성 body에 적용 시키면 된다 */
+        body{font-family: 'Noto Sans KR'; }
+        header {background: #000; height:80px; position: fixed;}
+        /* top:50%; transform: translateY(-50%); 을 이해못함 */
+        header h1{position: absolute; left: 50px; top:50%; transform: translateY(-50%);}
+        /* text-indent: -9999px; overflow:hidden;옆으로 날려서 안보이게 한다는데 이해못함 */
+        /* header h1 a {text-indent: -9999px; overflow:hidden; border:1px solid red; display: block; width:60px; height: 60px;} */
+        
+        header h1 a {text-indent: -9999px; overflow:hidden; border:1px solid red; display: block; width:60px; height: 60px;}
+
+        /* html부분 작성 못함 */
+        header #lang{position: absolute; right: 50px; top:50%; transform: translateY(-50%); color:#fff;}
+        
+        header select{position: absolute; right: 50px; color:#fff; top:50%; transform: translateY();}
+
+        header select option {color:#000;}
+
+        /* width:fit-content;가 자동 정렬 해주는 좋은기능 메모 해두기 */
+        /* 해당 ul li부분 필요할때 찾아 볼수 있도록 따로 저장해두기 */
+        header nav {margin:auto; border: 1px solid red; width:fit-content; height: 100%; display: flex; align-items: center;}
+
+        header nav ul{display: flex;}
+
+        header nav li a{border:1px solid green; display: block; padding:10px; color: #fff;}
+
+        #home{ background: url(img/main_bg.png)center/cover; height:100vh}
+        #home p {text-indent: -999px; overflow: hidden;}
+
+        #home #scroll{border:1px solid red; width:20px; height:30px; position:absolute; bottom: 80px;}
+    </style>
+</head>
+<body>
+<header>
+    <h1><a href="http://yeonmis.com">yeonmi portpolio!</a></h1>
+    <nav>
+        <ul>
+           <li><a href="#home">Home</a></li>
+           <li><a href="#m2030">2030</a></li>
+           <li><a href="#m4050">4050</a></li>
+           <li><a href="#reference">Reference</a></li>
+           <li><a href="#pr">It's me</a></li>
+           <li><a href="#contact">contact</a></li>
+        </ul>
+        <select>
+            <option>랭귀지</option>
+            <option>English</option>
+            <option>한국어</option>
+            <option>中國語</option>
+        </select>
+    </nav>
+    <i class="fa-solid fa-globe"></i>
+</header>
+<main>
+    <section id="home">
+        <h2 class="screen_out"Intro></h2>
+        <p>연미의 웹포트폴리오</p>
+        <div id="scroll"></div>
+    </section>
+    <section id="2030">
+        <div class="sec">
+            <h2 class="ani"><span>2</span><span>0</span><span>3</span><span>0</span></h2>       
+            <div class="bg"></div>
+            <ul class="web_list slide list">
+                <li class="ani"> 
+                    <h3>2030 Fashion portfolio<span>10대후반 ~30대초반로맨틱빈티지(romantic vintage))</span></h3>
+                    <p>clone coding</p>
+                    <div class="details">
+                        <span>알파세대와 MZ세대를 집중공략할 키치한 로맨틱빈티지</span>
+                        <span>main</span><span>Target&Positioning map</span><span>Identity</span><span>drawing</span>
+                        <span>drawing</span><span>Color chips</span><span>SWOT</span>
+                    </div>
+                    <div class="box">
+                        <!--  메인이미지  -->
+                        <div class="2030concept">
+                            <img src="img/compassion_pc2.png" alt="Alfa and Mz's lovely vintage" class="Brand concept">
+                        </div>
+                        <!-- 효과시 보여질 이미지 -->
+                        <span class="2030name">
+                            <img src="img/compassion_tablet.png" alt="Fusia Paco" class="brandname">
+                        </span>
+                        <!-- 옆으로 효과시 보여질 이미지 -->
+                        <span class="2030Color">
+                            <img src="img/compassion_m.png" alt="Color chips" class="Color">
+                        </span>
+                    </div>
+                    <a href="https://smartstore.naver.com/serendiv" target="_blank">포트폴리오 열기</a>
+                </li>
+   
+    </section>
+</section>
+<section id="4050">
+    <div class="sec">
+        <h2 class="ani"><span>4</span><span>0</span><span>5</span><span>0</span></h2>       
+        <div class="bg"></div>
+        <ul class="web_list slide list">
+            <li class="ani"> 
+                <h3>4050 Fashion portfolio<span>40에너제틱캐주얼(energetic casual))</span></h3>
+                <p>clone coding</p>
+                <div class="details">
+                    <div class="details">
+                        <span>뉴 노멀 시대를 앞서가는 영포티를 겨냥한 에너제닉 캐주얼</span>
+                        <span>main</span><span>Target&Positioning map</span><span>Identity</span><span>drawing</span>
+                        <span>drawing</span><span>Color chips</span><span>SWOT</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <!-- 메인이미지 -->
+                    <div class="4050concept">
+                        <img src="img/compassion_pc2.png" alt="Alfa and Mz's lovely vintage" class="Brand concept">
+                    </div>
+                    <!-- 효과시 보여질 이미지 -->
+                    <span class="4050name">
+                        <img src="img/compassion_tablet.png" alt="Fusia Paco" class="brandname">
+                    </span>
+                    <!-- 효과시 보여질 이미지  -->
+                    <span class="4050Color">
+                        <img src="img/compassion_m.png" alt="Color chips" class="Color">
+                    </span>
+                </div>
+                <a href="https://smartstore.naver.com/serendiv" target="_blank">포트폴리오 열기</a>
+            </li>
+
+</section>
+    <section>
+        <div>
+            <h2><span>R</span><span>E</span><span>F</span><span>E</span><span>R</span><span>E</span><span>N</span><span>C</span><span>E</span></h2>
+            <ul>
+                <li><img src="#" alt="Product details">  
+                     <a href="https://smartstore.naver.com/serendiv" target="_blank">스마트스토어 열기</a>
+                </li>
+                        <summary>details1</summary>
+                        <ul>
+                            <li>(주)세렌디브 근무기간</li>
+                            <li>작업시간 16h</li>
+                            <li>매년 업데이트 유지보수</li>
+                            <li>광고 및 프로모션 진행/ 네이버 카페 파우더룸과 협업</li>
+                        </ul>
+                    </details>
+                </li>
+                <li><img src="#" alt="+ Package design">
+                    <h3>세렌디브 코코넛비누 제품표지 디자인</h3>
+                    <details open>
+                        <summary>details2</summary>
+                        <ul>
+                            <li>기존디자인을 리뉴얼</li>
+                            <li>작업시간 6h</li>
+                            <li>Tool    Illustration, photoshop</li>
+                            <li>칠흙같은 자연에서 피어난 싱그럽고 맑은 피부를 위한 천연오일함유 soup</li>
+                        </ul>
+                    </details>
+                </li>
+                <li><img src="#" alt="3D디자인">
+                    <h3>3D디자인</h3>
+                    <details open>
+                        <summary>details3</summary>
+                        <ul>
+                            <li>의류도식화를 3D제작프로그램을 이용하여 표현</li>
+                            <li>작업시간 10h</li>
+                            <li>Tool    Clo</li>
+                            <li>인체공학적이고 자연친화적인 소재표현을 한 트위드 원피스</li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>        
+            <button class="l_r">left</button>
+            <button class="l_r">right</button>
+        </div>
+        <div class="page"></div>
+    </section>
+    <section id="about">
+        <div class="sec">
+            <h2>PR</h2>        
+            <p id="txt" class="ani text">지치지 않는 에너자이너! 상품기획과 디자인 모두 책임지겠습니다!</p>
+            <div >
+                <div id="basic_info">
+                    <h3>기본정보</h3>
+                    <p>신연미 <span>(1991.09.20)</span></p>
+                    <p>#양띠 #처녀자리 #ENTJ <div></div>#인간비타민 #에너지 #커뮤니케이션 화합</p>
+                </div>
+                <div class="container">
+                    <div id="history" class="col-">
+                        <h4>HISTORY</h4>
+                        <ul>
+                            <li>2011~2013<span>서울호서예술전문학교 패션디자인 전공 졸업</span></li>
+                            <li>2022~2023<span>서울디지털대학교 패션디자인 전공 학사 졸업</li>
+                            <li>2014~2016.05<span>타임닷컴 온라인 MD 근무</span></li>
+                            <li>2016.10.17~재직중<span>(주)세렌디브 온라인MD &웹디자이너 근무</span></li>
+                        </ul>
+                    </div>
+                    <div id="cert">
+                        <h4>CERTIFICATION</h4>
+                        <ul>
+                            <li>패션머천다이징 산업기사</li>
+                            <li>컬러리스트 기사</li>
+                            <li>컬러리스트 산업기사</li>
+                            <li>국제IT자격(ICDL Spreadsheet 4)</li>
+                            <li>GTQ(포토샵)1급</li>
+                            <li>GTQI(일러스트) 1급</li>
+                            <li>GTQin(인디자인) 1급</li>
+                            <li>2종보통 운전면허</li>
+                            <li>2종소형 운전면허</li>
+
+                        </ul>
+                    </div>
+                    <div id="skills">
+                        <h4>SKILL</h4>
+                        <ul id="skill">
+                            <li>Photoshop <span><span>상</span></span></li>
+                            <li>Illustrator <span><span>상</span></span></li>
+                            <li>InDesign <span><span>상</span></span></li>
+                            <li>Excel <span><span>중</span></span></li>
+                            <li>Hangeul<span><span>상</span></span></li>
+                            <li>Copywriter<span><span>중</span></span></li>
+                            <li>design plan<span><span>상</span></span></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="sec">
+            <h2>CONTACT</h2>        
+            <p>연락주시면 확인 후 빠르게 응답하겠습니다.</p>
+            <div id="for_align">
+                <div>
+                    <h3 class="ani">another way</h3><span id="plane" ></span>
+                    <ul>
+                        <li><i class="fa fa-home" aria-hidden="true"></i><a href="http://www.yeonmis.com"><p>yeonmis.com</p></a></li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"><p>2cjsrkrhvk@naver.com</p></a><div></div>
+                            <a href="#"><p>dusal581@nate.com</p></a></li>
+                            <li><i class="fa fa-youtube-play" aria-hidden="true"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+                            <li><i class="fa fa-youtube-play" aria-hidden="true"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+                        <li><i class="fa fa-youtube-play" aria-hidden="true"></i><a href="yeonmi_91"><p>yeonmi_91</p></a></li>
+                    </ul>
+                    
+                </div>
+                <div>
+                    <form id="form">
+                    <fieldset id="fieldset">
+                        <legend class="screen_out">메시지 보내기</legend>
+                        <input type="text" id="from_name" name="from_name" placeholder="이름">
+                        <input type="text" id="reply_to"  name="reply_to" placeholder="메일주소/연락처">
+                        <textarea id="message" name="message" placeholder="메시지"></textarea>
+                        <input type="submit" class="button" id="button" value="Send Email"></input>
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>    
+<footer>
+    <div class="sec">
+        <address>ⓒ 2023. SHIN YEONMI All rights reserved.</address>
+        <p>본 사이트는 상업적 목적이 아닌  개인포트폴리오 사이트로 제작되었습니다.
+            <br>일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.</p>
+    </div>
+</footer>
+
+</body>
+</html>
