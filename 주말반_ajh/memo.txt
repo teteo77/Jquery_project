@@ -29,3 +29,11 @@ web developer확장 프로그램 활용
     ㄴ css를 이용해서 전체적으로 위치가 자동 정렬되게 만들어야 한다.
         ㄴ 보이는거나 배치에 되게 민감하게 된다.
     ㄴ 이게 기본 틀이구나 싶다
+
+가시안참조반응형웹 에서 skill_bar skill_bar_up 클래스 에서
+    ㄴ transition가 안된다
+
+ex- 00-1-4.html에jquery부분 하나하나 연구 해야된다.
+
+transform: translate(-50%, -75%);
+    ㄴ 정리하기
