@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* vertical-align: top; */
+    *{margin:0; padding:0; border: 0;font-size: 100%;font: inherit; vertical-align: baseline;}
+    figure{display: block; vertical-align: baseline;}
+    img {max-width: 100%;vertical-align: top;}
+    #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding-top: 160px; overflow: visible;border:1px solid red}
+    #section01 .content{padding: 160px 0 240px 0;}
+
+    #section01 .contents figure .hatch.top {top: -50px;left: 0;}
+    #section01 .contents figure .hatch { position: absolute; width: 45%; height: 120px;background-image: 
+        linear-gradient(45deg, transparent 45%, #000000 50%, transparent 55%, transparent 100%); opacity: .3; background-size: 10px 10px; background-position: 4px 4px;}
+
+    #section01 .contents figure {position:relative; margin-top:140px;}
+    #section01 .contents figure img {display: inline-block; width: 68%;}
+
+    #section01 .contents figcaption {width: 48%;}
+    #section01 .contents figure.al-left figcaption {position: absolute; top: 70%; right: 0;}
+    #section01 .contents figcaption dl.txt-box {background-color: #fff; padding: 24px 32px;}
+    #section01 .contents figcaption dl.txt-box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;}
+    #section01 .contents figcaption dl.txt-box dd {font-size: 1rem; line-height: 1.3rem;}
+
+    #section01 .contents figure.al-right {text-align: right;}
+    #section01 .contents figure.al-right figcaption {position: absolute; top: 70%; left: 0;}
+    /* #section01 .contents figcaption dl.txt-box { background-color: #fff; padding: 24px 32px;}
+    #section01 .contents figcaption dl.txt-box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
+    
+    .hatch.bottom { bottom: -80px; right: 0;}
+    
+
+
+</style>
+<body>
+<section id="section01">
+    <div class="contents">
+        <figure class="al-left">
+            <div class="hatch top"></div>
+            <img src="image/image1.jpg">
+            <figcaption>
+                <dl class="txt-box">
+                    <dt>AI 기술</dt>
+                    <dd>비지니스를 혁신하는 현대IT&amp;E만의 AI 기술을 제공합니다.</dd>
+                </dl>
+            </figcaption>
+        </figure>
+
+        <figure class="al-right">
+            <img src="image/image2.jpg">
+            <figcaption>
+                <dl class="txt-box">
+					<dt>디지털 기술</dt>
+					<dd>현대IT&amp;E가 연구한 새로운 기술을 통해 디지털 환경의 New Biz를 지원합니다.</dd>
+				</dl>
+            </figcaption>
+        </figure>
+
+        <figure class="al-left">
+            <img src="image/image3.jpg">
+            <figcaption>
+				<dl class="txt-box">
+					<dt>다양한 고객사</dt>
+					<dd>유통, 제조, 패션 등 다양한 고객의 업무 혁신을 만들어갑니다.</dd>
+				</dl>
+			</figcaption>
+        </figure>
+
+        <figure class="al-right">
+            <div class="hatch bottom"></div>
+            <img src="image/image4.jpg">
+            <figcaption>
+				<dl class="txt-box">
+					<dt>전문 인력</dt>
+					<dd>수십년의 노하우를 보유한 전문 인력과 함께 성장합니다.</dd>
+				</dl>
+			</figcaption>
+        </figure>
+
+
+    </div>
+</section>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0px; padding:0px; list-style: none;}
+        .screen_out {display: none;}
+        header {background:#000; height:80px; position: fixed; width:100%; z-index: 100; border-bottom:1px solid red}
+        header h1 {position: absolute; left: 50px; top:50%; transform: translateY(-50%); }
+        header h1 a {text-indent: -9999px; overflow: hidden; border:1px solid red; display: block; width:60px; height:60px;}
+        header nav {}
+        header nav ul{display: flex; width:fit-content; position: absolute; top:50%; transform: translatey(-50%); right: 90px;}
+        header nav li a {padding:10px 10px;text-decoration: none;color: aliceblue;font-weight: 300; font-size: 17px;}
+        
+        /* #home {height:80vh;background-color: black;padding: 100px 50px 100px 100px;} */
+        #home {height: 100vh; background-color: black; max-width: 100%; position: relative; overflow: hidden;}
+        /* #home 애니메이션 효과로 스크롤 바를 안생기게 하려면  postion:relative하고 overflow: hidden을 줘라*/
+        #home p{width:100%; color:white; display:block; font-size:8vw; font-weight:bold; text-align:center;
+        position:absolute; top:50%; left:0%; transform:translatey(-50%); overflow:hidden; cursor:default;
+        animation: ani1 cubic-bezier(.34,.36,.45,1.3) 1.5s 1; transition-duration: .3s;text-shadow: rgb(51, 51, 51) -12px -12px 3px;}
+        @keyframes ani1{ 0%{left: -2000px;} 100%{left: 0px;} }
+        #home div:nth-child(3){width:350px; border-bottom:solid 1px white;position: absolute; top:140px; animation: ani1 ease-in-out 1.5s 1;}
+        #home div:nth-child(4){width:450px; border-bottom:solid 1px white; position:absolute; top:200px; animation: ani1 ease-in-out 1.5s 1;}
+        @keyframes ani5{ 0%{right: -2000px;} 100%{right: 0px;}}
+        #home div:nth-child(5){width:350px; border-bottom:solid 1px white; position:absolute; bottom:80px; right:0px; animation: ani5 ease-in-out 2s 1;}
+        #home div:nth-child(6){width:450px; border-bottom:solid 1px white; position:absolute; bottom:140px; right:0px; animation: ani5 ease-in-out 2s 1;}
+        /* @keyframes ani2{ 0%{left: -2000px;} 100%{left:450px;}} */
+        @keyframes ani2{ 0%{left: -2000px;} }
+        #home div:nth-child(7){border:solid 1px white; border-radius: 50px; position:absolute; top:195px; left: 450px; width:10px; height:10px; animation:ani2 ease-in-out 2.5s 1;}
+        @keyframes ani4{ 0%{right: -2000px;}}
+        #home div:nth-child(8){border:solid 1px white; border-radius: 50px; position:absolute; bottom:135px; right:450px; width:10px; height:10px; animation:ani4 ease-in-out 2.5s 1;}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href=#></a></h1>
+        <h2 class="screen_out">주요서비스</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home"> 
+            <h2 class="screen_out">INTRO</h2>
+            <p>PRACTICE IS BETTER
+            <br>
+                <span>THAN THEORY.</span>
+            </p>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <!-- <div id="intro_wrap"></div> -->
+        </section>
+        <sectoin id="about">
+
+        </sectoin>
+    </main>
+    
+</body>
+</html>

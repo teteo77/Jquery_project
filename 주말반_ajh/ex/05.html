@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 타이핑 효과</title>
+    <style>
+        #txt {font-size:30px;font-weight: bold;}
+        #txt::after{content:"";border-right:1px solid #000; 
+        animation:cursor linear infinite 1s;}
+        /* 글자 커서 표시 효과 */
+        @keyframes cursor{
+            0%{border-color:#fff}
+            50%{border-color:#fff}
+            50.01%{border-color:#000}
+            100%{border-color:#000}
+        }
+        /* 글자 커서 깜박 효과 */
+
+
+        
+    </style>
+</head>
+<body>
+    <h1>글자 타이핑 효과</h1>
+
+    <p id="txt">여기는 자동으로 써지는 글입니다. <br>타다다다다다다다닥</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        var txt= $("#txt").html();
+        var n= 0;
+        var tag= false;
+        setInterval(function(){
+            n++;
+            if(txt[n]=="<") tag=true;
+            if(txt[n]==">") tag=false;
+            if(!tag){
+                var typing = txt.substring(0, n);
+                $("#txt").html(typing)
+            }
+            if(n>txt.length+30){
+                n=0;
+            }
+            // 지연시간 부여
+
+        },100)
+        //반복 실행하는 명령어
+    </script>
+
+<!-- setInterval(function(){},100) -->
+<!--    ㄴ 정리하기 -->
+
+<!-- n++;
+if(){
+    
+}
+var typing = txt.substring(0, n)
+// 부분으로 텍스트 가져오는 함수 substring()
+//  ㄴ 정리하기
+$("#txt").html(typing) -->
+</body>
+</html>

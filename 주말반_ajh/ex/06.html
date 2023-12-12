@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <h1>언어설정(한영전환)</h1> 
+<header>
+    <button id="lang_toggle">한영전환</button>
+    <label><input type="radio" name="lang" value="ko" checked> 한국어</label>
+    <label><input type="radio" name="lang" value="en"> English</label>
+</header> 
+<section>
+    <h2 data-en="Portfolio" data-ko="포트폴리오">Portfolio</h2>
+    <ul>
+        <li>
+            <p data-en="Design mockup using typography" data-ko="타이포그래픽을 활용한 디자인 모작">타이포그래픽을 활용한 디자인 모작</p>
+            <p data-en="A one-line comment about the work" data-ko="한줄의견 : 작품에 대한 한 줄 코멘트 설명">comment : 작품에 대한 한 줄 코멘트 설명</p>
+            <p data-en="tool : Photoshop" data-ko="사용 프로그램 : 어도비 포토샵">tool : Photoshop</p>
+            <p data-en="time : 8h" data-ko="작업시간 : 8시간">time : 8h</p>
+        </li>
+        <li>
+            <p data-en="Design mockup using typography" data-ko="타이포그래픽을 활용한 디자인 모작">타이포그래픽을 활용한 디자인 모작</p>
+            <p data-en="A one-line comment about the work" data-ko="한줄의견 : 작품에 대한 한 줄 코멘트 설명">comment : 작품에 대한 한 줄 코멘트 설명</p>
+            <p data-en="tool : Photoshop" data-ko="사용 프로그램 : 어도비 포토샵">tool : Photoshop</p>
+            <p data-en="time : 8h" data-ko="작업시간 : 8시간">time : 8h</p>
+        </li>
+        <li>
+            <p data-en="Design mockup using typography" data-ko="타이포그래픽을 활용한 디자인 모작">타이포그래픽을 활용한 디자인 모작</p>
+            <p data-en="A one-line comment about the work" data-ko="한줄의견 : 작품에 대한 한 줄 코멘트 설명">comment : 작품에 대한 한 줄 코멘트 설명</p>
+            <p data-en="tool : Photoshop" data-ko="사용 프로그램 : 어도비 포토샵">tool : Photoshop</p>
+            <p data-en="time : 8h" data-ko="작업시간 : 8시간">time : 8h</p>
+        </li>
+    </ul>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    var lang="ko";  //기본 (현재)언어
+    $("#lang_toggle").click(function(){
+        if(lang=="ko"){ //한국어 --> 영어로
+            $("[data-en]").each(function(){
+                $(this).text($(this).data("en"))
+            })
+            lang="en"
+        } else {      //영어 --> 한국어로
+            $("[data-ko]").each(function(){
+                $(this).text($(this).data("ko"))
+            })
+            lang="ko"
+        }
+    });
+    $("input[name=lang]").change(function(){
+        lang=$(this).val();
+        $("[data-"+lang+"]").each(function(){
+            $(this).text($(this).data(lang))
+        })
+    })
+</script>
+</body>
+</html>

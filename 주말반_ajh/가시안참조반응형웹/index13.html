@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오 홈페이지</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+    <style>
+      :root {
+        --Black1: #141414;
+        --Grey1: #f8f8f8;
+        --Grey2: #cacaca;
+        --Grey3: #606060;
+        --Grey4: #b8c8d1;
+        --Grey5: #a9b2b7;
+        --Blue1: #3bc3ff;
+        --Blue2: #d4e9f8;
+        --Blue3: #f5f9fa;
+        --Blue4: #b9e0f3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Sans KR";
+      }
+
+      .screen_out {
+        display: none;
+      }
+
+      header {
+        background: #ccccee;
+        height: 80px;
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+      }
+
+      @media (min-width:1300px){
+        header nav button {
+          display: none;
+          cursor: pointer; 
+          background: inherit; 
+          border:none;
+          padding:0;
+          margin:0;
+          position: absolute;
+          right:50px;
+        }
+      }
+
+      @media (max-width:1300px){
+        header nav button {
+          cursor: pointer; 
+          background: inherit; 
+          border:none;
+          padding:0;
+          margin:0;
+          position: absolute;
+          right:50px;
+        }
+      }
+
+      header h1 {
+        position: absolute;
+        top: 70px;
+        left: 50px;
+        transform: translateY(-100%);
+      }
+
+      header h1 a {
+        text-indent: -9999px;
+        overflow: hidden;
+        background-color: tomato;
+        display: block;
+        width: 60px;
+        height: 60px;
+      }
+      /* header nav 하나하나 자세히 보기 */
+      header nav {
+        margin: auto;
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      header nav ul {
+        display: flex;
+        /* margin-left: 250px; */
+        /* float: left; */
+      }
+
+      header ul li {
+        float: left;
+        /* padding-left: 50px; */
+        /* margin: 30px 30px; */
+        list-style: none;
+        padding: 30px 30px;
+      }
+
+      header ul li a {
+        color: black;
+        text-decoration: none;
+        font-size: 25px;
+
+        /* 메뉴바는 vh로
+      vw는 현제 보고있는 페이지에 %트이다
+      vh는 viewporot height이다 방문자 페이지를 %만큼 채워라 이다. */
+
+        /* header에다가 postion:fixed주기
+        ㄴ z-index */
+
+        /* HOME이 첫 화면에 가득차게 해주기 */
+
+        /* about세션에서 내용이 넘처서 스크롤 바가 나옴
+        ㄴ 내용 넘치는거 어떻게 캐치함? */
+      }
+      /* #HOME {
+        border: 1px solid orange;
+        max-width: 1200px;
+        height: 100vh;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+      } */
+
+      #HOME {
+        height: 80vh;
+        padding: 100px 50px 100px 100px;
+      }
+      /* width: fit-content로 컨텐츠 크기만큼 width를 주고 있기 때문에
+            padding이나 maregin으로 넓이 줘도 되고
+            img크기를 크게 해도 된다. */
+
+      @media (max-width: 1300px) {
+        #HOME {
+          box-sizing: border-box;
+          margin-bottom: 50px;
+          height: 100vh;
+        }
+      }
+
+      #HOME #inthd_wrap {
+        max-width: 1920px;
+        margin: auto;
+        height: 100%;
+        display: flex;
+      }
+
+      @media (max-width: 1300px) {
+        #HOME #inthd_wrap {
+          display: block;
+        }
+      }
+
+      #HOME #intro {
+        /* border: 1px solid grey; */
+        width: 40%;
+        padding-top: 200px;
+        box-sizing: border-box;
+        /* height:187px;
+              margin: auto 0px; */
+      }
+
+      /* 꼼꼼히 연구하기 */
+      @media (max-width: 1300px) {
+        #HOME #intro {
+          position: absolute;
+          width: auto;
+          padding: 0;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -75%);
+        }
+      }
+      #HOME #intro p:first-child {
+        color: var(--Black1);
+        font-size: 35px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        line-height: 65px;
+      }
+
+      #HOME #intro p:nth-child(2) {
+        color: var(--Black1);
+        font-size: 30px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-indent: 5px;
+      }
+
+      #HOME #intro p:last-child {
+        color: var(--Black1);
+        font-size: 30px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-indent: 5px;
+      }
+
+      #HOME #intro span {
+        font-weight: 900;
+        font-size: 3em;
+        display: block;
+        text-indent: -3px;
+      }
+
+      #HOME .swiper {
+        width: 150px;
+        height: 38px;
+        /* border: 1px solid gold; */
+        float: left;
+        font-size: 30px;
+      }
+
+      #HOME .swiper .swiper-wrapper li {
+        text-align:center;
+        color: var(--Blue1);
+        font-family: pretendard;
+      }
+
+      
+
+      /* #HOME #header_img_wrap {
+        width: 600px;
+        height: 100%;
+        position: absolute;
+        max-height: 750px;
+        right: 0;
+      } */
+      #HOME #header_img_wrap {
+        position: relative;
+        width: 60%;
+        height: 100%;
+        top: 0;
+      }
+      @media (max-width:1300px){
+        #HOME #header_img_wrap{
+          width:100%;
+
+        }
+      }
+
+      /*#HOME #header_img부분 index.11.html파일과 비교해서 연구하기 */
+      #HOME #header_img {
+        background: url(./image/header1.png) center/contain no-repeat;
+        position: absolute;
+        left: 50%;
+        top: 2%;
+        transform: translate(-50%);
+        width: 600px;
+        aspect-ratio: 5/4;
+        z-index: -1;
+      }
+
+
+
+      @keyframes rotate_animation {
+        0% {
+          transform: rotate(-10deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(-10deg);
+        }
+      }
+
+      #HOME #header_img div:nth-child(1) {
+        width: 70px;
+        height: 62px;
+        left: 70%;
+        top: 78%;
+        background-image: url("./image/header2.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        animation: rotate_animation 3s ease infinite;
+      }
+      
+      @keyframes loop_animation {
+        0% {
+          transform: translateY(-5px);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+        100% {
+          transform: translateY(-5px);
+        }
+      }
+
+      #HOME #header_img div:nth-child(2) {
+        width: 70px;
+        height: 62px;
+        left: 44%;
+        top: 34%;
+        background-image: url("./image/header3.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        animation: loop_animation 3s ease infinite;
+      }
+
+      @keyframes loop_animation2 {
+        0% {
+          transform: translateY(5px);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(5px);
+        }
+      }
+      #HOME #header_img div:nth-child(3) {
+        width: 70px;
+        height: 62px;
+        left: 51%;
+        top: 18%;
+        background-image: url("./image/header4.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        animation: loop_animation2 6s 0.5s ease infinite;
+      }
+
+      #HOME #header_img div:nth-child(4) {
+        width: 11%;
+        height: 13%;
+        left: 27%;
+        top: 10%;
+        background-image: url("./image/header5.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        animation: loop_animation 2.5s ease infinite;
+      }
+
+      @keyframes blink_animation {
+        0% {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      #HOME #header_img div:nth-child(5) {
+        background: no-repeat center/contain url("./image/header6.png");
+        width: 8%;
+        height: 9%;
+        left: 90%;
+        top: 40%;
+        /* background-image: no-repeat center/url("./image/header6.png"); */
+        position: absolute;
+        animation: blink_animation 2s steps(1, end) infinite;
+      }
+
+      @keyframes blink_animation2 {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      #HOME #header_img div:nth-child(6) {
+        background: no-repeat center/contain url("./image/header6.png");
+        transform: rotateZ(60deg);
+        width: 8%;
+        height: 9%;
+        left: 10%;
+        top: 20%;
+        position: absolute;
+        animation: blink_animation2 2s steps(1, end) infinite;
+      }
+
+      #HOME #header_img div:nth-child(7) {
+        background: no-repeat center/contain url("./image/header7.png");
+        width: 15%;
+        height: 15%;
+        left: 75%;
+        top: 5%;
+        position: absolute;
+        animation: loop_animation2 3s ease infinite;
+      }
+
+      #HOME #header_img div:nth-child(8) {
+        background: no-repeat center/contain url("./image/header8.png");
+        position: absolute;
+        width: 26%;
+        height: 26%;
+        left: 10%;
+        top: 70%;
+        animation: loop_animation 3s ease infinite;
+      }
+
+      #HOME #intro_girl {
+        /* background: no-repeat center/contain url("./image/intro_girl.png");
+        position: absolute;
+        width: 26%;
+        height: 26%;
+        left: 10%;
+        top: 70%; */
+        background: no-repeat center / cover url(./image/intro_girl.png);
+        width: 180px;
+        position: absolute;
+        aspect-ratio: 4/5;
+        top: 60%;
+        left: 5%;
+      }
+      @media (max-width:1300px){
+        #HOME #intro_girl{
+          left:5%;
+          top:67%;
+        }
+      }
+
+      #HOME #intro_boy {
+        background: no-repeat center / cover url(./image/intro_boy.png);
+        width: 250px;
+        position: absolute;
+        aspect-ratio: 2/3;
+        top: 50%;
+        left: 70%;
+      }
+
+      @media(max-width:1300px){
+        #HOME #intro_boy{
+          width: 200px;
+          top: 60%
+        }
+      }
+
+
+      #HOME > article > p {
+        font-size: 25px;
+        font-weight: bold;
+        /* width: 320px; */
+        /* margin: auto; */
+      }
+
+      #HOME > article > p:nth-child(4) {
+        /* width:600px; */
+        font-size: 30px;
+        white-space: nowrap;
+      }
+
+      #about {
+        border: 1px solid #f6eace;
+        /* max-width: 1920px; */
+        /* width: 100%; */
+        /* margin: 100px auto 10px; */
+        margin: auto;
+        padding: 100px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width:1300px){
+        #about{
+          padding: 70px 50px;
+        }
+      }
+
+      #about #about_article {
+        /* width: 90%; */
+        width: 100%;
+        height: 33%;
+        margin: 150px auto 300px;
+        /* margin-bottom: 200px; */
+      }
+
+      #about h2 {
+        border-bottom: 2px solid black;
+        padding-bottom: 5px;
+        width: 100%;
+        margin-bottom: 59px;
+        font-size: 36px;
+      }
+
+      #about #about_article section {
+        width: 900px;
+        height: 95px;
+        display: flex;
+        gap: 80px;
+        padding: 0px 70px;
+      }
+
+      @media (max-width:1300px){
+        #about #about_article section{
+          padding: 0px;
+        }
+      }
+
+      #about #about_article section article img {
+        width: 250px;
+        height: 300px;
+        /* float: left; */
+        /* margin-right: 50px; */
+      }
+
+      #about #about_hs {
+        display: flex;
+        /* width: 100%; */
+        justify-content: space-between;
+        /* gap: 150px; */
+      }
+
+      @media (max-width:1300px){
+        #about #about_hs{
+          margin-top: 0px;
+    display: block;
+        }
+      }
+
+      #about #about_hs h3 {
+        text-align: center;
+        border-bottom: 2px solid black;
+        padding-bottom: 16px;
+        margin-bottom: 28px;
+        font-size: 25px;
+      }
+
+      @keyframes slide_hide {
+        0% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(0px, 50px);
+        }
+      }
+
+      @keyframes slide_up {
+        0% {
+          opacity: 0;
+          transform: translate(0px, 50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+      }
+      /* 꼼꼼히 연구하기 */
+      #about #about_hs #history {
+        width: 45%;
+        /* opacity: 0; */
+        /* animation: slide_up 1s ease normal 0.5s 1 forwards; */
+      }
+
+      @media (max-width:1300px){
+        #about #about_hs #history{
+          display: block;
+          width:100%;
+        }
+      }
+
+      #about #about_hs #skill {
+        width: 45%;
+        opacity: 0;
+      }
+
+      @media (max-width:1300px){
+        #about #about_hs #skill {
+          display:block;
+          width:100%;
+        }
+      }
+
+      #about #skill .skill_bar {
+        background: var(--Blue2);
+        display: block;
+        width: 50%;
+        height: 15px;
+        border-radius: 50px;
+        position: relative;
+        box-sizing: border-box;
+      }
+
+      #about #skill ul li:first-child .skill_bar_up > span {
+        width: 70%;
+        transition: ease width 2s;
+      }
+
+      #about #skill .skill_bar_up > span {
+        width: 80%;
+        transition: ease width 2.5s;
+      }
+
+      .skill_bar > span {
+        display: block;
+        text-indent: -9999px;
+        overflow: hidden;
+        height: 100%;
+        width: 0%;
+        background: var(--Blue1);
+        border-radius: 50px;
+        transition: ease width 1s;
+      }
+
+      /* 꼼꼼히 연구하기 */
+      #about #about_hs ul {
+        padding: 0 50px;
+      }
+
+      /* 꼼꼼히 연구하기 */
+      #about #about_hs ul li {
+        font-size: 20px;
+        margin-bottom: 25px;
+        display: flex;
+        gap: 70px;
+      }
+
+      #about #about_hs #skill ul li > span:first-child {
+        width: 150px;
+        display: block;
+        white-space: nowrap;
+      }
+
+      #about #about_hs #history ul:nth-child(2) {
+        /* margin-left: 50px; */
+      }
+
+      #about #about_hs h4 {
+        text-align: center;
+        border-bottom: 2px solid black;
+        padding-bottom: 16px;
+        margin-bottom: 28px;
+        font-size: 25px;
+      }
+
+      #about #about_hs #skill ul:nth-child(4) {
+        margin-left: 50px;
+      }
+
+      #portfolio {
+        border: 1px solid #e6e6fa;
+        max-width: 100%;
+        /* width: fit-content; */
+        height: 100%;
+        padding: 100px;
+        margin: auto;
+        /* margin-bottom: 250px; */
+      }
+
+      /* #portfolio_wrap {
+        border: 1px solid black;
+        padding: 100px;
+      } */
+      #portfolio h2 {
+        border-bottom: 2px solid black;
+        padding-bottom: 5px;
+        font-size: 36px;
+      }
+
+      #portfolio h3 {
+        margin-top: 50px;
+        text-align: center;
+      }
+
+      #portfolio #portfolio_Web {
+        margin: auto;
+        width: fit-content;
+      }
+
+      #portfolio ul {
+        display: flex;
+        gap: 37px;
+      }
+
+      /* #portfolio #portfolio_Web img {
+        display: flex;
+        gap: 8px;
+      } */
+
+      #mail_wrap {
+        background: var(--Grey1);
+      }
+
+      #mail_wrap #mail {
+        max-width: 100%;
+        margin: auto;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        gap: 150px;
+      }
+
+      #mail #mail_contacts {
+        width: 500px;
+      }
+
+      #mail #mail_contacts h2 {
+        font-size: 50px;
+      }
+
+      /*하나하나 속성 곱씹어 보기 */
+      #mail #mail_contacts p {
+        border: 2px solid var(--Grey2);
+        height: 100px;
+        padding: 20px 25px 0;
+        margin-bottom: 50px;
+        font-weight: 500;
+        color: rgba(20, 20, 20, 0.7);
+        box-sizing: border-box;
+      }
+
+      #mail h2 {
+        font-size: 48px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        padding-top: 50px;
+      }
+
+      #mail span {
+        color: var(--Black1);
+        display: block;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      /* .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기 */
+      #mail #sendemail_wrap {
+        width: 500px;
+        background: var(--Blue2);
+        padding: 50px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      #mail #sendemail {
+        outline: none;
+        border: none;
+      }
+
+      #mail #sendemail legend {
+        display: none;
+      }
+      /* 다시보기 */
+      #mail #sendemail textarea {
+        border: none;
+        border-bottom: 2px solid var(--Grey4);
+        width: 100%;
+        height: 50px;
+        font-size: 20px;
+        background: none;
+        margin-bottom: 10px;
+        outline: none;
+        transition: ease all 0.3s;
+        border-radius: 0;
+      }
+      /* 다시보기 */
+      #mail #sendemail #message {
+        font-size: 20px;
+        width: 100%;
+        height: 250px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid var(--Grey4);
+        padding: 15px 0;
+        margin-bottom: 30px;
+        resize: none;
+        outline: none;
+      }
+      /* 다시보기 */
+      #mail #sendemail button {
+        width: 100%;
+        height: 70px;
+        border-radius: 10px;
+        border: none;
+        background: var(--Blue4);
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 transparent;
+        transition: ease all 0.3s;
+        color: var(--Grey3);
+      }
+
+      footer {
+        background: #333;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+      }
+      footer address {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      footer p {
+        font-size: 12px;
+        font-weight: 200;
+        color: #ccc;
+        margin-top: 10px;
+      }
+    </style>
+    <script src="./script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap"
+      rel="stylesheet"
+    /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+
+    <!-- swiper cdn js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <header>
+      <h1><a href="#">김민수 포트폴리오 사이트</a></h1>
+      <h2 class="screen_out">메인서비스</h2>
+      <!-- nav추가 -->
+      <!-- z-index:1000주기 -->
+      <!-- 노트 -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button><i class="fa-solid fa-bars fa-2xl"></i></button>
+        
+      </nav>
+      <!-- @media를 이용해서 최대 1000width일때 햄버거 메뉴 보이게 표시 -->
+
+      
+    </header>
+    <main>
+      <!-- intro하고 img태그를 반식 공간 차지를 하게 두려는데 안되네 왜그러지? -->
+      <section id="HOME">
+        <h2 class="screen_out">INTRO</h2>
+        <!-- 플랙스를 사용하기 위해 p를 감싸줬는데 어떤 표준 태그를 사용해야 하지? -->
+        <!-- width:fit-content를 줘야 자동정렬 배치가 되는데 어떻게 어느 부분에 공간이 차지되고 있어서 배치가 안되고 있지? -->
+        <div id="inthd_wrap">
+          <article id="intro">
+            <p>
+              KIM MIN SU
+              <span>PORTFOLIO</span>
+            </p>
+            <p>안녕하세요!</p>
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <ul class="swiper-wrapper">
+                <!-- Slides -->
+                <li class="swiper-slide">약이능강</li>
+                <li class="swiper-slide">초지일강</li>
+                <li class="swiper-slide">자고현랑</li>
+                <li class="swiper-slide">산류천석</li>
+                <li class="swiper-slide">유지경석</li>
+                <!-- <li class="swiper-slide">ㄱ</li>
+                <li class="swiper-slide">ㄴ</li>
+                <li class="swiper-slide">ㄷ</li>
+                <li class="swiper-slide">ㄹ</li>
+                <li class="swiper-slide">ㅁ</li> -->
+              </ul>
+            </div>
+            <p>웹개발자 김민수 입니다.</p>
+          </article>
+          <article id="header_img_wrap">
+            <section id="header_img">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </section>
+            <div id="intro_girl"></div>
+            <div id="intro_boy"></div>
+          </article>
+        </div>
+      </section>
+      <section id="about">
+        <article id="about_article">
+          <h2>ABOUT</h2>
+          <section>
+            <article>
+              <img src="./image/image3.png" alt="자기소개 사진" />
+              <p>0000.00.00 김민수</p>
+            </article>
+            <article>
+              <p>트렌디한, 세련된, 성장하는</p>
+              <p>
+                저를 표현하는 세가지 수식어입니다. <br />저는 트렌드의 흐름을
+                읽고, 웹표준에 맞는 마크업과 세련된 인터렉션을 구현하며 꾸준히
+                성장하는 웹개발자가 되고자 합니다.
+              </p>
+            </article>
+          </section>
+        </article>
+        <article id="about_hs">
+          <section id="history">
+            <h3>History</h3>
+            <ul>
+              <li><span>0000</span><span>출생</span></li>
+              <li><span>0000</span><span>경일대학교 휴학</span></li>
+              <li><span>0000</span>대한민국 육군 병장 보안병 만기전역</li>
+              <li><span>0000</span><span>HTML/CSS/JS 입문</span></li>
+              <li><span>0000</span><span>React 입문</span></li>
+              <li>
+                <span>2023</span
+                ><span> Jquery 반응형웹 사이트 NCS과정 수료</span>
+              </li>
+            </ul>
+          </section>
+          <section id="skill">
+            <h4>Skill</h4>
+            <ul>
+              <li>
+                <span>PHOTOSHOP</span
+                ><span class="skill_bar skill_bar_up">
+                  <span>70%</span>
+                </span>
+              </li>
+              <li>
+                <span>HTML</span
+                ><span class="skill_bar skill_bar_up">
+                  <span>90%</span>
+                </span>
+              </li>
+              <li>
+                <span>CSS</span
+                ><span class="skill_bar skill_bar_up">
+                  <span>80%</span>
+                </span>
+              </li>
+              <li>
+                <span>JAVASCRIPT</span
+                ><span class="skill_bar skill_bar_up">
+                  <span>80%</span>
+                </span>
+              </li>
+              <li>
+                <span>REACT</span
+                ><span class="skill_bar skill_bar_up">
+                  <span>50%</span>
+                </span>
+              </li>
+            </ul>
+          </section>
+        </article>
+      </section>
+      <section id="portfolio">
+        <h2>PORTFOLIO</h2>
+        <!-- 작품 부분 수정 -->
+        <!-- 슬라이드 기능을 넣어서 보기 이미지로 구성 하려면 -->
+        <!-- 이미지 3장을 넣어서 표현하자 -->
+        <!-- 23.10.28 10:15지시사항 -->
+        <article id="portfolio_Web">
+          <h3>Web</h3>
+          <ul>
+            <img src="./image/image4.png" alt="헤더 메인 그림" />
+            <img src="./image/image4-2.png" alt="헤더 메인 그림" />
+            <img src="./image/image4-3.png" alt="헤더 메인 그림" />
+          </ul>
+        </article>
+      </section>
+
+      <section id="mail_wrap">
+        <article id="mail">
+          <!-- <section id="portfolio_wrap"> -->
+          <article id="mail_contacts">
+            <h2>CONTACTS</h2>
+            <p>
+              <span>ADDRESS</span>
+              Republic of Korea, Seoul
+            </p>
+            <p>
+              <span>EMAIL</span>
+              kimminsu@naver.com
+            </p>
+            <p>
+              <span>Thank you for visit</span>
+              제 포트폴리오를 봐주셔서 감사합니다
+            </p>
+          </article>
+          <!-- .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기  -->
+          <form id="sendemail_wrap">
+            <fieldset id="sendemail">
+              <legend class="screen_out">이메일 보내기</legend>
+              <!-- <span class="screen_out">성명</span> -->
+              <textarea type="text" placeholder="your name"></textarea>
+              <!-- <span class="screen_out">이메일 주소</span>  -->
+              <textarea type="text" placeholder="your email"></textarea>
+              <!-- <span class="screen_out">내용</span> -->
+              <textarea
+                type="text"
+                placeholder="your message"
+                id="message"
+              ></textarea>
+              <button>SEND MESSAGE</button>
+            </fieldset>
+          </form>
+          <!-- </section> -->
+        </article>
+      </section>
+      <footer>
+        <address>Copyright &copy;2023 AJH. ALL rights reserved.</address>
+        <p>
+          상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+          <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+        </p>
+      </footer>
+      <script>
+        let history = document.querySelector("#history");
+        let skill = document.querySelector("#skill");
+
+        // slide_hide할필요 없이 할수 있지 않나?
+        window.addEventListener("scroll", function () {
+          let value = window.scrollY;
+
+          if (value > 940) {
+            history.style.animation = "slide_up 1.2s ease-out forwards";
+          } else {
+            history.style.animation = "slide_hide 1s ease-out forwards";
+          }
+        });
+
+        window.addEventListener("scroll", function () {
+          let value = window.scrollY;
+
+          if (value > 940) {
+            skill.style.animation = "slide_up 1.2s ease-out forwards 0.75s";
+            // skill.style.animation = "slide_up 2s ease-out forwards";
+            // skill.style.animationDelay = "1s";
+          } else {
+            skill.style.animation = "slide_hide 1s ease-out forwards";
+          }
+        });
+      </script>
+    </main>
+  </body>
+</html>

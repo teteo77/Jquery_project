@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 무한 스크롤</title>
+    <style>
+        * {margin:0; padding:0;}
+        h1 {text-align: center; padding:40px;}
+        p {font-size:50px; font-weight: bold; white-space:nowrap; border:1px solid red;
+        width:fit-content; text-shadow:769px 0 0 #000,1538px 0 0 #000; animation:rolling linear infinite 10s}
+        @keyframes rolling{
+            0% {transform: translateX(0);}
+            100% {transform: translateX(-100%);}
+        }
+        @media (max-width:800px){
+            p {font-size:30px}
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트 무한 스크롤</h1>
+    <section>
+        <p>롤링 되는 텍스트 글 예제 입니다.$nbsp;</p>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var roll= $("p").width();
+        alert(roll);
+        $("p").css("text-shadow", roll+"0 0 #000,"+1538*2+"px 0 0 #000")
+        $(window).resize(function(){ // 반응형 처리
+            var w=$(this).width();
+            if(w<=800){
+                var roll= $("p").width();
+                alert(roll);
+                $("p").css("text-shadow", roll+"0 0 #000,"+roll*2+"px 0 0 #000")
+
+            }
+        })
+    </script>
+</body>
+</html>
+
+윈도우 도큐먼트 html body

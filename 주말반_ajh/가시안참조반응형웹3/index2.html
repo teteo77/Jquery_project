@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0px; padding:0px; list-style: none;}
+        .screen_out {display: none;}
+        header {background:#000; height:80px; position: fixed; width:100%; z-index: 100; border-bottom:1px solid red}
+        header h1 {position: absolute; left: 50px; top:50%; transform: translateY(-50%); }
+        header h1 a {text-indent: -9999px; overflow: hidden; border:1px solid red; display: block; width:60px; height:60px;}
+        header nav {}
+        header nav ul{display: flex; width:fit-content; position: absolute; top:50%; transform: translatey(-50%); right: 90px;}
+        header nav li a {padding:10px 10px;text-decoration: none;color: aliceblue;font-weight: 300; font-size: 17px;}
+        
+        #home {height:80vh;background-color: black;padding: 100px 50px 100px 100px;}
+        #home p{color:white;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href=#></a></h1>
+        <h2 class="screen_out">주요서비스</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home"> 
+            <h2 class="screen_out">INTRO</h2>
+            <p>PRACTICE IS BETTER</p>
+            <br>
+                <span>THAN THEORY.</span>
+            <div id="intro_wrap">
+
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

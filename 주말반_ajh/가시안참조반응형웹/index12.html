@@ -46,7 +46,7 @@
       header h1 a {
         text-indent: -9999px;
         overflow: hidden;
-        border: 1px solid red;
+        background-color: tomato;
         display: block;
         width: 60px;
         height: 60px;
@@ -131,7 +131,7 @@
       }
 
       #HOME #intro {
-        border: 1px solid grey;
+        /* border: 1px solid grey; */
         width: 40%;
         padding-top: 200px;
         box-sizing: border-box;
@@ -202,6 +202,13 @@
         height: 100%;
         top: 0;
       }
+      @media (max-width:1300px){
+        #HOME #header_img_wrap{
+          width:100%;
+
+        }
+      }
+
       /*#HOME #header_img부분 index.11.html파일과 비교해서 연구하기 */
       #HOME #header_img {
         background: url(./image/header1.png) center/contain no-repeat;
@@ -213,6 +220,8 @@
         aspect-ratio: 5/4;
         z-index: -1;
       }
+
+
 
       @keyframes rotate_animation {
         0% {
@@ -374,6 +383,12 @@
         top: 60%;
         left: 5%;
       }
+      @media (max-width:1300px){
+        #HOME #intro_girl{
+          left:5%;
+          top:67%;
+        }
+      }
 
       #HOME #intro_boy {
         background: no-repeat center / cover url(./image/intro_boy.png);
@@ -383,6 +398,14 @@
         top: 50%;
         left: 70%;
       }
+
+      @media(max-width:1300px){
+        #HOME #intro_boy{
+          width: 200px;
+          top: 60%
+        }
+      }
+
 
       #HOME > article > p {
         font-size: 25px;
@@ -403,14 +426,21 @@
         /* width: 100%; */
         /* margin: 100px auto 10px; */
         margin: auto;
-        /* padding: 100px; */
+        padding: 100px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
       }
 
+      @media (max-width:1300px){
+        #about{
+          padding: 70px 50px;
+        }
+      }
+
       #about #about_article {
-        width: 90%;
+        /* width: 90%; */
+        width: 100%;
         height: 33%;
         margin: 150px auto 300px;
         /* margin-bottom: 200px; */
@@ -429,6 +459,13 @@
         height: 95px;
         display: flex;
         gap: 80px;
+        padding: 0px 70px;
+      }
+
+      @media (max-width:1300px){
+        #about #about_article section{
+          padding: 0px;
+        }
       }
 
       #about #about_article section article img {
@@ -441,8 +478,15 @@
       #about #about_hs {
         display: flex;
         /* width: 100%; */
-        justify-content: space-around;
+        justify-content: space-between;
         /* gap: 150px; */
+      }
+
+      @media (max-width:1300px){
+        #about #about_hs{
+          margin-top: 0px;
+    display: block;
+        }
       }
 
       #about #about_hs h3 {
@@ -476,14 +520,28 @@
       }
       /* 꼼꼼히 연구하기 */
       #about #about_hs #history {
-        width: 40%;
+        width: 45%;
         /* opacity: 0; */
         /* animation: slide_up 1s ease normal 0.5s 1 forwards; */
       }
 
+      @media (max-width:1300px){
+        #about #about_hs #history{
+          display: block;
+          width:100%;
+        }
+      }
+
       #about #about_hs #skill {
-        width: 40%;
+        width: 45%;
         /* opacity: 0; */
+      }
+
+      @media (max-width:1300px){
+        #about #about_hs #skill {
+          display:block;
+          width:100%;
+        }
       }
 
       #about #skill .skill_bar {
@@ -753,7 +811,7 @@
         <div id="inthd_wrap">
           <article id="intro">
             <p>
-              AN JEE HYOCK
+              KIM MIN SU
               <span>PORTFOLIO</span>
             </p>
             <p>안녕하세요!</p>
@@ -761,16 +819,16 @@
               <!-- Additional required wrapper -->
               <ul class="swiper-wrapper">
                 <!-- Slides -->
-                <!-- <li class="swiper-slide">약이능강</li>
+                <li class="swiper-slide">약이능강</li>
               <li class="swiper-slide">초지일강</li>
               <li class="swiper-slide">자고현랑</li>
               <li class="swiper-slide">산류천석</li>
-              <li class="swiper-slide">유지경석</li> -->
-                <li class="swiper-slide">ㄱ</li>
+              <li class="swiper-slide">유지경석</li>
+                <!-- <li class="swiper-slide">ㄱ</li>
                 <li class="swiper-slide">ㄴ</li>
                 <li class="swiper-slide">ㄷ</li>
                 <li class="swiper-slide">ㄹ</li>
-                <li class="swiper-slide">ㅁ</li>
+                <li class="swiper-slide">ㅁ</li> -->
               </ul>
             </div>
             <p>웹개발자 김민수 입니다.</p>
@@ -924,7 +982,7 @@
           <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
         </p>
       </footer>
-      <!-- <script>
+      <script>
         let history = document.querySelector("#history");
         let skill = document.querySelector("#skill");
 
@@ -950,7 +1008,7 @@
             skill.style.animation = "slide_hide 1s ease-out forwards";
           }
         });
-      </script> -->
+      </script>
     </main>
   </body>
 </html>

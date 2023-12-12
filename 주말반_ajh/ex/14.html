@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지 로딩바 달기</title>
+    <style>
+        * {margin:0; padding:0;}
+        /* 인트로 화면에서 스크롤 안보이게 */
+        body.intro {height:100vh; overflow:hidden;}
+        section {height:100vh; display: flex;justify-content: center; align-items: center;}
+        section:nth-child(2n) {background:#ccc}
+        #intro {flex-direction: column;position: fixed;left:0; top:0; background:#000; width:100%;}
+        #intro div { width:100px; height:5px; background:#333;}
+        #intro div span {display:block; height:100%; width:0; background:#eee;}
+
+    </style>
+</head>
+<body class="intro">
+<section id="intro">
+    <h1>페이지 로딩바 달기</h1>
+    <div><span></span></div>
+</section>
+<section>
+    내용1
+</section>    
+<section>
+    내용2
+</section>    
+<section>
+    내용3
+</section> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // 페이지 로딩 완료시
+    $("#intro span").animate({width:"80%"},5000);
+    $(document).ready(function(){ // 외부소스까지 포함하려면  ready를 load로 변경
+        setTimeout(function(){
+            $("#intro span").stop().animate({width:"100%"},200,function(){
+                $("#intro").fadeOut(500,function(){
+                    $("body").removeClass("intro");
+                })
+            })
+        },1000)
+    });
+</script>
+</body>
+</html>

@@ -24,6 +24,9 @@ material design the color system
 	ㄴ http://hesiily.com/
 		ㄴ 포토폴리오 자기소개, 기술숙련도 부분이 마음에 든다
 
+	http://h03.ctrlcv.kr/
+		ㄴ 글씨 강조 밑 효과가 마음에 든다
+
 
 
 
@@ -77,6 +80,10 @@ UI는 그냥 디자인
 	https://jg.tjoeun.co.kr/front/portfolio/portfolio_nom_list.asp?gubun=2&pg=10
 
 	http://ctrlcv.kr/sample/
+
+	중단점, breakpoint에서
+		ㄴ 포착된 예외에서 실시중지, Pause on caught exception 클릭하면
+		ㄴ paused in debugger 안나온다
 
 
 포폴 참조 벤치마킹

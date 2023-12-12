@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{margin:0; padding:0;}
+        a {text-decoration: none;color: #242424;}
+        /* img {display: block;border: 0;width: 100%;} */
+
+        #footer {position: relative; background: #1D1D1D; height: auto;}
+        #footer .footer_wrap {display: flex; justify-content: space-between; align-items: flex-start;height: 269px;
+            padding: 52px 84px; max-width: 1368px; margin: 0 auto;}
+        #footer .footer_wrap .ft_left { padding-top: 7px;}
+        #footer .footer_wrap .ft_left .logo_menu {display: flex;justify-content: flex-start;
+            align-items: center;}
+        #footer .footer_wrap .ft_left .logo_menu .ft_logo {width: 196px; height: 17px; margin-right: 80px;
+            background: url(./samtestimg/footer_logo.png)no-repeat center center; background-size: 100% 100%;}
+        #footer .footer_wrap .ft_left .logo_menu .ft_logo a {display: block; width: 100%;height: 100%;}
+        #footer .footer_wrap .ft_left .logo_menu .ft_menu > a { font-size: 16px; font-weight: 600; color: #FFFFFF;}
+        #footer .footer_wrap .ft_left .logo_menu .ft_menu > a:nth-child(2) {margin: 0 50px 0 47px;}
+
+        #footer .footer_wrap .ft_left .info { margin-top: 57px;}
+        #footer .footer_wrap .ft_left .info p {font-size: 15px; font-weight: 400; color: #8E8E8E;
+            letter-spacing: -0.4px; line-height: 25px;}
+        #footer .footer_wrap .ft_right {}
+        #footer .footer_wrap .ft_right .social_link {position: relative;}
+        #footer .footer_wrap .ft_right .social_link > a { display: inline-block; width: 33px; height: 33px; 
+            margin-right: 10px; background-size: 100% 100%;}
+
+
+        #footer .footer_wrap .ft_right .social_link {position: relative;}
+        /* f_home */
+        #footer .footer_wrap .ft_right .social_link > a.f_home {background: url(./samtestimg/footer_home.png)no-repeat center center;}
+        #footer .footer_wrap .ft_right .social_link > a {display: inline-block;width: 33px;height: 33px;
+            margin-right: 10px;background-size: 100% 100%;}
+        #footer .footer_wrap .ft_right .social_link > a.f_home span {transform: translate(-45px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover span {opacity: 1;}
+        #footer .footer_wrap .ft_right .social_link > a span {opacity: 0;font-family: 'Pretendard';font-size: 11px;font-weight: 500;color: #FFFFFF;
+            display: block;width: auto;position: absolute;background: #2E2E2E;border-radius: 3.5px;text-align: center;
+            padding: 6px 8px;left: 0;top: -39px;}
+        #footer .footer_wrap .ft_right .social_link > a.f_home::after {transform: translate(10px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover::after {position: absolute;top: -15px;left: 0;content: '';width: 16px;
+            height: 13px;background: url(samtestimg/arrow_hover.png)no-repeat center center;}
+
+        
+        
+        /* f_fb */
+        #footer .footer_wrap .ft_right .social_link > a.f_fb {background: url(./samtestimg/footer_fb.png)no-repeat center center;}
+        #footer .footer_wrap .ft_right .social_link > a {display: inline-block; width: 33px; height: 33px; 
+            margin-right: 10px; background-size: 100% 100%;}
+        #footer .footer_wrap .ft_right .social_link > a.f_fb span {transform: translate(36px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a span {opacity: 0; font-family: 'Pretendard'; font-size: 11px; font-weight: 500; color: #FFFFFF;
+            display: block; width: auto; position: absolute; background: #2E2E2E; border-radius: 3.5px; text-align: center;
+            padding: 6px 8px;left: 0; top: -39px;}
+        #footer .footer_wrap .ft_right .social_link > a.f_fb::after {transform: translate(56px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover::after {position: absolute; top: -15px; left: 0; content: '';
+        width: 16px; height: 13px; background: url(./samtestimg/arrow_hover.png)no-repeat center center;}
+        
+        /* f_yt */
+        #footer .footer_wrap .ft_right .social_link > a.f_yt {background: url(./samtestimg/footer_yt.png)no-repeat center center;}
+        #footer .footer_wrap .ft_right .social_link > a {display: inline-block; width: 33px; height: 33px; margin-right: 10px; background-size: 100% 100%;}
+        #footer .footer_wrap .ft_right .social_link > a.f_yt span {transform: translate(88px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a span {opacity: 0; font-family: 'Pretendard'; font-size: 11px; font-weight: 500;
+            color: #FFFFFF; display: block; width: auto; position: absolute; background: #2E2E2E;
+            border-radius: 3.5px; text-align: center; padding: 6px 8px; left: 0; top: -39px;}
+        #footer .footer_wrap .ft_right .social_link > a.f_yt::after {transform: translate(103px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover::after {position: absolute; top: -15px; left: 0;
+            content: ''; width: 16px; height: 13px; background: url(./samtestimg/arrow_hover.png)no-repeat center center;}
+
+        
+        /* f_insta */
+        #footer .footer_wrap .ft_right .social_link > a.f_insta {background: url(./samtestimg/footer_insta.png)no-repeat center center;}
+        #footer .footer_wrap .ft_right .social_link > a {display: inline-block; width: 33px; height: 33px; margin-right: 10px; background-size: 100% 100%;}
+        #footer .footer_wrap .ft_right .social_link > a.f_insta span {transform: translate(126px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a span {opacity: 0;font-family: 'Pretendard';font-size: 11px;font-weight: 500;color: #FFFFFF;
+            display: block;width: auto;position: absolute;background: #2E2E2E;border-radius: 3.5px;text-align: center;
+            padding: 6px 8px;left: 0;top: -39px;}
+        #footer .footer_wrap .ft_right .social_link > a.f_insta::after {transform: translate(148px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover::after {position: absolute;top: -15px;left: 0;content: '';
+            width: 16px;height: 13px;background: url(./samtestimg/arrow_hover.png)no-repeat center center;}
+
+        /* f_lang */
+        #footer .footer_wrap .ft_right .social_link > a.f_lang {margin: 0; background: url(./samtestimg/footer_lang.png)no-repeat center center;}
+        #footer .footer_wrap .ft_right .social_link > a {display: inline-block;width: 33px;height: 33px;margin-right: 10px;background-size: 100% 100%;}
+        #footer .footer_wrap .ft_right .social_link > a.f_lang span {transform: translate(164px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a span {opacity: 0;font-family: 'Pretendard';font-size: 11px;font-weight: 500;color: #FFFFFF;display: block;
+            width: auto;position: absolute;background: #2E2E2E;border-radius: 3.5px;text-align: center;padding: 6px 8px;left: 0;top: -39px;}
+        #footer .footer_wrap .ft_right .social_link > a.f_lang::after {transform: translate(196px, 0px);}
+        #footer .footer_wrap .ft_right .social_link > a:hover::after {position: absolute;top: -15px;left: 0;content: '';width: 16px;height: 13px;
+            background: url(./samtestimg/arrow_hover.png)no-repeat center center;}
+        
+        .top_btn { display: none; position: fixed; bottom: 40px; right: 40px; z-index: 10;}
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="footer">
+        <div class="footer_wrap">
+            <div class="ft_left">
+                <div class="logo_menu">
+                    <div class="ft_logo"><a href="https://www.samsungdisplay.com/" target="_blank"></a></div>
+                    <div class="ft_menu">
+                        <a href="/privacy">개인정보처리방침</a>
+                        <a href="/rule">운영정책</a>
+                        <a class="pop_open" href="javascript:void(0);">뉴스룸 구독</a>
+                    </div>
+                </div>
+                <div class="info">
+                    <p>
+                        상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+                        <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+                    </p>
+                </div>
+            </div>
+            <div class="ft_right">
+                <div class="social_link">
+                    <a class="f_home" href="http://www.samsungdisplay.com" target="_blank"><span>삼성디스플레이 홈페이지</span></a>
+                    <a class="f_fb" href="http://www.facebook.com/samsungDisplay" target="_blank"><span>페이스북</span></a>
+                    <a class="f_yt" href="http://www.youtube.com/user/SamsungDisplayMedia/" target="_blank"><span>유튜브</span></a>
+                    <a class="f_insta" href="https://www.instagram.com/samsungdisplay_official/" target="_blank"><span>인스타그램</span></a>
+                    <a class="f_lang" href="http://global.samsungdisplay.com" target="_blank"><span>글로벌 뉴스룸</span></a>
+                </div>
+            </div>
+    
+            <div class="top_btn" style="display: block;">
+                <a href="javascript:void(0);"><img src="./samtestimg/top_btn.png" alt="top"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

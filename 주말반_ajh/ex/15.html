@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋아요 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        button {color:#333;}
+        button.on {background:red; color:#fff;}
+    </style>
+</head>
+<body>
+
+<!-- 첫 번째 좋아요 버튼 -->
+<div class="like-container" data-id="1">
+    <p>좋아요 수: <span class="like-count">0</span></p>
+    <button class="like-btn">좋아요</button>
+    <p class="like-message"></p>
+</div>
+
+<!-- 두 번째 좋아요 버튼 -->
+<div class="like-container" data-id="2">
+    <p>좋아요 수: <span class="like-count">0</span></p>
+    <button class="like-btn">좋아요</button>
+    <p class="like-message"></p>
+</div>
+
+<!-- 세 번째 좋아요 버튼 -->
+<!-- 이와 같은 방식으로 필요한 만큼 좋아요 버튼을 추가할 수 있습니다. -->
+
+<script>
+$(document).ready(function(){
+    $(".like-container").each(function(){
+        var button = $(this);
+        var buttonId = button.data("id");
+        var likeMessageKey = "liked_" + buttonId;
+
+        // 쿠키를 확인하여 이미 눌렀으면 메시지 표시
+        if (getCookie(likeMessageKey)) {
+            button.find(".like-message").text('이미 위게시물에 좋아요를 눌렀습니다.');
+            button.find(".like-btn").prop("disabled", true); // 버튼 비활성화
+        }
+
+        $.ajax({
+            type: "GET",
+            url: "get_likes.php?id=" + buttonId,
+            success: function(response){
+                button.find(".like-count").text(response);
+            }
+        });
+    });
+
+    $(".like-btn").click(function(){
+        var button = $(this).closest(".like-container");
+        var buttonId = button.data("id");
+        var likeMessageKey = "liked_" + buttonId;
+
+        // 쿠키를 확인하여 이미 눌렀으면 동작하지 않음
+        if (getCookie(likeMessageKey)) {
+            return;
+        }
+
+        // 쿠키 설정으로 이미 눌렀음을 저장
+        setCookie(likeMessageKey, "true", 1);
+
+        // 이미 눌렀음을 알리는 메시지 표시
+        button.find(".like-message").text('이미 위게시물에 좋아요를 눌렀습니다.');
+
+        // 버튼 비활성화
+        button.find(".like-btn").prop("disabled", true);
+
+        // 서버에 좋아요 전송
+        $.ajax({
+            type: "POST",
+            url: "like.php?id=" + buttonId,
+            success: function(response){
+                button.find(".like-count").text(response);
+            }
+        });
+    });
+
+    // 쿠키 설정 함수
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // 쿠키 가져오기 함수
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+});
+</script>
+
+</body>
+</html>

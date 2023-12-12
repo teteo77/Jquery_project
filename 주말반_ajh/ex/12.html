@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어 롤링 모션 구현하기</title>
+    <style>
+        * {margin:0; padding:0;}
+        h1 {text-align: center; padding:50px;}
+        .word_roll {line-height: 50px; border:1px solid red; font-size: 30px; font-weight: bold; display: flex; height:50px; overflow: hidden;}
+        .word_roll>span {animation:word_roll 10s infinite ease;margin:0 15px}
+        .word_roll>span span {display:block; line-height: 50px;}
+        @keyframes word_roll {
+            0% {transform: translateY(0)}
+            23% {transform: translateY(0)}            
+            25% {transform: translateY(-100%)}            
+            48% {transform: translateY(-100%)}            
+            50% {transform: translateY(-200%)}            
+            73% {transform: translateY(-200%)}            
+            75% {transform: translateY(-300%)}            
+            98% {transform: translateY(-300%)}            
+            100% {transform: translateY(-400%)}            
+        }
+    </style>
+</head>
+<body>
+<h1>단어 롤링 모션 구현하기</h1>
+<p class="word_roll">저는 <span><span>참좋은</span><span>더조은</span><span>참하안</span><span>성실한</span></span> 사람입니다.</p>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // 첫단어 복사
+    $(".word_roll>span").append($(".word_roll>span>span").eq(0).clone());
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{margin:0; padding:0;}
+
+    main { width: 100%; overflow: hidden; background: black;}
+
+    .content_container { width: 100%; height: 100%;}
+    
+    .bg-outline {padding: 0 50px; box-sizing: border-box; position: fixed;
+    z-index: 0; top: 0; left: 0; pointer-events: none;}
+    
+    .bg-gradient {}
+
+    .content_wrap { width: 100%; height: 100%; position: relative;}
+    
+    .bg-outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
+        top: 0; left: 0; pointer-events: none;}
+    .bg-outline .outline { width: 100%; height: 100%; position: absolute; z-index: 0;}
+    /* .bg-outline .outline { width: 100%; height: 100%; z-index: 0;} */
+
+    .content_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; position: relative;}
+    /* .content_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; } */
+
+    /* .bg-outline .outline line {stroke-dasharray: 4500;stroke-dashoffset: 4500;animation: draw-line 5s linear;
+    animation-delay: 0.3s; animation-fill-mode: forwards;} */
+
+    </style>
+</head>
+<body>
+    <main id="main">
+        <div class="bg-gradient" style="height: 931px;"></div>
+
+        <div class="content_container bg-outline " style="height: 931px;">
+            <!-- 배경 -->
+            <div class="content_wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline">
+                    <line x1="0" y1="0" x2="0" y2="100%" style="stroke:#ccc;stroke-width:1"></line>
+                    <line x1="100%" y1="0" x2="100%" y2="100%" style="stroke:#ccc;stroke-width:1"></line>
+                </svg>
+                <!--배경 선-->
+                <div class="content_inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline">
+                        <line x1="0" y1="0" x2="0" y2="100%" style="stroke:#ccc;stroke-width:1"></line>
+                        <line x1="100%" y1="0" x2="100%" y2="100%" style="stroke:#ccc;stroke-width:1"></line>
+                    </svg>
+                <!--배경 선-->
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

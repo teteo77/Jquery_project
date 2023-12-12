@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0px; padding:0px; list-style: none;}
+        .screen_out{display: none;}
+        header{background-color: tomato; width:100%; height:80px; position:fixed;}
+        header nav{display: flex; width:fit-content; margin:auto; height: 100%; align-items: center;}
+        header nav ul{display:flex;}
+        header nav li{display:flex;}
+        header nav li a{padding:10px; text-decoration: none; color:#000; font-weight: 900;}
+
+        #home{background-color:orange; height:100vh; padding:80px;}
+        #home #home_wrap{width:100%; height:100%; border: 1px solid red; display: flex;}
+        #home #intro{width:40%; height:100%;border:1px solid red;
+            display: flex; margin: auto;text-align: center;}
+        #home  #intro #intro_wrap{}
+        #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
+        #home #portfolio{}
+
+        /* #about {height:500px; padding:225px;} */
+        #about {width:90%; margin:auto; padding:80px 0px 160px 0px}
+        #about #about_wrap{width:100%; height:100%; border: 1px solid green;margin-top:85px;padding-bottom:500px;}
+        #about #about_wrap>img{position: absolute; width: 45%; height: 120px; background-image: linear-gradient(45deg, transparent 45%, #000000 50%, transparent 55%, transparent 100%); 
+            opacity: .3; background-size: 10px 10px; background-position: 4px 4px; }
+        
+        #about #about_wrap #about_article1{position: relative;display:flex; width:100%; height: 362px; border:1px solid red; top:50px;}
+        #about #about_wrap #about_article1>img {position: absolute;width:68%; background: black; }
+        #about #about_wrap #about_article1>dl{position: absolute;width:40%; height:108px;background:white; 
+            right: 8%;bottom: 0px; padding:35px 32px; box-sizing: border-box;}
+    
+        
+        #about #about_wrap #about_article2{position: relative;display:flex; width:100%; height: 315px; border:1px solid red; top:400px;}
+        #about #about_wrap #about_article2>img {position:absolute;width:68%; height:100%;background-color: black;display: inline-block; right:0px;}
+        #about #about_wrap #about_article2>dl{position: absolute;width:40%; height:108px;background:white; 
+            left: 8%;bottom: 0px; padding:24px 32px; box-sizing: border-box;}
+            /* 필셀은 고정값 퍼센트는 상대적인 크기 */
+        
+        #contact{border:1px solid red; width:100%;height:500px; box-sizing: border-box;}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <h1><a href="#">김민수 포트폴리오 사이트</a></h1>
+        <h2 class="screen_out">메인서비스</h2> -->
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">portfolio</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2 class="screen_out">home</h2>
+            <article id="home_wrap">
+                <section id="intro">
+                    <article id="intro_wrap">
+                        To find an unexpected way
+                    </article>
+                </section>
+                <section id="portfolio">
+                    <article id="portfolio_wrap">
+                        작품을 넣어주세요
+                    </article>
+                </section>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2 class="screen_out">about</h2>
+            <artile>디지털 혁신을 주도하는 <br> IT 전문기업</artile>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rem quibusdam at aperiam atque? Mollitia magni dolor necessitatibus nam tempora fugit consectetur quasi ex? Quibusdam omnis itaque quam ipsum a!</p>
+            <section id="about_wrap">
+                <img>
+                <article id="about_article1">
+                    <img src="image/image1.jpg">
+                    <dl>
+                        <dt>AI 기술</dt>
+                        <dd>비지니스를 혁신하는 현대 IT&E만의 AI 기술을 제공합니다.</dd>
+                    </dl>
+                </article>
+                <article id="about_article2">
+                    <img>
+                    <dl>
+                        <dt>AI 기술</dt>
+                        <dd>비지니스를 혁신하는 현대 IT&E만의 AI 기술을 제공합니다.</dd>
+                    </dl>
+                </article>
+                <article id="about_article3"></article>
+                <article id="about_article4"></article>
+            </section>
+        </section>
+        <section id="contact">
+            <h2> CONTACT</h2>
+            <p>저에게 하실 말이 있으신가요?</p>
+            <article id="contact_wrap">
+                <textarea type="text" placeholder="성함 또는 회사명"></textarea>
+                <textarea type="text" placeholder="제목"></textarea>
+                <textarea type="text" placeholder="내용을 입력해주세요."></textarea>
+                <div>Answer type</div>
+            </article>
+        </section>
+        <section id="#"></section>
+    </main>
+
+    
+</body>
+</html>

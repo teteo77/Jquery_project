@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤에 의한 콘텐츠 입장씬</title>
+    <style>
+        * {margin:0; padding:0; list-style:none; }
+        body {height:3000px;}
+        h1 {text-align: center;padding:200px 0;}
+        header {height:150px; position: fixed; width:100%;top:0;left:0;transition: ease all .3s;z-index: 100;}
+        header ul {display: flex; gap:20px; position: absolute;left:50%; top:50%; transform: translate(-50%,-50%);}
+        header a {color:#333;font-weight: bold; text-decoration: none;}
+        header.fix {background:#fff; height:80px;}
+        header.fix a {color:blue;}
+        section {height:100vh;display: flex;justify-content: center;align-content: center;}
+        section:nth-child(2n-1) {background:#ccc;}
+
+        section .motion {width:100px; height:100px; background:red; transform: translateY(200px); opacity: 0; transition: cubic-bezier(0,1.73,.19,.85) all .3s;}
+        section .motion.on {opacity: 1; transform: translateY(0);}
+        section .motion.d2 {transition-delay: 100ms;}
+        section .motion.d3 {transition-delay: 200ms;}
+        section .motion.d4 {transition-delay: 300ms;}
+        section .motion.d5 {transition-delay: 400ms;}
+        section .motion.d6 {transition-delay: 500ms;}
+    </style>
+</head>
+<body>
+<h1>스크롤에 의한 콘텐츠 입장</h1>    
+<header>
+    <h2>사용법</h2>
+    <p>입장씬 요소에 클래스 motion을 적용</p>
+</header> 
+<section><p class="motion">1</p></section>
+<section><p class="motion">1</p><p class="motion d2">2</p><p class="motion d3">3</p><p class="motion d4">4</p><p class="motion d5">5</p><p class="motion d6">6</p></section>
+<section><p class="motion">1</p></section>
+<section><p class="motion">1</p></section> 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script> 
+    // 입장씬 일관 적용
+    var motion_contents = [];
+    for(var i=0; i<$(".motion").length; i++) {
+        motion_contents.push($(".motion").eq(i).offset().top);
+    }
+    // alert(motion_contents);
+    $(window).scroll(function(){
+        var t=$(this).scrollTop();
+        for(var i=0;i<$(".motion").length;i++){
+            if(t>motion_contents[i]-$(window).height()*0.8 && t<motion_contents[i]) {
+                $(".motion").eq(i).addClass("on");
+            }else {
+                $(".motion").eq(i).removeClass("on");
+            }
+        }
+        
+    })
+    
+</script>
+</body>
+</html>
