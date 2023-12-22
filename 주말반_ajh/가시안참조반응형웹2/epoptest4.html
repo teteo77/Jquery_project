@@ -16,7 +16,19 @@
     .bg-gradient {height: 931px;}
 
     .content_wrap { width: 100%; height: 100%; position: relative;}
-    .content_wrap svg line{ stroke:#ccc; stroke-width:1}
+    @keyframes draw-line{
+        100%{stroke-dashoffset: 0;}
+    }
+
+    /* 2 svg line animation 추가 */
+    .content_wrap svg line{ 
+        stroke:#ccc; stroke-width:1;
+        stroke-dasharray: 4500;
+        stroke-dashoffset: 4500;
+        animation: draw-line 5s linear;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+    }
         /* 1 html에 있는 style을 line으로 이동 */
     .bg-outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
         top: 0; left: 0; pointer-events: none;}
@@ -31,6 +43,16 @@
     /* .bg-outline .outline line {stroke-dasharray: 4500;stroke-dashoffset: 4500;animation: draw-line 5s linear;
     animation-delay: 0.3s; animation-fill-mode: forwards;} */
 
+    .bg-cir{
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    left: 26.4062%;
+    top: 13.6017%;
+    border: 1px solid rgb(77, 152, 240);
+    height: 18px;
+    width: 18px;
+    transform: translate3d(-3.8697px, -0.7786px, 0px);}
     </style>
 </head>
 <body>
@@ -54,6 +76,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="main_content content_container">
+        <!-- 3 메인 컨텐츠 부분 -->
+            <div class="main visual content_wrap"></div>
+            <div class="bg-cir"></div>
+
+
+
+
+        </div>
+
 
     </main>
 </body>
