@@ -52,8 +52,14 @@
     border: 1px solid rgb(77, 152, 240);
     height: 18px;
     width: 18px;
-    transform: translate3d(-3.8697px, -0.7786px, 0px);
+    /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
     /* background: green; */
+    transition: margin-left 3s, margin-top 3s;
+    }
+
+    .bg-cir:hover{
+        margin-left:50px;
+        margin-top:50px;
     }
     </style>
 </head>
@@ -89,12 +95,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         // 3-3 동그라미 움직이기 위한 함수 추가
-        let num= Math.floor(Math.random() * 20);
-        // let num= setInterval(() => Math.floor(Math.random() * 20), 2000);
+        setInterval(function() {
+            let num = Math.floor(Math.random() * 19); // 0에서 9까지의 랜덤한 정수
+            $(".bg-cir").css("margin-left", num+"px");
+            $(".bg-cir").css("margin-top", num+"px");
 
-        // $(".bg-cir").css("background", "orange");
-        $(".bg-cir").css("margin-left", num);
+        }, 2000);
         
+
+    //     $('body').css({
+    //     'margin' : '0px',
+    //     'padding' : '0px'
+    // })
     </script>
 </body>
 </html>
