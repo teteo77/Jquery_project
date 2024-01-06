@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; border: 0;font-size: 100%; vertical-align: baseline;}
+            .screen_out{display: none;}
+        header{background-color: tomato; width:100%; height:80px; position:fixed; z-index: 50;}
+        header nav{display: flex; width:fit-content; margin:auto; height: 100%; align-items: center;}
+        header nav ul{display:flex;}
+        header nav li{display:flex;}
+        header nav li a{padding:10px; text-decoration: none; color:#000; font-weight: 900;}
+
+        /* #home{background-color:orange; height:100vh; padding:80px;} */
+
+        /* id="main" */
+        /* #home{width: 100%; overflow: hidden;} */
+        #home{height:100vh; width: 100%; overflow: hidden; border:1px solid red; box-sizing: border-box;}
+
+        #home #home_wrap{width:100%; height:100%; border: 1px solid red; display: flex; position:relative;}
+
+        /* class="main_content content_container" ㄱ */
+        #home #intro {width:100%; height:100%;border:1px solid red;}
+        /* main visual content_wrap */
+        #home #intro #intro_wrap {height:100%; padding: 0 50px; box-sizing: border-box;}
+        /* content_inner */
+        #home #intro #intro_content {width:100%; max-width:1280px; height:100%; margin:auto; position:relative;}
+        /* visual-text */
+        #home #intro #intro_visualtxt {width:100%; height:100%; display:flex; align-items: center; height: 931px;}
+        @font-face { font-family: 'Regular'; src: url('./font/Oligopoly-OTF/Oligopoly\ Regular.otf'); }
+        #home #intro #intro_visualtxt dt{font: 700 74px/0.8 'Regular'; color: #000; letter-spacing: -0.025em; margin-bottom: 8px;}
+        @font-face { font-family: 'Pretendard'; src: url('./font/PretendardVariable.ttf');}
+        #home #intro #intro_visualtxt dd{font: normal 21px/1.3 'Pretendard'; color: #616161; letter-spacing: -0.025em; margin-bottom: 60px; position: relative; top: 50px; /* opacity: 0; */}
+        
+        
+        
+
+        /* class="visual-img_list" */
+        #home #intro_img #intro_img_wrap{width:530px;}
+        /* class="visual-img_wrap visual-slide1" */
+        #home #intro_img {opacity:1; display:flex; top:14%; left:50%; position:absolute;}
+        #home2 {height:100vh; overflow: hidden; margin:auto; max-width:1200px; display: flex; align-items: center; gap:20px}
+        #home2>ul {border:1px solid red; flex:1; height:100%; box-sizing: border-box; position: relative;}
+        #home2 li{ display:none; gap:30px;flex-wrap: wrap;position: absolute; width:100%; height: 100%; align-content: center; justify-content: center;}
+        #home2 li.on {display: flex;}
+        #home2 li:nth-child(1) div {transform:translateX(100px); opacity:0}
+        #home2 li:nth-child(2) div {transform:translateY(100px); opacity:0}
+        #home2 li div { width:200px; height:200px; background:red; }
+        /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
+        /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
+        /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
+        #home2 li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #home2 li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
+        #home2 li:nth-child(1).on div {animation:to_left 5s 1 ease forwards;}
+        #home2 li:nth-child(2).on div {animation:to_top 5s 1 ease forwards;}
+        @keyframes to_left {
+            0% {transform: translateX(100px); opacity:0}
+            5% {transform: translateX(0); opacity:1}
+            95% {transform: translateX(0); opacity:1}
+            100% {transform: translateX(-100px); opacity:0}
+        }
+        @keyframes to_top {
+            0% {transform: translateY(100px); opacity:0}
+            5% {transform: translateY(0); opacity:1}
+            95% {transform: translateY(0); opacity:1}
+            100% {transform: translateY(-100px); opacity:0}
+        }
+
+
+        
+        
+        /* #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
+        #home #portfolio{} */
+        /* #about {height:500px; padding:225px;} */
+
+        #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
+
+        section .title h2.main-txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
+        section .title p.sub-txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub-txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
+
+        section .title h2.about_txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
+        section .title p.sub_txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub_txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about #about_wrap {padding: 160px 0 240px 0;}
+
+        #about #about_wrap figure .about_hatch.top {top: -50px;left: 0;}
+        #about #about_wrap figure .about_hatch {position: absolute; width: 45%; height: 120px;background-image: 
+            linear-gradient(45deg, transparent 45%, #000000 50%, transparent 55%, transparent 100%); opacity: .3; background-size: 10px 10px; background-position: 4px 4px;}
+
+        #about #about_wrap figure {position:relative; margin-top:140px;}
+        #about #about_wrap figure img {display: inline-block; width: 68%;}
+
+        @keyframes slide {
+            from { left: 400px; opacity: 0; }
+            to { left: 0px; opacity: 1; }
+        }
+
+        #about #about_wrap figcaption {width: 48%;}
+        #about #about_wrap .about_left figcaption {position: absolute; top: 70%; right: 0;}
+        #about #about_wrap figcaption .txt_box {background-color: #fff; padding: 24px 32px;}
+        #about #about_wrap figcaption .txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;}
+        #about #about_wrap figcaption .txt_box dd {font-size: 1rem; line-height: 1.3rem;}
+
+        #about #about_wrap .about_right {text-align: right;}
+        #about #about_wrap .about_right figcaption {position: absolute; top: 70%; left: 0;}
+        /* #section01 .contents figcaption dl.txt_box { background-color: #fff; padding: 24px 32px;}
+        #section01 .contents figcaption dl.txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
+
+        .about_hatch.bottom { bottom: -80px; right: 0;}
+        
+        #contact{max-width: 100%; overflow:hidden; height: 100vh;
+            background-color: black; margin:auto;}
+
+        #contact #contact_wrap {border:6px solid red;
+            display: flex; gap:100px; max-width:1440px; margin:auto; justify-content: center;}
+        #contact #contact_inner {display: flex; flex-direction: column;}
+        #contact h2{color:white; font-size:100px;}
+        #contact p{color: white; font-weight:900; font-size:30px; color: rgb(141, 141, 141);}
+        #contact #contact_inner textarea{width:500px; height:20px;margin-top:10px; border:none; background: none;  
+            resize: none; border-bottom: 1px solid rgb(80, 80, 80); padding: 10px 10px;}
+        #contact #contact_inner #message{width:500px; height:50px;margin-top:10px; height:250px;}        
+        #contact #contact_inner p{color:white;}
+
+        #contact ul{color:white;}
+        #contact ul li:nth-child(3){}
+        #contact ul li:nth-child(5){}
+        
+        /* footer {position: relative; background: orange; height: auto;} */
+        footer {position: relative; background: orange;}
+        footer #footer_wrap{display: flex;justify-content:space-between; align-items: flex-start;
+            padding: 52px 84px; max-width: 1368px;}
+        footer #footer_wrap #footer_category{display: flex; gap:50px; margin-bottom: 37px; align-items: end;}
+        footer #footer_wrap #footer_category #f_category_first{font-weight: bold; font-size: 24px;}
+
+        main { width: 100%; overflow: hidden; }
+    #home_bg_outline { width: 100%; height: 100%;}
+    
+    #home_bg_outline {padding: 0 50px; box-sizing: border-box; position: fixed;
+    z-index: 0; top: 0; left: 0; pointer-events: none;}
+    
+    .bg-gradient {height: 931px;}
+
+    #home_bg_wrap { width: 100%; height: 100%; position: relative;}
+
+    @keyframes draw-line{
+        100%{stroke-dashoffset: 0;}
+    }
+
+    /* 2 svg line animation 추가 */
+    #home_bg_wrap svg line{ 
+        stroke:#ccc; stroke-width:1;
+        stroke-dasharray: 4500;
+        stroke-dashoffset: 4500;
+        animation: draw-line 5s linear;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+    }
+        /* 1 html에 있는 style을 line으로 이동 */
+    #home_bg_outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
+        top: 0; left: 0; pointer-events: none;}
+    #home_bg_outline .outline { width: 100%; height: 100%; position: absolute; z-index: 0;}
+    /* .bg-outline .outline { width: 100%; height: 100%; z-index: 0;} */
+
+    #home_bg_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; position: relative;}
+    /* .content_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; } */
+    /* .content_inner svg line{stroke:#ccc;stroke-width:1} */
+        /* 1 html에 있는 style을 line으로 이동 */
+
+    /* .bg-outline .outline line {stroke-dasharray: 4500;stroke-dashoffset: 4500;animation: draw-line 5s linear;
+    animation-delay: 0.3s; animation-fill-mode: forwards;} */
+
+    .bg-cir{ position: absolute; border-radius: 50%; z-index: 1; left: 26.4062%; top: 13.6017%;
+        border: 1px solid rgb(77, 152, 240); height: 18px; width: 18px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+        
+    .bg-cir:hover{ margin-left:50px; margin-top:50px; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1 class="screen_out"><a href="#">김민수 포트폴리오 사이트</a></h1>
+        <h2 class="screen_out">메인서비스</h2>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="menu">
+            <h2 class="screen_out">home</h2>
+            <!-- 배경 -->
+            <article id="home_bg_outline">
+                <!--배경 선-->
+                <section id="home_bg_wrap">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                    <svg class="outline">
+                        <line x1="0" y1="0" x2="0" y2="100%"></line>
+                        <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                    </svg>
+                    <!--배경 선-->
+                    <article id="home_bg_inner">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                        <svg class="outline">
+                            <line x1="0" y1="0" x2="0" y2="100%"></line>
+                            <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                        </svg>
+                    </article>
+                </section>
+            </article>
+
+
+
+            <article id="home_wrap">
+                <section id="intro">
+                    <article id="intro_wrap">
+                        <section id="intro_content">
+                            <article id="intro_visualtxt">
+                                <dl>
+                                    <dt><span class="slide-txt1">To find an</span></dt>
+                                    <dt><span class="slide-txt2">unexpected way</span></dt>
+                                    <dd>아무에게나 보이지 않는 길을 찾아내는 사람들<br>그래서 남다른 결과를 이끌어내는 크리에이티브 그룹</dd>
+                                </dl>
+                            </article>
+                        </section>
+                    </article>
+                </section>
+
+                <!-- 3-2 동그라미 -->
+                <div class="bg-cir"></div>
+
+                <section id="intro_img">
+                    <article id="intro_img_wrap">
+                        <section id="home2">
+                            <h2 class="screen_out">Intro</h2>
+
+                            <ul>
+                                <li>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </li>
+                                <li>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </li>
+                            </ul>
+                        </section>
+                    </article>
+                </section>
+            </article>
+
+            
+
+
+        </section>
+
+        <section id="about" class="menu">
+            <div class="title">
+                <h2 class="about_txt">
+                    디지털 혁신을 주도하는
+                    <br>IT 전문기업
+                </h2>
+                <p class="sub_txt">현대IT&amp;E는 현대백화점그룹의 IT 전문기업으로서 그룹의 오랜 역사와 함께 축적된 비지니스의 다양한 경험과 노하우의 가치를 IT 서비스를 통해 고객에게 전달하고 있습니다.</p>
+            </div>
+        
+            <div id="about_wrap">
+                <figure class="about_left">
+                    <div class="about_hatch top"></div>
+                    <img src="image/image1.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>AI 기술</dt>
+                            <dd>비지니스를 혁신하는 현대IT&amp;E만의 AI 기술을 제공합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_right">
+                    <img src="image/image2.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>디지털 기술</dt>
+                            <dd>현대IT&amp;E가 연구한 새로운 기술을 통해 디지털 환경의 New Biz를 지원합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_left">
+                    <img src="image/image3.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>다양한 고객사</dt>
+                            <dd>유통, 제조, 패션 등 다양한 고객의 업무 혁신을 만들어갑니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_right">
+                    <div class="about_hatch bottom"></div>
+                    <img src="image/image4.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>전문 인력</dt>
+                            <dd>수십년의 노하우를 보유한 전문 인력과 함께 성장합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="contact" class="menu">
+            <fieldset id="contact_wrap">
+                <section id="contact_inner">
+                    <h2>CONTACT</h2>
+                    <p>저에게 하실 말이 있으신가요?</p>
+                    
+                    <textarea type="text" placeholder="성함 또는 회사명"></textarea>
+                    <textarea type="text" placeholder="제목"></textarea>
+                    <textarea id="message" type="text" placeholder="내용을 입력해주세요."></textarea>
+                    <p>Answer type</p>
+                </section>
+            
+                <ul>
+                    <li>E-mail</li>
+                    <li>todaysunday@aaaaa.com</li>
+                    <li>phone</li>
+                    <li>000-0000-0000</li>
+                    <li>another</li>
+                    <li>insert to contact</li>
+                </ul>
+            </fieldset>
+        </section>
+
+        <footer>
+            <section id="footer_wrap">
+                <section id="footer_left">
+                    <div id="footer_category">
+                        <div id="f_category_first">SAMSUNG DISPLAY</div>
+                        <div>개인정보처리방침</div>
+                        <div>운영정책</div>
+                        <div>뉴스룸 구독</div>
+                    </div>
+                    <p>
+                        상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+                        <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+                    </p>
+                    <address>Copyright &copy;2023 AJH. ALL rights reserved.</address>
+                </section>
+                <section id="footer_right">
+                    <article id="footer_right_wrap">
+                        <ul>
+                            <li><a href="#">아이콘 넣기</i></a></li>
+                        </ul>
+                    </article>
+                </section>
+            </section>
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        let al_index = $("#about_wrap .about_left").eq(0).offset().top
+        $(".about_left").eq(0).after(
+            'top'+al_index
+        )
+
+        let al_index2 = $("#about_wrap .about_left").eq(1).offset().top
+        $(".about_left").eq(1).after(
+            'top'+al_index2
+        )
+
+
+
+        
+
+    </script>
+    <script>
+      $("nav li").click(function () {
+        var menu = $("nav li").index(this);
+        var move = $(".menu").eq(menu).offset().top;
+
+        $("html").animate(
+          {
+            scrollTop: move,
+          },
+          500
+        );
+        return false;
+      });
+
+              // 스크롤이벤트
+      $(window).scroll(function () {
+        var h = $(window).height() / 2; //화면높이의 반
+        var menu2 = $(".menu").eq(1).offset().top - h;
+        var menu3 = $(".menu").eq(2).offset().top - h;
+      });
+    </script>
+
+
+    <script>
+        // 3-3 동그라미 움직이기 위한 함수 추가
+        setInterval(function() {
+            let num = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+            let num2 = Math.floor(Math.random() * 23);
+            $(".bg-cir").css("margin-left", num+"px");
+            $(".bg-cir").css("margin-top", num2+"px");
+        }, 2000);
+    </script>
+
+<script>
+    var num=1;
+    $("#home2 li").eq(0).addClass("on");
+
+    setInterval(function(){
+        $("#home2 li").eq(num).addClass("on");
+        
+        setTimeout(function(){
+            $("#home2 li").removeClass("on");
+            num==0? num=1: num=0;
+        },6000)
+    },7000)
+</script>
+    
+</body>
+</html>

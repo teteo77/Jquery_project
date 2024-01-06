@@ -1,3 +1,10 @@
+오후 2:24 2023-12-26
+    index30 home_bg_outline태그 부분 section, artilce로 변경
+
+오전 2:43 2023-12-26
+    index29 content_container bg-outline 부분 id로 바꿔주기
+
+
 타이틀에 일치되게 맞는 글씨체를 사용하기
 본문에 일치되게 맞는 글씨크기 사용하기
 

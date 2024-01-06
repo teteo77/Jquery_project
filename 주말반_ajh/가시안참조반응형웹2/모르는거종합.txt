@@ -1,0 +1,5 @@
+1 메인배너 애니메이션 jqeruy로 선택자 주고 on주는거
+
+2 menu offset 헷갈림.
+
+3 offset
