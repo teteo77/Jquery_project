@@ -62,11 +62,13 @@
     var num=1;
     $("#home li").eq(0).addClass("on");
 
+    // 페이지를 불러 오면은 7초마다 실행
     setInterval(function(){
         $("#home li").eq(num).addClass("on");
-        
+        // setTieout실행되면 setInterval은 지연실행(settimeout시간만큼 멈춰있다 실행);
         setTimeout(function(){
             $("#home li").removeClass("on");
+            // 애니메이션 실행을 위한 변수값 적용
             num==0? num=1: num=0;
         },6000)
     },7000)
