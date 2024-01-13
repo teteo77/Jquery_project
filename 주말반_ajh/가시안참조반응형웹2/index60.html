@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --Black1: #141414;
+            --Grey1: #f8f8f8;
+            --Grey2: #cacaca;
+            --Grey3: #606060;
+            --Grey4: #b8c8d1;
+            --Grey5: #a9b2b7;
+            --Blue1: #3bc3ff;
+            --Blue2: #d4e9f8;
+            --Blue3: #f5f9fa;
+            --Blue4: #b9e0f3;
+        }
+        *{margin:0; padding:0; border: 0;font-size: 100%; vertical-align: baseline;}
+            .screen_out{display: none;}
+        header{background-color: tomato; width:100%; height:80px; position:fixed; z-index: 50;}
+        header nav{display: flex; width:fit-content; margin:auto; height: 100%; align-items: center;}
+        header nav ul{display:flex;}
+        header nav li{display:flex;}
+        header nav li a{padding:10px; text-decoration: none; color:#000; font-weight: 900;}
+
+        /* #home{background-color:orange; height:100vh; padding:80px;} */
+
+        /* id="main" */
+        /* #home{width: 100%; overflow: hidden;} */
+        main { width: 100%; overflow: hidden; }
+    
+
+        #home{height:100vh; width: 100%; overflow: hidden; border:1px solid red; box-sizing: border-box;}
+
+        /* .bg-gradient {height: 931px;} */
+
+        #home_bg_wrap { width: 100%; height: 100%; position: relative;}
+
+        /* 2 svg line animation 추가 */
+        #home_bg_wrap svg line{ 
+            stroke:#ccc; stroke-width:1;
+            stroke-dasharray: 4500;
+            stroke-dashoffset: 4500;
+            animation: draw-line 5s linear;
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+        }
+            /* 1 html에 있는 style을 line으로 이동 */
+        #home_bg_outline {width: 100%; height: 100%; padding: 0 50px; box-sizing: border-box; position: fixed;
+            top: 0; left: 0; pointer-events: none; z-index: -50;}
+        /* #home_bg_outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
+            top: 0; left: 0; pointer-events: none;} */
+        #home_bg_outline .outline { width: 100%; height: 100%; position: absolute; z-index: 0;}
+        /* .bg-outline .outline { width: 100%; height: 100%; z-index: 0;} */
+
+        #home_bg_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; position: relative;}
+        /* .content_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; } */
+        /* .content_inner svg line{stroke:#ccc;stroke-width:1} */
+            /* 1 html에 있는 style을 line으로 이동 */
+
+        /* .bg-outline .outline line {stroke-dasharray: 4500;stroke-dashoffset: 4500;animation: draw-line 5s linear;
+        animation-delay: 0.3s; animation-fill-mode: forwards;} */
+
+        .bg-cir{ position: absolute; border-radius: 50%; z-index: 1; left: 26.4062%; top: 13.6017%;
+            border: 1px solid rgb(77, 152, 240); height: 18px; width: 18px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+            transition: margin-left 3s, margin-top 3s;}
+            
+        .bg-cir:hover{ margin-left:50px; margin-top:50px; }
+        
+        #home #home_wrap{width:100%; height:100%; border: 1px solid red; display: flex; position:relative;}
+            @keyframes draw-line{
+            100%{stroke-dashoffset: 0;}
+        }
+        /* class="main_content content_container" ㄱ */
+        #home #intro {width:100%; height:100%;border:1px solid red;}
+        /* main visual content_wrap */
+        #home #intro #intro_wrap {height:100%; padding: 0 50px; box-sizing: border-box;}
+        /* content_inner */
+        #home #intro #intro_content {width:100%; max-width:1280px; height:100%; margin:auto; position:relative;}
+        /* visual-text */
+        #home #intro #intro_visualtxt {width:100%; height:100%; display:flex; align-items: center; height: 931px;}
+        @font-face { font-family: 'Regular'; src: url('./font/Oligopoly-OTF/Oligopoly\ Regular.otf'); }
+        #home #intro #intro_visualtxt dt{font: 700 74px/0.8 'Regular'; color: #000; letter-spacing: -0.025em; margin-bottom: 8px;}
+        @font-face { font-family: 'Pretendard'; src: url('./font/PretendardVariable.ttf');}
+        #home #intro #intro_visualtxt dd{font: normal 21px/1.3 'Pretendard'; color: #616161; letter-spacing: -0.025em; margin-bottom: 60px; position: relative; top: 50px; /* opacity: 0; */}
+        
+        
+        
+
+
+        /* class="visual-img_wrap visual-slide1" */
+        #home #intro_img {opacity:1; display:flex; top:14%; left:50%; position:absolute;}
+
+        /* class="visual-img_list" */
+        /* 수정 해야할 부분========================================== */
+        #home #intro_img #intro_img_wrap{height:100vh; margin:auto; max-width:1200px; 
+            align-items: center; position: absolute; display: flex;}
+
+        #intro_img_wrap ul{border:1px solid red;  height:100%; box-sizing: border-box;
+            display: flex; flex-direction: column; }
+        /* intro_img_wrap,2 안에 ul에 다 적용 되고 있다. */
+        #intro_img_wrap #intro_img_list {margin-top: -150px;}
+
+        #intro_img_list li:nth-child(1) img{ margin-bottom:50px;}
+        #intro_img_list li:nth-child(2) img{ }
+
+        #intro_img_wrap #intro_img_list2 {margin-left: 50px;}
+
+
+
+        
+        /* intro_img_list2 */
+        #home #intro_img #intro_img_wrap2 { height:100vh; margin:auto; max-width:1200px; 
+            align-items: center; width:530px; position: absolute; }
+        #intro_img_wrap2 ul { border:1px solid red;  height:100%;
+            box-sizing: border-box; position: relative;}
+        
+        #intro_img_wrap2 ul img{ position: absolute;}
+        #intro_img_wrap2 ul img:nth-child(1){top:150px;}
+        #intro_img_wrap2 ul img:nth-child(2){top:50px; left:290px;}
+        #intro_img_wrap2 ul img:nth-child(3){top:565px; left:290px;}
+
+        /* 2 ul li 2개 만들어 줘서 첫 슬라이드 이미지 만들어 주기*/
+        
+            
+
+
+        #intro_img_wrap li.on {}
+        /* 이거 수정 */
+        #intro_img_wrap li div { width:200px; height:200px; background:red; }
+        /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
+        /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
+        /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
+        #intro_img_wrap li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #intro_img_wrap li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
+        #intro_img_wrap li:nth-child(1).on div {animation:to_left 5s 1 ease forwards;}
+        #intro_img_wrap li:nth-child(2).on div {animation:to_top 5s 1 ease forwards;}
+        @keyframes to_left {
+            0% {transform: translateX(100px); opacity:0}
+            5% {transform: translateX(0); opacity:1}
+            95% {transform: translateX(0); opacity:1}
+            100% {transform: translateX(-100px); opacity:0}
+        }
+        @keyframes to_top {
+            0% {transform: translateY(100px); opacity:0}
+            5% {transform: translateY(0); opacity:1}
+            95% {transform: translateY(0); opacity:1}
+            100% {transform: translateY(-100px); opacity:0}
+        }
+
+        
+
+        
+        
+        /* #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
+        #home #portfolio{} */
+        /* #about {height:500px; padding:225px;} */
+
+        #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
+
+        section .title h2.main-txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
+        section .title p.sub-txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub-txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
+
+        section .title h2.about_txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none; position: relative;}
+        section .title p.sub_txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub_txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about #about_wrap {padding: 160px 0 240px 0;}
+
+        #about #about_wrap figure .about_hatch.top {top: -50px;left: 0;}
+        #about #about_wrap figure .about_hatch {position: absolute; width: 45%; height: 120px;background-image: 
+            linear-gradient(45deg, transparent 45%, #161313 50%, transparent 55%, transparent 100%); opacity: .3; background-size: 10px 10px; background-position: 4px 4px;}
+
+        #about #about_wrap figure {position:relative; margin-top:140px;}
+        #about #about_wrap figure img {display: inline-block; width: 68%; position: relative}
+
+        @keyframes slide {
+            from { top: 300px; opacity: 0; }
+            to { top: 0px; opacity: 1; }
+        }
+
+        @keyframes hide {
+            from {top: 0px; opacity:1;}
+            to {top: 300px; opacity: 0;}
+        }
+
+        #about #about_wrap figcaption {width: 48%;}
+        #about #about_wrap .about_left figcaption {position: absolute; top: 70%; right: 0;}
+        #about #about_wrap figcaption .txt_box {background-color: #fff; padding: 24px 32px; position: relative;}
+        #about #about_wrap figcaption .txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;}
+        #about #about_wrap figcaption .txt_box dd {font-size: 1rem; line-height: 1.3rem;}
+
+        #about #about_wrap .about_right {text-align: right;}
+        #about #about_wrap .about_right figcaption {position: absolute; top: 70%; left: 0;}
+        /* #section01 .contents figcaption dl.txt_box { background-color: #fff; padding: 24px 32px;}
+        #section01 .contents figcaption dl.txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
+
+        .about_hatch.bottom { bottom: -80px; right: 0;}
+        
+        #mail_wrap { background: var(--Grey1); }
+        #mail_wrap #mail { max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 150px; }
+        @media (max-width:1300px){
+            #mail_wrap #mail{ max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 50px; }
+        }
+        #mail #mail_contacts { width: 500px; }
+        #mail #mail_contacts h2 { font-size: 50px;  font-family: "Noto Sans KR";}
+        /*하나하나 속성 곱씹어 보기 */
+        #mail #mail_contacts p { border: 2px solid var(--Grey2); height: 100px; padding: 20px 25px 0; margin-bottom: 50px; 
+            font-weight: 500; color: rgba(20, 20, 20, 0.7); box-sizing: border-box; font-family: "Noto Sans KR";}
+        #mail h2 { font-size: 48px; margin-bottom: 30px; font-weight: bold; padding-top: 50px; }
+        #mail span { color: var(--Black1); display: block; font-size: 24px; font-weight: 500; margin-bottom: 5px; }
+        /* .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기 */
+        #mail #sendemail_wrap { width: 500px; background: var(--Blue2); padding: 50px; text-align: center; 
+            box-sizing: border-box;}
+        #mail #sendemail { outline: none; border: none; }
+        #mail #sendemail legend { display: none; }
+        /* 다시보기 */
+        #mail #sendemail textarea { border: none; border-bottom: 2px solid var(--Grey4); width: 100%; height: 50px; font-size: 20px;
+            background: none; margin-bottom: 10px; outline: none; transition: ease all 0.3s; border-radius: 0; font-family: "Noto Sans KR";}
+        /* 다시보기 */
+        #mail #sendemail #message { font-size: 20px; width: 100%; height: 250px; background: none; border: none;
+            border-bottom: 2px solid var(--Grey4); padding: 15px 0; margin-bottom: 30px; resize: none; outline: none;}
+        /* 다시보기 */
+        #mail #sendemail button { width: 100%; height: 70px; border-radius: 10px; border: none; background: var(--Blue4);
+            font-size: 20px; cursor: pointer; box-shadow: 0 0 0 0 transparent; transition: ease all 0.3s; color: var(--Grey3);
+            font-family: "Noto Sans KR";}
+
+        /* footer {position: relative; background: orange; height: auto;} */
+        footer {position: relative; background: orange;}
+        footer #footer_wrap{display: flex;justify-content:space-between; align-items: flex-start;
+            padding: 52px 84px; max-width: 1368px;}
+        footer #footer_wrap #footer_category{display: flex; gap:50px; margin-bottom: 37px; align-items: end;}
+        footer #footer_wrap #footer_category #f_category_first{font-weight: bold; font-size: 24px;}
+
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1 class="screen_out"><a href="#">김민수 포트폴리오 사이트</a></h1>
+        <h2 class="screen_out">메인서비스</h2>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="menu">
+            <h2 class="screen_out">home</h2>
+            <!-- 배경 -->
+            <article id="home_bg_outline">
+                <!--배경 선-->
+                <section id="home_bg_wrap">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                    <svg class="outline">
+                        <line x1="0" y1="0" x2="0" y2="100%"></line>
+                        <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                    </svg>
+                    <!--배경 선-->
+                    <article id="home_bg_inner">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                        <svg class="outline">
+                            <line x1="0" y1="0" x2="0" y2="100%"></line>
+                            <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                        </svg>
+                    </article>
+                </section>
+            </article>
+
+
+
+            <article id="home_wrap">
+                <section id="intro">
+                    /* class="visual-img_list" */
+                    <article id="intro_wrap">
+                        <section id="intro_content">
+                            <article id="intro_visualtxt">
+                                <dl>
+                                    <dt><span class="slide-txt1">To find an</span></dt>
+                                    <dt><span class="slide-txt2">unexpected way</span></dt>
+                                    <dd>아무에게나 보이지 않는 길을 찾아내는 사람들<br>그래서 남다른 결과를 이끌어내는 크리에이티브 그룹</dd>
+                                </dl>
+                            </article>
+                            <section id="intro_img">
+                                <h2 class="screen_out">Intro</h2>
+                                <article id="intro_img_wrap">
+                                        <ul id="intro_img_list">
+                                            <li>
+                                                <img src="./image/slideimage1.png">
+                                            </li>
+                                            <li>
+                                                <img src="./image/slideimage2.png">
+                                            </li>
+                                        </ul>
+                                        <ul id="intro_img_list2">
+                                            <li>
+                                                <img src="./image/slideimage3.png">
+                                            </li>
+                                            <li>
+                                                <img src="./image/slideimage4.png">
+                                            </li>
+                                        </ul>
+                                </article>
+                                <article id="intro_img_wrap2">
+                                    <ul>
+                                        
+                                            <img src="./image/slideimage5.png">
+                                        
+                                        
+                                            <img src="./image/slideimage6.png">
+                                        
+                                        
+                                            <img src="./image/slideimage7.png">
+                                        
+                                    </ul>
+                                </article>
+                            </section>
+
+
+                        </section>
+                    </article>
+                </section>
+
+                <!-- 3-2 동그라미 -->
+                <div class="bg-cir"></div>
+            </article>
+        </section>
+
+        <section id="about" class="menu">
+            <div class="title">
+                <h2 class="about_txt">
+                    디지털 혁신을 주도하는
+                    <br>IT 전문기업
+                </h2>
+                <p class="sub_txt">현대IT&amp;E는 현대백화점그룹의 IT 전문기업으로서 그룹의 오랜 역사와 함께 축적된 비지니스의 다양한 경험과 노하우의 가치를 IT 서비스를 통해 고객에게 전달하고 있습니다.</p>
+            </div>
+        
+            <div id="about_wrap">
+                <figure class="about_left">
+                    <div class="about_hatch top"></div>
+                    <img src="image/html.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>AI 기술</dt>
+                            <dd>비지니스를 혁신하는 현대IT&amp;E만의 AI 기술을 제공합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_right">
+                    <img src="image/image2.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>디지털 기술</dt>
+                            <dd>현대IT&amp;E가 연구한 새로운 기술을 통해 디지털 환경의 New Biz를 지원합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_left">
+                    <img src="image/image3.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>다양한 고객사</dt>
+                            <dd>유통, 제조, 패션 등 다양한 고객의 업무 혁신을 만들어갑니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_right">
+                    <div class="about_hatch bottom"></div>
+                    <img src="image/image4.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>전문 인력</dt>
+                            <dd>수십년의 노하우를 보유한 전문 인력과 함께 성장합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="mail_wrap" class="menu">
+            <article id="mail">
+              <!-- <section id="portfolio_wrap"> -->
+              <article id="mail_contacts">
+                <h2>CONTACTS</h2>
+                <p>
+                  <span>ADDRESS</span>
+                  Republic of Korea, Seoul
+                </p>
+                <p>
+                  <span>EMAIL</span>
+                  kimminsu@naver.com
+                </p>
+                <p>
+                  <span>Thank you for visit</span>
+                  제 포트폴리오를 봐주셔서 감사합니다
+                </p>
+              </article>
+              <!-- .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기  -->
+              <form id="sendemail_wrap">
+                <fieldset id="sendemail">
+                  <legend class="screen_out">이메일 보내기</legend>
+                  <!-- <span class="screen_out">성명</span> -->
+                  <textarea type="text" placeholder="your name"></textarea>
+                  <!-- <span class="screen_out">이메일 주소</span>  -->
+                  <textarea type="text" placeholder="your email"></textarea>
+                  <!-- <span class="screen_out">내용</span> -->
+                  <textarea
+                    type="text"
+                    placeholder="your message"
+                    id="message"
+                  ></textarea>
+                  <button>SEND MESSAGE</button>
+                </fieldset>
+              </form>
+              <!-- </section> -->
+            </article>
+          </section>
+
+        <footer>
+            <section id="footer_wrap">
+                <section id="footer_left">
+                    <div id="footer_category">
+                        <div id="f_category_first">SAMSUNG DISPLAY</div>
+                        <div>개인정보처리방침</div>
+                        <div>운영정책</div>
+                        <div>뉴스룸 구독</div>
+                    </div>
+                    <p>
+                        상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+                        <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+                    </p>
+                    <address>Copyright &copy;2023 AJH. ALL rights reserved.</address>
+                </section>
+                <section id="footer_right">
+                    <article id="footer_right_wrap">
+                        <ul>
+                            <li><a href="#">아이콘 넣기</i></a></li>
+                        </ul>
+                    </article>
+                </section>
+            </section>
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let ab_title = $("#about .title .about_txt").offset().top
+        let ab_sub_txt = $("#about .title .sub_txt").offset().top
+        $(".title").after(ab_title -($(window).height()*1.0), "subtxt:"+ab_sub_txt)
+
+
+        let al_index = $("#about_wrap .about_left").eq(0).offset().top
+        $(".about_left").eq(0).after(
+            'top'+al_index    
+        )
+        // console.log('al_index-heihgt',al_index-($(window).height()*0.7))
+
+        let al_index2 = $("#about_wrap .about_left").eq(1).offset().top
+        $(".about_left").eq(1).after(
+            'top'+al_index2
+        )
+        
+
+        let ar_index = $("#about_wrap .about_right").eq(0).offset().top
+        $(".about_right").eq(0).after(
+            'top'+ar_index
+        )
+        // 'top'+ar_index가 뒤에 가려져 있는데 어떻게 꺼냄 ?
+        console.log("ar_index: "+ar_index)
+
+
+        let ar_index2 = $("#about_wrap .about_right").eq(1).offset().top
+        console.log("ar_index2:"+ ar_index2)
+        
+
+
+
+        
+
+        $(window).scroll(function() {
+            let value = $(this).scrollTop();
+            // console.log(value)
+
+            if(ab_title-($(window).height()*1.0)< value){
+                $("#about .title .about_txt").css('animation', 'slide 1.2s ease-out forwards')
+            }else{
+                $("#about .title .about_txt").css('animation', 'hide 2s ease-out forwards')
+            }
+
+            if(ab_sub_txt-($(window).height()*0.9)< value){
+                $("#about .title .sub_txt").css('animation', 'slide 1.2s ease-out forwards')
+            }else{
+                $("#about .title .sub_txt").css('animation', 'hide 2s ease-out forwards')
+            }
+            
+
+            if ((al_index-($(window).height()*0.9)) < value) {
+                $('.about_left img').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_left img').eq(0).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((al_index-($(window).height()*0.74)) < value) {
+                $('.about_left .txt_box').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_left .txt_box').eq(0).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((al_index2-($(window).height()*1.0)) < value) {
+                $('.about_left img').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_left img').eq(1).css('animation', 'hide 2s ease-out forwards');
+            }
+
+
+            if ((al_index2-($(window).height()*0.74)) < value) {
+                $('.about_left .txt_box').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_left .txt_box').eq(1).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((ar_index-($(window).height()*0.9)) < value) {
+                $('.about_right img').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_right img').eq(0).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((ar_index-($(window).height()*0.74)) < value) {
+                $('.about_right .txt_box').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_right .txt_box').eq(0).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((ar_index2-($(window).height()*0.9)) < value) {
+                $('.about_right img').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_right img').eq(1).css('animation', 'hide 2s ease-out forwards');
+            }
+
+            if ((ar_index2-($(window).height()*0.74)) < value) {
+                $('.about_right .txt_box').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            } else {
+                $('.about_right .txt_box').eq(1).css('animation', 'hide 2s ease-out forwards');
+            }
+
+
+            // img에 여유 공간이 없어서 position: relative속성을 줬다
+                // ㄴ 이렇게 해두 되나? 일단 기능 만들려고 넣었음
+
+            // if (al_index2 < value) {
+            //     $('.about_left').eq(1).css('animation', 'hide 2s ease-out forwards');
+            // } else {
+            //     $('.about_left').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            // }
+        });
+    </script>
+    <script>
+      $("nav li").click(function () {
+        var menu = $("nav li").index(this);
+        var move = $(".menu").eq(menu).offset().top;
+
+        $("html").animate(
+          {
+            scrollTop: move,
+          },
+          500
+        );
+        return false;
+      });
+
+              // 스크롤이벤트
+      $(window).scroll(function () {
+        var h = $(window).height() / 2; //화면높이의 반
+        var menu2 = $(".menu").eq(1).offset().top - h;
+        var menu3 = $(".menu").eq(2).offset().top - h;
+      });
+    </script>
+
+
+    <script>
+        // 3-3 동그라미 움직이기 위한 함수 추가
+        setInterval(function() {
+            let num = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+            let num2 = Math.floor(Math.random() * 23);
+            $(".bg-cir").css("margin-left", num+"px");
+            $(".bg-cir").css("margin-top", num2+"px");
+        }, 2000);
+    </script>
+
+<script>
+    // var num=1;
+    // $("#intro_img_wrap li").eq(0).addClass("on");
+
+    // setInterval(function(){
+    //     $("#intro_img_wrap li").eq(num).addClass("on");
+        
+    //     setTimeout(function(){
+    //         $("#intro_img_wrap li").removeClass("on");
+    //         num==0? num=1: num=0;
+    //     },6000)
+    // },7000)
+</script>
+    
+</body>
+</html>

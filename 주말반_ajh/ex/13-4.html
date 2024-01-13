@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬로건용 입장 애니메이션</title>
+    <style>
+        * {margin:0; padding:0; list-style: none;}
+        .screen_out {display: none;}
+        #home2 {height:100vh; overflow: hidden; margin:auto; max-width:1200px; display: flex; align-items: center; gap:20px}
+        #home2>p {background:#ccc; width:50%; padding:30px; box-sizing: border-box;}
+        #home2>ul {border:1px solid red; flex:1; height:100%; box-sizing: border-box; position: relative;}
+        #home2 li{ gap:30px;flex-wrap: wrap;position: relative; width:100%; height: 100%; align-content: center; justify-content: center;}
+
+        #home2 li {position: relative;}
+        
+        /* #home2 li:nth-child(1) div {transform:translateX(100px); opacity:1}
+        #home2 li:nth-child(2) div {transform:translateY(100px); opacity:0} */
+        
+        #home2 li div { width:200px; height:200px; background:red; border:1px solid black}
+        #home2 li div:nth-child(1) { width:200px; height:200px; background:tomato; border:1px solid black; position: absolute; top:0;}
+        #home2 li div:nth-child(2) { width:200px; height:200px; background:peru; border:1px solid black;  position: absolute; top: 80%}
+        #home2 li div:nth-child(3) { width:200px; height:200px; background:gray; border:1px solid black; 
+            position: absolute; left:50%; top:50%;}
+        /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
+        /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
+        /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
+        #home2 li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #home2 li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
+        #home2 li:nth-child(1) div {animation:to_left 5s 1 ease forwards; opacity: 1;}
+        #home2 li:nth-child(2) div {animation:to_top 5s 1 ease forwards;}
+        /* @keyframes to_left {
+            0% {transform: translateX(100px); opacity:1}
+            5% {transform: translateX(0); opacity:1}
+            95% {transform: translateX(0); opacity:1}
+            100% {transform: translateX(-100px); opacity:0}
+        }
+        @keyframes to_top {
+            0% {transform: translateY(100px); opacity:0}
+            5% {transform: translateY(0); opacity:1}
+            95% {transform: translateY(0); opacity:1}
+            100% {transform: translateY(-100px); opacity:0}
+        } */
+    </style>
+</head>
+<!-- on.on우선순위 하고 javascript를 설명 하면서 질문하기 -->
+<body>
+<h1>슬로건용 입장 애니메이션</h1>
+<section id="home2">
+    <h2 class="screen_out">Intro</h2>
+    <p>슬로건 내용들...</p>
+    <ul>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+    </ul>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // var num=1;
+    // $("#home2 li").eq(0).addClass("on");
+
+    // setInterval(function(){
+    //     $("#home2 li").eq(num).addClass("on");
+        
+    //     setTimeout(function(){
+    //         $("#home2 li").removeClass("on");
+    //         num==0? num=1: num=0;
+    //     },6000)
+    // },7000)
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬로건용 입장 애니메이션</title>
+    <style>
+        * {margin:0; padding:0; list-style: none;}
+        .screen_out {display: none;}
+        #home{height:100vh; width: 100%; overflow: hidden; border:1px solid red; box-sizing: border-box;}
+        #home #home_wrap{width:100%; height:100%; border: 1px solid red; display: flex; position:relative;}
+            @keyframes draw-line{
+            100%{stroke-dashoffset: 0;}
+        }
+        /* class="main_content content_container" ㄱ */
+        #home #intro {width:100%; height:100%;border:1px solid red;}
+        /* main visual content_wrap */
+        #home #intro #intro_wrap {height:100%; padding: 0 50px; box-sizing: border-box;}
+        /* content_inner */
+        #home #intro #intro_content {width:100%; max-width:1280px; height:100%; margin:auto; position:relative;}
+        /* visual-text */
+        #home #intro #intro_visualtxt {width:100%; height:100%; display:flex; align-items: center; height: 931px;}
+        @font-face { font-family: 'Regular'; src: url('./font/Oligopoly-OTF/Oligopoly\ Regular.otf'); }
+        #home #intro #intro_visualtxt dt{font: 700 74px/0.8 'Regular'; color: #000; letter-spacing: -0.025em; margin-bottom: 8px;}
+        @font-face { font-family: 'Pretendard'; src: url('./font/PretendardVariable.ttf');}
+        #home #intro #intro_visualtxt dd{font: normal 21px/1.3 'Pretendard'; color: #616161; letter-spacing: -0.025em; margin-bottom: 60px; position: relative; top: 50px; /* opacity: 0; */}
+        
+        /* class="visual-img_wrap visual-slide1" */
+        #home #intro_img {opacity:1; display:flex; top:14%; left:50%; position:absolute;}
+
+        /* class="visual-img_list" */
+        #home #intro_img #intro_img_wrap{width:530px;}
+        #home2 {height:100vh; overflow: hidden; margin:auto; max-width:1200px; display: flex; align-items: center; gap:20px}
+        #home2>p {background:#ccc; width:50%; padding:30px; box-sizing: border-box;}
+        #home2>ul {border:1px solid red; flex:1; height:100%; box-sizing: border-box; position: relative;}
+        #home2 li{ gap:30px;flex-wrap: wrap;position: relative; width:100%; height: 100%; align-content: center; justify-content: center;}
+
+        #home2 li {position: relative;}
+        
+        /* #home2 li:nth-child(1) div {transform:translateX(100px); opacity:1}
+        #home2 li:nth-child(2) div {transform:translateY(100px); opacity:0} */
+        
+        #home2 li div { width:200px; height:200px; background:red; border:1px solid black}
+        #home2 li div:nth-child(1) { width:200px; height:200px; background:tomato; border:1px solid black; position: absolute; top:0;}
+        #home2 li div:nth-child(2) { width:200px; height:200px; background:peru; border:1px solid black;  position: absolute; top: 80%}
+        #home2 li div:nth-child(3) { width:200px; height:200px; background:gray; border:1px solid black; 
+            position: absolute; left:50%; top:50%;}
+        /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
+        /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
+        /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
+        #home2 li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #home2 li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
+        #home2 li:nth-child(1) div {animation:to_left 5s 1 ease forwards; opacity: 1;}
+        #home2 li:nth-child(2) div {animation:to_top 5s 1 ease forwards;}
+        @keyframes to_left {
+            0% {transform: translateX(100px); opacity:1}
+            5% {transform: translateX(0); opacity:1}
+            95% {transform: translateX(0); opacity:1}
+            100% {transform: translateX(-100px); opacity:0}
+        }
+        @keyframes to_top {
+            0% {transform: translateY(100px); opacity:0}
+            5% {transform: translateY(0); opacity:1}
+            95% {transform: translateY(0); opacity:1}
+            100% {transform: translateY(-100px); opacity:0}
+        }
+    </style>
+</head>
+<!-- on.on우선순위 하고 javascript를 설명 하면서 질문하기 -->
+<body>
+    <section id="home" class="menu">
+<h1>슬로건용 입장 애니메이션</h1>
+<section id="home2">
+    <article id="home_wrap">
+        <section id="intro">
+            <article id="intro_wrap">
+                <section id="intro_content">
+                    <article id="intro_visualtxt">
+                        <dl>
+                            <dt><span class="slide-txt1">To find an</span></dt>
+                            <dt><span class="slide-txt2">unexpected way</span></dt>
+                            <dd>아무에게나 보이지 않는 길을 찾아내는 사람들<br>그래서 남다른 결과를 이끌어내는 크리에이티브 그룹</dd>
+                        </dl>
+                    </article>
+                    <section id="intro_img">
+                        <!-- 최종본때 intro_img_wrap를 home2과 병합 하기-->
+                        <article id="intro_img_wrap">
+                            <section id="home2">
+                                <h2 class="screen_out">Intro</h2>
+    
+                                <ul>
+                                    <li>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </li>
+                                    <li>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </article>
+                    </section>
+
+
+                </section>
+            </article>
+        </section>
+
+        <!-- 3-2 동그라미 -->
+        <div class="bg-cir"></div>
+    </article>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    var num=1;
+    $("#home2 li").eq(0).addClass("on");
+
+    setInterval(function(){
+        $("#home2 li").eq(num).addClass("on");
+        
+        setTimeout(function(){
+            $("#home2 li").removeClass("on");
+            num==0? num=1: num=0;
+        },6000)
+    },7000)
+</script>
+</body>
+</html>
