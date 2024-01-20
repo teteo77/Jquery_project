@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,8 +103,8 @@
         /* intro_img_wrap,2 안에 ul에 다 적용 되고 있다. */
         #intro_img_wrap #intro_img_list {margin-top: -150px;}
 
-        #intro_img_list li:nth-child(1) img{ margin-bottom:50px;}
-        #intro_img_list li:nth-child(2) img{ }
+        #intro_img_list li:nth-child(1) img{ margin-bottom:50px; }
+        #intro_img_list li:nth-child(2) img{  }
 
         #intro_img_wrap #intro_img_list2 {margin-left: 50px;}
 
@@ -118,26 +118,26 @@
             box-sizing: border-box; position: relative;}
         
         #intro_img_wrap2 ul img{ position: absolute;}
-        #intro_img_wrap2 ul img:nth-child(1){top:150px;}
-        #intro_img_wrap2 ul img:nth-child(2){top:50px; left:290px;}
-        #intro_img_wrap2 ul img:nth-child(3){top:565px; left:290px;}
+        #intro_img_wrap2 ul img:nth-child(1){top:150px; opacity: 0;}
+        #intro_img_wrap2 ul img:nth-child(2){top:50px; left:290px; opacity: 0;}
+        #intro_img_wrap2 ul img:nth-child(3){top:565px; left:290px; opacity: 0;}
 
         /* 2 ul li 2개 만들어 줘서 첫 슬라이드 이미지 만들어 주기*/
         
             
-
-
-        #intro_img_wrap li.on {}
         /* 이거 수정 */
-        #intro_img_wrap li div { width:200px; height:200px; background:red; }
         /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
         /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
         /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
-        #intro_img_wrap li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
-        #intro_img_wrap li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+
         /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
-        #intro_img_wrap li:nth-child(1).on div {animation:to_left 5s 1 ease forwards;}
-        #intro_img_wrap li:nth-child(2).on div {animation:to_top 5s 1 ease forwards;}
+        #intro_img_wrap #intro_img_list.on.on{animation:to_left 5s 1 ease forwards;}
+        #intro_img_wrap #intro_img_list2.on.on {animation:to_left 5s 1 ease forwards;}
+
+        #intro_img_wrap2 #intro_img_list3.on {animation:to_top 5s 1 ease forwards;}
+
+        /* #intro_img_wrap li:nth-child(1).on  {animation:to_left 5s 1 ease forwards;}
+        #intro_img_wrap li:nth-child(2).on  {animation:to_top 5s 1 ease forwards;} */
         @keyframes to_left {
             0% {transform: translateX(100px); opacity:0}
             5% {transform: translateX(0); opacity:1}
@@ -241,7 +241,18 @@
         footer #footer_wrap #footer_category #f_category_first{font-weight: bold; font-size: 24px;}
 
 
-
+/*  추가항목 */
+		#intro_contents {border:1px solid red; flex:1; height:100%; box-sizing: border-box; position: relative; width:500px; height:500px;}
+        #intro_contents li{ display:none; gap:30px;flex-wrap: wrap;position: absolute; width:100%; height: 100%; align-content: center; justify-content: center;}
+        #intro_contents li.on {display: flex;}
+        #intro_contents li:nth-child(1) div {transform:translateX(100px); opacity:0}
+        #intro_contents li:nth-child(2) div {transform:translateY(100px); opacity:0}
+        #intro_contents li div { width:200px; height:200px; background:red; }
+        #intro_contents li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #intro_contents li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        #intro_contents li:nth-child(1).on div {animation:to_left 5s 1 ease forwards;}
+        #intro_contents li:nth-child(2).on div {animation:to_top 5s 1 ease forwards;}
+        #intro_contents li:nth-child(3).on div {animation:to_left 5s 1 ease forwards;}
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -322,20 +333,19 @@
                                                 <img src="./image/slideimage4.png">
                                             </li>
                                         </ul>
+										<ul id="intro_img_list3">
+											<li>
+												<img src="./image/slideimage5.png">
+											</li>
+											<li>
+												<img src="./image/slideimage6.png">
+											</li>
+											<li>
+												<img src="./image/slideimage7.png">
+											</li>
+										</ul>
                                 </article>
-                                <article id="intro_img_wrap2">
-                                    <ul>
-                                        
-                                            <img src="./image/slideimage5.png">
-                                        
-                                        
-                                            <img src="./image/slideimage6.png">
-                                        
-                                        
-                                            <img src="./image/slideimage7.png">
-                                        
-                                    </ul>
-                                </article>
+
                             </section>
 
 
@@ -466,6 +476,23 @@
             </section>
         </footer>
     </main>
+	<ul id="intro_contents">
+        <li>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </li>
+        <li>
+            <div>2</div>
+            <div>2</div>
+            <div>2</div>
+        </li>
+		<li>
+            <div>3</div>
+            <div>3</div>
+            <div>3</div>
+        </li>
+    </ul>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         let ab_title = $("#about .title .about_txt").offset().top
@@ -612,15 +639,29 @@
     </script>
 
 <script>
-    var num=1;
-    $("#intro_img_wrap li").eq(0).addClass("on");
-
+//    var num=1;
+//    $("#intro_img_wrap #intro_img_list").addClass("on");
+//    $("#intro_img_wrap #intro_img_list2").addClass("on");
+//    setInterval(function(){
+//        $("#intro_img_wrap2 #intro_img_list3").addClass("on");
+//        setTimeout(function(){
+//            $("#intro_img_wrap #intro_img_list").removeClass("on");
+//            $("#intro_img_wrap #intro_img_list2").removeClass("on");
+//            $("#intro_img_wrap2 #intro_img_list3").removeClass("on");
+//            num==0? num=1: num=0;
+//        },6000)
+//    },7000)
+	var num=1;
+    $("#intro_contents li").eq(0).addClass("on");
     setInterval(function(){
-        $("#intro_img_wrap li").eq(num).addClass("on");
-        
+        $("#intro_contents li").eq(num).addClass("on");
         setTimeout(function(){
-            $("#intro_img_wrap li").removeClass("on");
-            num==0? num=1: num=0;
+            $("#intro_contents li").removeClass("on");
+            if(num>2) {
+				num=0;
+			} else {
+				num++;
+			}
         },6000)
     },7000)
 </script>
