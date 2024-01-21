@@ -101,7 +101,8 @@
         #home #intro_img_wrap #intro_img_list{border:1px solid red;  height:106%; box-sizing: border-box;
             display: flex; flex-direction: column; flex-wrap: wrap; margin-top: -150px;  width:800px;
             position: absolute;}
-        
+
+        #intro_img_wrap #intro_img_view {opacity: 0;}
         #intro_img_wrap #intro_img_view img:nth-child(1){ margin-bottom:150px;}
         #intro_img_wrap #intro_img_view img:nth-child(2){ margin-top:150px; margin-left:80px;}
         #intro_img_wrap #intro_img_view img:nth-child(3){ margin-bottom:150px;}
@@ -109,10 +110,11 @@
 
         #intro_img_wrap #intro_img_view2 { border:1px solid red;  height:106%; 
             box-sizing: border-box; width:900px; position: absolute;}
-
-        #intro_img_wrap #intro_img_view2 img:nth-child(1){ position:absolute; }
-        #intro_img_wrap #intro_img_view2 img:nth-child(2){ position:absolute; }
-        #intro_img_wrap #intro_img_view2 img:nth-child(3){ position:absolute; }
+        
+        #intro_img_wrap #intro_img_view2 {opacity: 0;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(1){ position:absolute; top: 150px;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(2){ position:absolute; top: 100px; left: 290px;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(3){ position:absolute; top: 565px; left: 290px;}
 
 
 
@@ -128,14 +130,14 @@
         /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
 
         /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
-        #home #intro_img_wrap li.on.on{animation:to_left 5s 1 ease forwards;}
+        #intro_img_wrap li.on.on{animation:to_left 5s 1 ease forwards;}
         /* #intro_img_wrap #intro_img_list2.on.on {animation:to_left 5s 1 ease forwards;} */
 
         #intro_img_wrap li.on {animation:to_top 5s 1 ease forwards;}
 
         /* #intro_img_wrap li:nth-child(1).on  {animation:to_left 5s 1 ease forwards;}
         #intro_img_wrap li:nth-child(2).on  {animation:to_top 5s 1 ease forwards;} */
-        /* @keyframes to_left {
+        @keyframes to_left {
             0% {transform: translateX(100px); opacity:0}
             5% {transform: translateX(0); opacity:1}
             95% {transform: translateX(0); opacity:1}
@@ -146,7 +148,7 @@
             5% {transform: translateY(0); opacity:1}
             95% {transform: translateY(0); opacity:1}
             100% {transform: translateY(-100px); opacity:0}
-        } */
+        }
 
         
 
