@@ -81,6 +81,12 @@ UI는 그냥 디자인
 
 	http://ctrlcv.kr/sample/
 
+	http://m101.ctrlcv.kr/
+		ㄴ about me 가 마음에 든다
+
+	http://h01.ctrlcv.kr/index.html
+		ㄴ logo가 돌아가는게 맘에듬
+
 	중단점, breakpoint에서
 		ㄴ 포착된 예외에서 실시중지, Pause on caught exception 클릭하면
 		ㄴ paused in debugger 안나온다
