@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스킬(막대그래프) 모션</title>
+    <style>
+        * {margin:0; padding:0; list-style:none;}
+        body {height:3000px;}
+        h1,h2 {padding:20px;text-align: center;}
+        h2 {padding:10px;}
+        .screen_out {display:none;}
+
+        #about_me_wrap { width: 100%; height:490px; margin: 700px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: center;
+            justify-content: center; gap:50px; border:1px solid red; box-sizing: border-box; border-radius: 5px; overflow: hidden; }
+        
+        /* #profile {margin-bottom: -50px;} */
+
+        #skill {max-width:400px;}
+        #about_me_wrap>#profile,#history,#character  {margin-bottom: 15.50px;}
+        #about_me_wrap>article>h3 { border: 1px solid red; height: 50px; margin-bottom:10px;font-size: 40px; background: #89CFF0; }
+        
+        /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
+
+        #skill span { display:block;height: 10px;position: absolute;border-radius: 20px; }
+
+        #skill li { height:51px;position: relative; width:400px;}
+        #skill li>span {font-weight: bold;color:#333; width:calc(100% - 110px); right:0;top:8px;background:#eee;}
+        #skill li>span>span { text-indent: -999px;overflow: hidden; background:#666; width:1px;transition: ease all .3s; width:400px; }
+        #skill li:nth-of-type(1)>span>span{transition-delay: 0;}
+        #skill li:nth-of-type(2)>span>span{transition-delay: 50ms;}
+        #skill li:nth-of-type(3)>span>span{transition-delay: 100ms;}
+        #skill li:nth-of-type(4)>span>span{transition-delay: 150ms;}
+        #skill li:nth-of-type(5)>span>span{transition-delay: 200ms;}
+        #skill li:nth-of-type(6)>span>span{transition-delay: 250ms;}
+        #skill li:nth-of-type(7)>span>span{transition-delay: 300ms;}
+        #skill li:nth-of-type(8)>span>span{transition-delay: 350ms;}
+        #skill li:nth-of-type(9)>span>span{transition-delay: 400ms;}
+        #skill li:nth-of-type(10)>span>span{transition-delay: 450ms;}
+    </style>
+</head>
+<body>
+<h1>스킬(막대그래프) 모션</h1> 
+<section id="about_me_wrap">
+    <h2 class="screen_out">Skill</h2>
+    <img src="./img/testimg.jpg">
+    <article id="profile">
+        <h3>Profile</h3>
+        <ul>
+            <li>김민수</li>
+            <li>00.00.00</li>
+            <li>000-0000-0000</li>
+        </ul>
+    </article>
+    <article id="history">
+        <h3>History</h3>
+        <ul>
+            <li>html/css/javascript입문</li>
+            <li>Jquery입문</li>
+            <li>react입문</li>
+            <li>Jquery 반응형웹 사이트 NCS과정 수료</li>
+        </ul>
+    </article>
+    <article id="character">
+        <h3>Character</h3>
+        <ul>
+            <li>꾸준함</li>
+            <li>책임감</li>
+            <li>계획적</li>
+            <li>진취적</li>
+        </ul>
+    </article>
+    <article id="skill">
+        <h3>Skill</h3>
+        <ul>
+            <li>HTML<span><span> : 85%</span></span></li>
+            <li>CSS<span><span> : 90%</span></span></li>
+            <li>Javascript<span><span> : 80%</span></span></li>
+            <li>jQuery<span><span> : 75%</span></span></li>
+        </ul>
+    </article>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // 능력치 표현
+    function skill() {
+        $("#skill span span").each(function(index,item){
+            var per = $(item).text().slice(3);
+            // console.log(per);
+            $(item).width(per);
+        })
+    }
+
+    // 버튼으로 적용시
+    var skill_on = false;
+    $("button").click(function(){
+        if(skill_on) {
+            $("#skill span span").width(0);
+            skill_on = false;
+        } else {
+            skill();
+            skill_on = true;
+        }
+    })
+
+    // 스크롤 입장시 표현
+    var skill_top = $("#skill").offset().top;
+    var skill_start = skill_top - ($(window).height()*0.7);
+    var skill_end = skill_top + ($(window).height()*0.1);
+    $(window).scroll(function(){
+        var t = $(this).scrollTop();
+        // console.log(t);
+        if(t > skill_start && t < skill_end) {
+            skill();
+        } else {
+            $("#skill span span").width(0);
+        }
+    });
+</script>
+</body>
+</html>
