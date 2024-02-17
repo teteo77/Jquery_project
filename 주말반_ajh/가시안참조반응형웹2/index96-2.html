@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --Black1: #141414;
+            --Grey1: #f8f8f8;
+            --Grey2: #cacaca;
+            --Grey3: #606060;
+            --Grey4: #b8c8d1;
+            --Grey5: #a9b2b7;
+            --Blue1: #3bc3ff;
+            --Blue2: #d4e9f8;
+            --Blue3: #f5f9fa;
+            --Blue4: #b9e0f3;
+        }
+        *{margin:0; padding:0; border: 0;font-size: 100%; vertical-align: baseline; list-style: none;}
+        .screen_out{display: none;}
+
+        @font-face { font-family: 'Pretendard_t'; src: url('./font/Oligopoly_Thin.ttf');}
+        header {width:100%; height:80px; position:fixed; z-index: 50; border-bottom:1px solid #E4E4E4; box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.04);}
+        header nav{display: flex; margin:auto; height: 100%; align-items: center; justify-content: flex-end; margin-right:50px; }
+        header nav ul{ display:flex; }
+        header nav li{ display:flex; }
+        header nav li a{padding:10px; text-decoration: none; color:#616161; font-size: 19px; font-family:'Pretendard_t';}
+
+        /* #home{background-color:orange; height:100vh; padding:80px;} */
+
+        /* id="main" */
+        /* #home{width: 100%; overflow: hidden;} */
+        main { width: 100%; overflow: hidden; }
+    
+
+        #home{height:145vh; width: 100%; overflow: hidden; box-sizing: border-box;}
+
+        /* .bg-gradient {height: 931px;} */
+
+        #home_bg_wrap { width: 100%; height: 100%; position: relative;}
+
+        /* 2 svg line animation 추가 */
+        #home_bg_wrap svg line{ 
+            stroke:#ccc; stroke-width:1;
+            stroke-dasharray: 4500;
+            stroke-dashoffset: 4500;
+            animation: draw-line 5s linear;
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+        }
+            /* 1 html에 있는 style을 line으로 이동 */
+        #home_bg_outline {width: 100%; height: 100%; padding: 0 50px; box-sizing: border-box; position: fixed;
+            top: 0; left: 0; pointer-events: none; z-index: -50;}
+        /* #home_bg_outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
+            top: 0; left: 0; pointer-events: none;} */
+        #home_bg_outline .outline { width: 100%; height: 100%; position: absolute; z-index: 0;}
+        /* .bg-outline .outline { width: 100%; height: 100%; z-index: 0;} */
+
+        #home_bg_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; position: relative;}
+        /* .content_inner { width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; } */
+        /* .content_inner svg line{stroke:#ccc;stroke-width:1} */
+            /* 1 html에 있는 style을 line으로 이동 */
+
+        /* .bg-outline .outline line {stroke-dasharray: 4500;stroke-dashoffset: 4500;animation: draw-line 5s linear;
+        animation-delay: 0.3s; animation-fill-mode: forwards;} */
+
+        .bg-cir{ position: absolute; border-radius: 50%; z-index: 1; left: 26.4062%; top: 13.6017%;
+            border: 1px solid rgb(77, 152, 240); height: 18px; width: 18px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+            transition: margin-left 3s, margin-top 3s;}
+            
+        .bg-cir:hover{ margin-left:50px; margin-top:50px; }
+
+        .bg-cir2{ position: absolute; border-radius: 50%; z-index: 1; left: 47%; top: 25%;
+        background: rgb(231, 57, 48); height: 24px; width: 24px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+
+        .bg-cir3{ position: absolute; border-radius: 50%; z-index: 1; left: 38%; top: 79%;
+        background: rgb(211, 214, 85); height: 28px; width: 28px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+
+        .bg-cir4{ position: absolute; border-radius: 50%; z-index: 1; left: 81%; top: 12%;
+        background: rgb(203, 136, 234); height: 14px; width: 14px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+
+        .bg-cir5{ position: absolute; border-radius: 50%; z-index: 1; left: 68%; top: 61%;
+        background: rgb(203, 136, 234); height: 14px; width: 14px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+
+        .bg-cir6{ position: absolute; border-radius: 50%; z-index: 1; left: 6%; top: 77%;
+        border:1px solid rgb(235, 167, 87); height: 25px; width: 25px; /* transform: translate3d(-3.8697px, -0.7786px, 0px); */
+        transition: margin-left 3s, margin-top 3s;}
+        
+        #home #home_wrap{width:100%; height:100vh; display: flex; position:relative;}
+            @keyframes draw-line{
+            100%{stroke-dashoffset: 0;}
+        }
+        /* class="main_content content_container" ㄱ */
+        #home #intro {width:100%; height:100%;}
+        /* main visual content_wrap */
+        #home #intro #intro_wrap {height:100%; padding: 0 50px; box-sizing: border-box;}
+        /* content_inner */
+        #home #intro #intro_content {width:100%; max-width:1280px; height:100%; margin:auto; position:relative;}
+        /* visual-text */
+        #home #intro #intro_visualtxt {width:100%; height:100%; display:flex; align-items: center; height: 931px;}
+        @font-face { font-family: 'Regular'; src: url('./font/Oligopoly-OTF/Oligopoly\ Regular.otf'); }
+        #home #intro #intro_visualtxt dt{font: 700 74px/0.8 'Regular'; color: #000; letter-spacing: -0.025em; margin-bottom: 24px;}
+        @font-face { font-family: 'Pretendard'; src: url('./font/PretendardVariable.ttf');}
+        #home #intro #intro_visualtxt dd{font: normal 21px/1.3 'Pretendard'; color: #616161; letter-spacing: -0.025em; margin-bottom: 60px; position: relative; top: 50px; /* opacity: 0; */}
+        
+        .word_roll {line-height: 50px;  font-size: 30px; font-weight: bold; display: flex; height:50px; overflow: hidden;}
+        .word_roll>span {animation:word_roll 10s infinite ease; margin-left:15px;}
+        .word_roll>span span {display:block; line-height: 50px;}
+        @keyframes word_roll {
+            0% {transform: translateY(0)}
+            23% {transform: translateY(0)}            
+            25% {transform: translateY(-100%)}            
+            48% {transform: translateY(-100%)}            
+            50% {transform: translateY(-200%)}            
+            73% {transform: translateY(-200%)}            
+            75% {transform: translateY(-300%)}            
+            98% {transform: translateY(-300%)}            
+            100% {transform: translateY(-400%)}
+        }
+        
+
+
+        /* class="visual-img_wrap visual-slide1" */
+        #home #intro_img {opacity:1; display:flex; top:21%; left:50%; position:absolute;}
+
+        /* class="visual-img_list" */
+        /* 수정 해야할 부분========================================== */
+        #intro_img #intro_img_wrap{height:100vh; margin:auto; max-width:1300px; 
+            align-items: center; position: absolute; display: flex;}
+
+        #home #intro_img_wrap #intro_img_list{  height:106%; box-sizing: border-box;
+            display: flex; flex-direction: column; flex-wrap: wrap; margin-top: -150px;  width:800px;
+            position: absolute;}
+
+        #intro_img_wrap #intro_img_view { list-style:none; }
+        #intro_img_wrap #intro_img_view img{box-shadow: 20px 20px 40px rgba(0,0,0,0.25);}
+        #intro_img_wrap #intro_img_view img:nth-child(1){ margin-bottom:75px;} 
+        #intro_img_wrap #intro_img_view img:nth-child(2){ margin-top:75px; margin-left:80px; }
+        #intro_img_wrap #intro_img_view img:nth-child(3){ margin-bottom:150px;}
+        #intro_img_wrap #intro_img_view img:nth-child(4){ margin-left:80px; margin-bottom:80px;}
+
+        #intro_img_wrap #intro_img_view2 {height:106%; 
+            box-sizing: border-box; width:900px; position: absolute;}
+        
+        #intro_img_wrap #intro_img_view2 {opacity: 0; list-style:none;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(1){ position:absolute; top: 150px;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(2){ position:absolute; top: 100px; left: 290px;}
+        #intro_img_wrap #intro_img_view2 img:nth-child(3){ position:absolute; top: 565px; left: 290px;}
+
+
+
+        
+
+
+        /* 2 ul li 2개 만들어 줘서 첫 슬라이드 이미지 만들어 주기*/
+        
+            
+        /* 이거 수정 */
+        /* on.on을 준거는 구체성을 준거다(우선순위 때문에 on.on을 줘서 우선순위를 높혀준다.) */
+        /* DOM Level을 보면 자식 요소 인게 구체성이 더 있는거 같다. */
+        /* https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model */
+
+        /* 22줄 23번줄이 우선순위가 겹친다 그래서19,20번 줄을 on을 두개 준다 */
+        #intro_img_wrap li.on.on{animation:to_left 5s 1 ease forwards;}
+        #intro_img_wrap li.on {animation:to_top 5s 1 ease forwards;}
+
+        /* @keyframes to_left {
+            0% {transform: translateX(100px); opacity:0}
+            5% {transform: translateX(0); opacity:1}
+            95% {transform: translateX(0); opacity:1}
+            100% {transform: translateX(-100px); opacity:0}
+        }
+        @keyframes to_top {
+            0% {transform: translateY(100px); opacity:0}
+            5% {transform: translateY(0); opacity:1}
+            95% {transform: translateY(0); opacity:1}
+            100% {transform: translateY(-100px); opacity:0}
+        } */
+
+        
+
+        
+        
+        /* #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
+        #home #portfolio{} */
+        /* #about {height:500px; padding:225px;} */
+
+        #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
+
+        section .title h2.main-txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
+        section .title p.sub-txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub-txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 80px 0px 80px 0px; overflow: visible;}
+
+        section .title h2.about_txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none; position: relative;}
+        section .title p.sub_txt::before { content: ''; display: block; width: 100px; height: 4px;
+            background-color: #2828b5; position: absolute; top: 12px; left: 0;}
+        section .title p.sub_txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
+
+        #about_me_wrap { width: 26.50%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms}
+        /* #about_me_wrap { width: 95%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms} */
+
+        #about_me_wrap>img{ border-radius: 23px; height:700px; position: absolute; z-index: 10;}
+
+        
+        #about_me_wrap>#profile,#history,#Hobby { margin: 0px 0px 15.50px 0; color:#262626;}
+        #about_me_wrap>article>ul>li{color:#ffbb35; font-weight: bold; margin:10px 0px 10px 10px; }
+        #about_me_wrap>article>h3 { height: 50px; margin-bottom:10px; font-size: 40px; background: #ffbb35; }
+        
+        /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
+
+        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:140px;}
+        #skill h3 { color:#262626; }
+        #skill li { position: relative; width: 400px; color:#ffbb35 ; margin:34px 0px !important; }
+
+        #skill span { display:block; height: 10px; position: absolute; border-radius: 20px; }
+        #skill li>span {font-weight: bold;color:#333; width:calc(100% - 110px); right:0;top:8px;background:#eee;}
+        #skill li>span>span { text-indent: -999px;overflow: hidden; background:#666; width:1px;transition: ease all .3s; width:300px; }
+        #skill li:nth-of-type(1)>span>span{transition-delay: 1770ms;}
+        #skill li:nth-of-type(2)>span>span{transition-delay: 1830ms;}
+        #skill li:nth-of-type(3)>span>span{transition-delay: 1880ms;}
+        #skill li:nth-of-type(4)>span>span{transition-delay: 1930ms;}
+        #skill li:nth-of-type(5)>span>span{transition-delay: 1980ms;}
+        #skill li:nth-of-type(6)>span>span{transition-delay: 2230ms;}
+        #skill li:nth-of-type(7)>span>span{transition-delay: 2280ms;}
+        #skill li:nth-of-type(8)>span>span{transition-delay: 2330ms;}
+        #skill li:nth-of-type(9)>span>span{transition-delay: 2380ms;}
+        #skill li:nth-of-type(10)>span>span{transition-delay: 2430ms;}
+
+        #about #about_wrap {padding: 0px 0 240px 0;}
+
+
+        /* #about #about_wrap h3 { width:50px;height: 50px; padding-left:50px; position: relative; top:90px; font-size: 40px; background: #ffbb35; color:#262626;} */
+        #about #about_wrap h3 { width:50px;height: 50px; padding-left:14px; position: relative; top:90px; font-size: 40px; background: #ffbb35; color:#262626;}
+
+        #about #about_wrap figure .about_hatch.top {top: -50px;left: 0;}
+        #about #about_wrap figure .about_hatch {position: absolute; width: 45%; height: 120px;background-image: 
+            linear-gradient(45deg, transparent 45%, #161313 50%, transparent 55%, transparent 100%); opacity: .3; background-size: 10px 10px; background-position: 4px 4px;}
+
+        #about #about_wrap figure {position:relative; margin-top:140px;}
+        #about #about_wrap figure img {display: inline-block; width: 68%; position: relative}
+
+        @keyframes slide {
+            from { top: 300px; opacity: 0; }
+            to { top: 0px; opacity: 1; }
+        }
+
+        @keyframes hide {
+            from {top: 0px; opacity:1;}
+            to {top: 300px; opacity: 0;}
+        }
+
+        #about #about_wrap figcaption {width: 48%;}
+        #about #about_wrap .about_left figcaption {position: absolute; top: 70%; right: 0;}
+        #about #about_wrap figcaption .txt_box {background-color: #fff; padding: 24px 32px; position: relative;}
+        #about #about_wrap figcaption .txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;}
+        #about #about_wrap figcaption .txt_box dd {font-size: 1rem; line-height: 1.3rem;}
+
+        #about #about_wrap .about_right {text-align: right;}
+        #about #about_wrap .about_right figcaption {position: absolute; top: 70%; left: 0;}
+        /* #section01 .contents figcaption dl.txt_box { background-color: #fff; padding: 24px 32px;}
+        #section01 .contents figcaption dl.txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
+
+        .about_hatch.bottom { bottom: -80px; right: 0;}
+        
+        #mail_wrap { background: var(--Grey1); }
+        #mail_wrap #mail { max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 150px; }
+        @media (max-width:1300px){
+            #mail_wrap #mail{ max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 50px; }
+        }
+        #mail #mail_contacts { width: 500px; }
+        #mail #mail_contacts h2 { font-size: 50px;  font-family: "Noto Sans KR";}
+        /*하나하나 속성 곱씹어 보기 */
+        #mail #mail_contacts p { border: 2px solid var(--Grey2); height: 100px; padding: 20px 25px 0; margin-bottom: 50px; 
+            font-weight: 500; color: rgba(20, 20, 20, 0.7); box-sizing: border-box; font-family: "Noto Sans KR";}
+        #mail h2 { font-size: 48px; margin-bottom: 30px; font-weight: bold; padding-top: 50px; }
+        #mail span { color: var(--Black1); display: block; font-size: 24px; font-weight: 500; margin-bottom: 5px; }
+        /* .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기 */
+        #mail #sendemail_wrap { width: 500px; background: var(--Blue2); padding: 50px; text-align: center; 
+            box-sizing: border-box;}
+        #mail #sendemail { outline: none; border: none; }
+        #mail #sendemail legend { display: none; }
+        /* 다시보기 */
+        #mail #sendemail textarea { border: none; border-bottom: 2px solid var(--Grey4); width: 100%; height: 50px; font-size: 20px;
+            background: none; margin-bottom: 10px; outline: none; transition: ease all 0.3s; border-radius: 0; font-family: "Noto Sans KR";}
+        /* 다시보기 */
+        #mail #sendemail #message { font-size: 20px; width: 100%; height: 250px; background: none; border: none;
+            border-bottom: 2px solid var(--Grey4); padding: 15px 0; margin-bottom: 30px; resize: none; outline: none;}
+        /* 다시보기 */
+        #mail #sendemail button { width: 100%; height: 70px; border-radius: 10px; border: none; background: var(--Blue4);
+            font-size: 20px; cursor: pointer; box-shadow: 0 0 0 0 transparent; transition: ease all 0.3s; color: var(--Grey3);
+            font-family: "Noto Sans KR";}
+
+        /* footer {position: relative; background: orange; height: auto;} */
+        footer {position: relative; background: #1D1D1D; color:#FFFFFF; font-weight: 600;}
+        footer #footer_wrap{display: flex;justify-content:space-between; align-items: flex-start;
+            padding: 52px 84px; max-width: 1368px;}
+        footer #footer_wrap #footer_category{display: flex; gap:50px; margin-bottom: 37px; align-items: end;}
+        footer #footer_wrap #footer_category #f_category_first{font-weight: bold; font-size: 24px;}
+        
+        footer #footer_right #footer_right_wrap ul { width:50px;  display: flex; list-style: none;}
+        footer #footer_right #footer_right_wrap ul li { padding: 0 10px; }
+
+
+ /* 추가항목
+		#intro_contents {border:1px solid red; flex:1; height:100%; box-sizing: border-box; position: relative; width:500px; height:500px;}
+        #intro_contents li{ display:none; gap:30px;flex-wrap: wrap;position: absolute; width:100%; height: 100%; align-content: center; justify-content: center;}
+        #intro_contents li.on {display: flex;}
+        #intro_contents li:nth-child(1) div {transform:translateX(100px); opacity:0}
+        #intro_contents li:nth-child(2) div {transform:translateY(100px); opacity:0}
+        #intro_contents li div { width:200px; height:200px; background:red; }
+        #intro_contents li.on.on div:nth-child(2) {background:orange; animation-delay: 100ms;}
+        #intro_contents li.on.on div:nth-child(3) {background:green; animation-delay: 200ms;}
+        #intro_contents li:nth-child(1).on div {animation:to_left 5s 1 ease forwards;}
+        #intro_contents li:nth-child(2).on div {animation:to_top 5s 1 ease forwards;}
+        #intro_contents li:nth-child(3).on div {animation:to_left 5s 1 ease forwards;} */
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="screen_out"><a href="#">김민수 포트폴리오 사이트</a></h1>
+        <h2 class="screen_out">메인서비스</h2>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="menu">
+            <h2 class="screen_out">home</h2>
+            <!-- 배경 -->
+            <article id="home_bg_outline">
+                <!--배경 선-->
+                <section id="home_bg_wrap">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                    <svg class="outline">
+                        <line x1="0" y1="0" x2="0" y2="100%"></line>
+                        <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                    </svg>
+                    <!--배경 선-->
+                    <article id="home_bg_inner">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="outline"> -->
+                        <svg class="outline">
+                            <line x1="0" y1="0" x2="0" y2="100%"></line>
+                            <line x1="100%" y1="0" x2="100%" y2="100%"></line>
+                        </svg>
+                    </article>
+                </section>
+            </article>
+
+
+
+            <article id="home_wrap">
+                <section id="intro">
+                    <article id="intro_wrap">
+                        <section id="intro_content">
+                            <article id="intro_visualtxt">
+                                <dl>
+                                    <!-- <dt><span class="slide-txt1">안녕하세요</span></dt>
+                                    <dt><span class="slide-txt2">잘 부탁 드립니다!</span></dt> -->
+                                    <dt><span class="slide-txt1">AN JI HYOCK</span></dt>
+                                    <dt><span class="slide-txt2">PORTFOLIO</span></dt>
+                                    <dd>안녕하세요<br><p class="word_roll">저는 <span><span>성장하는</span><span>부지런한</span><span>끊기있는</span><span>노력하는</span></span> 안지혁 입니다 !</p></dd>
+                                </dl>
+                            </article>
+                            <section id="intro_img">
+                                <h2 class="screen_out">Intro</h2>
+                                <article id="intro_img_wrap">
+                                        <ul id="intro_img_list">
+                                            <li id="intro_img_view">
+                                                <img src="./image/slideimage1.png">
+                                                <img src="./image/slideimage2.png">
+                                                <img src="./image/slideimage3.png">
+                                                <img src="./image/slideimage4.png">
+                                            </li>
+                                            <!-- <li id="intro_img_view2">
+                                                <img src="./image/slideimage5.png">
+                                                <img src="./image/slideimage6.png">
+                                                <img src="./image/slideimage7.png">
+                                            </li> -->
+										</ul>
+                                </article>
+                            </section>
+                        </section>
+                    </article>
+                </section>
+
+                <!-- 3-2 동그라미 -->
+                <div class="bg-cir"></div>
+                <div class="bg-cir2"></div>
+                <div class="bg-cir3"></div>
+                <div class="bg-cir4"></div>
+                <div class="bg-cir5"></div>
+                <div class="bg-cir6"></div>
+            </article>
+        </section>
+
+        <section id="about" class="menu">
+            <div class="title">
+                <h2 class="about_txt">
+                    퍼블리셔 프론트 엔드
+                    <br>업무를 희망하고 있습니다!
+                </h2>
+                <p class="sub_txt">항상 현재에 안주하지 않고 끊임없이 연구 합니다</p>
+            </div>
+            <section id="about_me_wrap">
+                <h2 class="screen_out">Skill</h2>
+                <img src="./image/testimg.jpg">
+                <article id="profile">
+                    <h3>Profile</h3>
+                    <ul>
+                        <li>안지혁</li>
+                        <li>96.01.31</li>
+                        <li>010-9921-7688</li>
+                    </ul>
+                </article>
+                <article id="history">
+                    <h3>History</h3>
+                    <ul>
+                        <li>html/css/javascript</li>
+                        <li>Jquery</li>
+                        <li>react입문</li>
+                        <li>Jquery 반응형웹 사이트 NCS과정 수료</li>
+                    </ul>
+                </article>
+                <article id="Hobby">
+                    <h3>Hobby</h3>
+                    <ul>
+                        <li>운동</li>
+                        <li>영화</li>
+                        <li>스포츠</li>
+                        <li></li>
+                    </ul>
+                </article>
+                <article id="skill">
+                    <h3>Skill</h3>
+                    <ul>
+                        <li>HTML<span><span> : 85%</span></span></li>
+                        <li>CSS<span><span> : 90%</span></span></li>
+                        <li>Javascript<span><span> : 80%</span></span></li>
+                        <li>Jquery<span><span> : 75%</span></span></li>
+                        <li>Github<span><span> : 80%</span></span></li>
+                        <li>React<span><span> : 30%</span></span></li>
+                    </ul>
+                </article>
+            </section>
+        
+            <div id="about_wrap">
+                <h3>Character</h2>
+                <figure class="about_left">
+                    <div class="about_hatch top"></div>
+                    <img src="image/plan.png">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>계획적</dt>
+                            <dd>목표에 맞게 계획을 세웁니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_right">
+                    <img src="image/enterprising.png">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>진취적</dt>
+                            <dd>목표를 설정하고 업무 기술을 계속해서 습득합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <figure class="about_left">
+                    <img src="image/jq-long.png">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>꾸준함</dt>
+                            <dd>기술을 끊임없이 탐색 합니다.</dd>
+                        </dl>
+                    </figcaption>
+                </figure>
+        
+                <!-- <figure class="about_right">
+                    <div class="about_hatch bottom"></div>
+                    <img src="image/image4.jpg">
+                    <figcaption>
+                        <dl class="txt_box">
+                            <dt>이 슬라이드는 지울까 넣을까</dt>
+                            <dd>이 슬라이드는 지울까 넣을까</dd>
+                        </dl>
+                    </figcaption>
+                </figure> -->
+            </div>
+        </section>
+
+        <section id="mail_wrap" class="menu">
+            <article id="mail">
+              <!-- <section id="portfolio_wrap"> -->
+              <article id="mail_contacts">
+                <h2>CONTACTS</h2>
+                <p>
+                  <span>ADDRESS</span>
+                  Republic of Korea, Seoul
+                </p>
+                <p>
+                  <span>EMAIL</span>
+                  teteocom@naver.com
+                </p>
+                <p>
+                  <span>Thank you for visit</span>
+                  제 포트폴리오를 봐주셔서 감사합니다
+                </p>
+              </article>
+              <!-- .cont_frame .cont_area 레퍼런스 사이트에서 이렇게 쓰고 있던데 다시 보기  -->
+              <form id="sendemail_wrap">
+                <fieldset id="sendemail">
+                  <legend class="screen_out">이메일 보내기</legend>
+                  <!-- <span class="screen_out">성명</span> -->
+                  <textarea type="text" placeholder="your name"></textarea>
+                  <!-- <span class="screen_out">이메일 주소</span>  -->
+                  <textarea type="text" placeholder="your email"></textarea>
+                  <!-- <span class="screen_out">내용</span> -->
+                  <textarea
+                    type="text"
+                    placeholder="your message"
+                    id="message"
+                  ></textarea>
+                  <button>기능이 작동하지 않으므로 전화, 문자메세지로 연락 주시면 감사하겠습니다</button>
+                </fieldset>
+              </form>
+              <!-- </section> -->
+            </article>
+          </section>
+
+        <footer>
+            <section id="footer_wrap">
+                <section id="footer_left">
+                    <p>
+                        상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.
+                        <br />일부 폰트 등은 그 출처가 따로 있음을 밝힙니다.
+                    </p>
+                    <address>Copyright &copy;2023 AJH. ALL rights reserved.</address>
+                </section>
+                <section id="footer_right">
+                    <article id="footer_right_wrap">
+                        <ul>
+                            <!-- <li><a href="#">아이콘 넣기</i></a></li> -->
+                            <li><i class="fa-regular fa-envelope fa-xl"></i></li>
+                            <li><i class="fa-solid fa-phone"></i></li>
+                            
+                        </ul>
+                    </article>
+                </section>
+            </section>
+        </footer>
+    </main>
+	<!-- <ul id="intro_contents">
+        <li>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </li>
+        <li>
+            <div>2</div>
+            <div>2</div>
+            <div>2</div>
+        </li>
+		<li>
+            <div>3</div>
+            <div>3</div>
+            <div>3</div>
+        </li>
+    </ul> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(".word_roll>span").append($(".word_roll>span>span").eq(0).clone());
+    </script>
+    <script>
+        let ab_title = $("#about .title .about_txt").offset().top
+        let ab_sub_txt = $("#about .title .sub_txt").offset().top
+        let al_index = $("#about_wrap .about_left").eq(0).offset().top
+
+        // console.log('al_index-heihgt',al_index-($(window).height()*0.7))
+
+        let al_index2 = $("#about_wrap .about_left").eq(1).offset().top
+        let ar_index = $("#about_wrap .about_right").eq(0).offset().top
+
+
+        // let ar_index2 = $("#about_wrap .about_right").eq(1).offset().top
+        // console.log("ar_index2:"+ ar_index2)
+
+
+
+
+        $(window).scroll(function() {
+            let value = $(this).scrollTop();
+            // console.log(value)
+
+            if(ab_title-($(window).height()*1.0)< value){
+                $("#about .title .about_txt").css('animation', 'slide 1.2s ease-out forwards')
+            }
+
+            if(ab_sub_txt-($(window).height()*0.9)< value){
+                $("#about .title .sub_txt").css('animation', 'slide 1.2s ease-out forwards')
+            }
+            
+
+            if ((al_index-($(window).height()*0.9)) < value) {
+                $('.about_left img').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+            if ((al_index-($(window).height()*0.74)) < value) {
+                $('.about_left .txt_box').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+            if ((al_index2-($(window).height()*1.0)) < value) {
+                $('.about_left img').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+
+            if ((al_index2-($(window).height()*0.74)) < value) {
+                $('.about_left .txt_box').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+            if ((ar_index-($(window).height()*0.9)) < value) {
+                $('.about_right img').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+            if ((ar_index-($(window).height()*0.74)) < value) {
+                $('.about_right .txt_box').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            }
+
+            // if ((ar_index2-($(window).height()*0.9)) < value) {
+            //     $('.about_right img').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            // } else {
+            //     $('.about_right img').eq(1).css('animation', 'hide 2s ease-out forwards');
+            // }
+
+            // if ((ar_index2-($(window).height()*0.74)) < value) {
+            //     $('.about_right .txt_box').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            // } else {
+            //     $('.about_right .txt_box').eq(1).css('animation', 'hide 2s ease-out forwards');
+            // }
+
+            // if (al_index2 < value) {
+            //     $('.about_left').eq(1).css('animation', 'hide 2s ease-out forwards');
+            // } else {
+            //     $('.about_left').eq(1).css('animation', 'slide 1.2s ease-out forwards');
+            // }
+        });
+    </script>
+    <script>
+            // let b_title = $("#about .title .about_txt").offset().top
+
+            // if ((ar_index-($(window).height()*0.74)) < value) {
+            //     $('.about_right .txt_box').eq(0).css('animation', 'slide 1.2s ease-out forwards');
+            // } else {
+            //     $('.about_right .txt_box').eq(0).css('animation', 'hide 2s ease-out forwards');
+            // }
+
+            let about_me_wrap = $("#about_me_wrap").offset().top
+            console.log("어바웃미랩 높이"+about_me_wrap)
+            
+            $(window).scroll(function (){
+                let value = $(window).scrollTop();
+            
+                if ((about_me_wrap-($(window).height()*1.0)) < value) {
+                    $('#about_me_wrap').css('animation', 'slide 1.2s ease-out forwards');
+                    $('#about_me_wrap').css('width', '95%');
+                }
+
+            })
+
+            function skill() {
+            $("#skill span span").each(function(index, item){
+                var per = $(item).text().slice(3);
+                // console.log(per);
+                $(item).width(per);
+            })
+        }
+
+        var skill_top = $("#skill").offset().top;
+        var skill_start = skill_top - ($(window).height()*0.7);
+        var skill_end = skill_top + ($(window).height()*0.1);
+        $(window).scroll(function(){
+            var t = $(this).scrollTop();
+            // console.log(t);
+            if(t < skill_end) {
+                skill();
+            }
+        });
+        
+    </script>
+
+    <script>
+      $("nav li").click(function () {
+        var menu = $("nav li").index(this);
+        var move = $(".menu").eq(menu).offset().top;
+
+        $("html").animate(
+          {
+            scrollTop: move,
+          },
+          500
+        );
+        return false;
+      });
+
+              // 스크롤이벤트
+      $(window).scroll(function () {
+        var h = $(window).height() / 2; //화면높이의 반
+        var menu2 = $(".menu").eq(1).offset().top - h;
+        var menu3 = $(".menu").eq(2).offset().top - h;
+      });
+    </script>
+
+
+    <script>
+        // 3-3 동그라미 움직이기 위한 함수 추가
+        // setInterval(function() {
+        //     let num = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num2 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir").css("margin-left", num+"px");
+        //     $(".bg-cir").css("margin-top", num2+"px");
+        // }, 2000);
+        // setInterval(function() {
+        //     let num3 = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num4 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir2").css("margin-left", num3+"px");
+        //     $(".bg-cir2").css("margin-top", num4+"px");
+        // }, 2000);
+        // setInterval(function() {
+        //     let num5 = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num6 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir3").css("margin-left", num5+"px");
+        //     $(".bg-cir3").css("margin-top", num6+"px");
+        // }, 2000);
+        // setInterval(function() {
+        //     let num7 = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num8 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir4").css("margin-left", num7+"px");
+        //     $(".bg-cir4").css("margin-top", num8+"px");
+        // }, 2000);
+        // setInterval(function() {
+        //     let num9 = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num10 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir5").css("margin-left", num9+"px");
+        //     $(".bg-cir5").css("margin-top", num10+"px");
+        // }, 2000);
+        // setInterval(function() {
+        //     let num11 = Math.floor(Math.random() * 23); // 0에서 9까지의 랜덤한 정수
+        //     let num12 = Math.floor(Math.random() * 23);
+        //     $(".bg-cir6").css("margin-left", num11+"px");
+        //     $(".bg-cir6").css("margin-top", num12+"px");
+        // }, 2000);
+    </script>
+
+<script>
+//    var num=1;
+//    $("#intro_img_wrap #intro_img_list").addClass("on");
+//    $("#intro_img_wrap #intro_img_list2").addClass("on");
+//    setInterval(function(){
+//        $("#intro_img_wrap2 #intro_img_list3").addClass("on");
+//        setTimeout(function(){
+//            $("#intro_img_wrap #intro_img_list").removeClass("on");
+//            $("#intro_img_wrap #intro_img_list2").removeClass("on");
+//            $("#intro_img_wrap2 #intro_img_list3").removeClass("on");
+//            num==0? num=1: num=0;
+//        },6000)
+//    },7000)
+	var num=1;
+    $("#intro_img_wrap li").eq(0).addClass("on");
+    setInterval(function(){
+        $("#intro_img_wrap li").eq(num).addClass("on");
+        setTimeout(function(){
+            $("#intro_img_wrap li").removeClass("on");
+            num==0? num=1: num=0;
+            // if(num>2) {
+			// 	num=0;
+			// } else {
+			// 	num++;
+			// }
+        },6000)
+    },7000)
+</script>
+    
+</body>
+</html>

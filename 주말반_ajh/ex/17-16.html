@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스킬(막대그래프) 모션</title>
+    <style>
+        * {margin:0; padding:0; list-style:none;}
+        body {height:3000px;}
+        h1,h2 {padding:20px;text-align: center;}
+        h2 {padding:10px;}
+        .screen_out {display:none;}
+
+        @keyframes slide {
+            from { top: 300px; opacity: 0; }
+            to { top: 0px; opacity: 1; }
+        }
+
+        @keyframes hide {
+            from {top: 0px; opacity:1;}
+            to {top: 300px; opacity: 0;}
+        }
+        #about_me_wrap { width: 27.50%; height:700px; margin: 800px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms}
+        /* #about_me_wrap { width: 75%; height:700px; margin: 800px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; } */
+
+        #about_me_wrap>img{ border-radius: 23px; height:700px; position: absolute; }
+
+        
+        #about_me_wrap>#profile,#history,#Hobby { margin: 0px 0px 15.50px 0; color:#262626;}
+        #about_me_wrap>article>ul>li{color:#ffbb35; font-weight: bold; margin:10px 0px 10px 10px; }
+        #about_me_wrap>article>h3 { height: 50px; margin-bottom:10px; font-size: 40px; background: #ffbb35; }
+        
+        /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
+
+        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:140px;}
+        #skill h3 { color:#262626; }
+        #skill li { position: relative; width: 400px; color:#ffbb35 ; margin:34px 0px !important; }
+
+        #skill span { display:block; height: 10px; position: absolute; border-radius: 20px; }
+        #skill li>span {font-weight: bold;color:#333; width:calc(100% - 110px); right:0;top:8px;background:#eee;}
+        #skill li>span>span { text-indent: -999px;overflow: hidden; background:#666; width:1px;transition: ease all .3s; width:400px; }
+        #skill li:nth-of-type(1)>span>span{transition-delay: 1770ms;}
+        #skill li:nth-of-type(2)>span>span{transition-delay: 1830ms;}
+        #skill li:nth-of-type(3)>span>span{transition-delay: 1880ms;}
+        #skill li:nth-of-type(4)>span>span{transition-delay: 1930ms;}
+        #skill li:nth-of-type(5)>span>span{transition-delay: 1980ms;}
+        #skill li:nth-of-type(6)>span>span{transition-delay: 2230ms;}
+        #skill li:nth-of-type(7)>span>span{transition-delay: 2280ms;}
+        #skill li:nth-of-type(8)>span>span{transition-delay: 2330ms;}
+        #skill li:nth-of-type(9)>span>span{transition-delay: 2380ms;}
+        #skill li:nth-of-type(10)>span>span{transition-delay: 2430ms;}
+    </style>
+</head>
+<body>
+<h1>스킬(막대그래프) 모션</h1> 
+<section id="about_me_wrap">
+    <h2 class="screen_out">Skill</h2>
+    <img src="./img/testimg.jpg">
+    <article id="profile">
+        <h3>Profile</h3>
+        <ul>
+            <li>김민수</li>
+            <li>00.00.00</li>
+            <li>000-0000-0000</li>
+        </ul>
+    </article>
+    <article id="history">
+        <h3>History</h3>
+        <ul>
+            <li>html/css/javascript입문</li>
+            <li>Jquery입문</li>
+            <li>react입문</li>
+            <li>Jquery 반응형웹 사이트 NCS과정 수료</li>
+        </ul>
+    </article>
+    <article id="Hobby">
+        <h3>Hobby</h3>
+        <ul>
+            <li>운동</li>
+            <li></li>
+            <li>다이어리</li>
+            <li></li>
+        </ul>
+    </article>
+    <article id="skill">
+        <h3>Skill</h3>
+        <ul>
+            <li>HTML<span><span> : 85%</span></span></li>
+            <li>CSS<span><span> : 90%</span></span></li>
+            <li>Javascript<span><span> : 80%</span></span></li>
+            <li>Jquery<span><span> : 75%</span></span></li>
+            <li>Github<span><span> : 80%</span></span></li>
+            <li>React<span><span> : 30%</span></span></li>
+        </ul>
+    </article>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+let about_me_wrap = $("#about_me_wrap").offset().top
+            console.log("어바웃미랩 높이"+about_me_wrap)
+            
+            $(window).scroll(function (){
+                let value = $(window).scrollTop();
+            
+                if ((about_me_wrap-($(window).height()*0.74)) < value) {
+                    $('#about_me_wrap').css('animation', 'slide 1.2s ease-out forwards');
+                    $('#about_me_wrap').css('width', '75%');
+                } else {
+                    $('#about_me_wrap').css('animation', 'hide 2s ease-out forwards');
+                    $('#about_me_wrap').css('width', '27.50%');
+                }
+
+            })
+    // 능력치 표현
+    function skill() {
+        $("#skill span span").each(function(index,item){
+            var per = $(item).text().slice(3);
+            // console.log(per);
+            $(item).width(per);
+        })
+    }
+
+    // 버튼으로 적용시
+    var skill_on = false;
+    $("button").click(function(){
+        if(skill_on) {
+            $("#skill span span").width(0);
+            skill_on = false;
+        } else {
+            skill();
+            skill_on = true;
+        }
+    })
+
+    // 스크롤 입장시 표현
+    var skill_top = $("#skill").offset().top;
+    var skill_start = skill_top - ($(window).height()*0.7);
+    var skill_end = skill_top + ($(window).height()*0.1);
+    $(window).scroll(function(){
+        var t = $(this).scrollTop();
+        // console.log(t);
+        if(t > skill_start && t < skill_end) {
+            skill();
+        } else {
+            $("#skill span span").width(0);
+        }
+    });
+</script>
+</body>
+</html>
