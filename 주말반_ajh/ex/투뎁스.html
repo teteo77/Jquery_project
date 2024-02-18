@@ -1,0 +1,67 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2뎁스 메뉴 구현하기</title>
+    <style>
+        * {margin:0; padding:0; list-style:none;}
+        h1 {text-align: center; padding:20px}
+        a {text-decoration:none; display: block;}
+        ul {border:1px solid red;}
+        nav>ul {display: flex;}
+        nav>ul>li>a {padding:20px 40px}
+        nav>ul ul {position: absolute; display:none;}
+    </style>
+</head>
+<body>
+<h1>2뎁스 메뉴 구현하기</h1>
+<nav>
+    <ul>
+        <li class="on"><a href="#home">Home</a></li>
+        <li>
+            <a href="#Products">Products</a>
+            <ul style="display: none;">
+                <li><a href="#">통계청 빅데이터</a></li>
+                <li><a href="#">해피코리아(HKI Index)</a></li>
+                <li><a href="#">농산물 유통 종합정보</a></li>
+            </ul>
+        </li> 
+        <li>
+            <a href="#demos">Demos</a>
+            <ul style="display: none;">
+                <li><a href="#">BigData 융합지도(SiteMap)</a></li>
+                <li><a href="#">e-나라지표(국정모니터링지표)/국가지표체계</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#about">About</a>
+            <ul style="display: none;">
+                <li><a href="#">ceo인사말</a></li>
+                <li><a href="#">비전</a></li>
+                <li><a href="#">오시는길</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#promotion">Promotion</a>  
+            <ul style="display: block;">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">성공사례</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>  
+        </li>    
+    </ul>
+</nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // 1뎁스 메뉴 클릭시 서브메뉴 보이기
+    $("nav>ul>li").mouseover(function(){
+        $("nav ul ul").hide();
+        $(this).children("ul").show();
+    })
+    // 2뎁스 메뉴 벗어날때 안보이게
+    $("nav ul ul").mouseleave(function(){
+        $(this).hide();
+    })
+    
+</script> 
+
+<deepl-input-controller></deepl-input-controller></body></html>
