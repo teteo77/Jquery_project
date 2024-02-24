@@ -21,8 +21,8 @@
         .screen_out{display: none;}
 
         @font-face { font-family: 'Pretendard_t'; src: url('./font/Oligopoly_Thin.ttf');}
-        header {width:100%; height:80px; position:fixed; z-index: 50; border-bottom:1px solid #E4E4E4; box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.04);}
-        header nav{display: flex; margin:auto; height: 100%; align-items: center; justify-content: flex-end; margin-right:50px; }
+        header {width:100%; height:80px; position:fixed; z-index: 50; border-bottom:1px solid #E4E4E4; box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.04); }
+        header nav { display: flex; margin:auto; height: 100%; align-items: center; justify-content: flex-end; margin-right:50px; }
         header nav ul{ display:flex; }
         header nav li{ display:flex; }
         header nav li a{padding:10px; text-decoration: none; color:#616161; font-size: 19px; font-family:'Pretendard_t';}
@@ -34,7 +34,7 @@
         main { width: 100%; overflow: hidden; }
     
 
-        #home{height:145vh; width: 100%; overflow: hidden; box-sizing: border-box;}
+        #home {height:145vh; width: 100%; overflow: hidden; box-sizing: border-box; background-color: #EAFBFA; z-index: -100;}
 
         /* .bg-gradient {height: 931px;} */
 
@@ -51,7 +51,7 @@
         }
             /* 1 html에 있는 style을 line으로 이동 */
         #home_bg_outline {width: 100%; height: 100%; padding: 0 50px; box-sizing: border-box; position: fixed;
-            top: 0; left: 0; pointer-events: none; z-index: -50;}
+            top: 0; left: 0; pointer-events: none; z-index: 0;}
         /* #home_bg_outline {padding: 0 50px; box-sizing: border-box; position: fixed; z-index: 0;
             top: 0; left: 0; pointer-events: none;} */
         #home_bg_outline .outline { width: 100%; height: 100%; position: absolute; z-index: 0;}
@@ -182,14 +182,6 @@
             100% {transform: translateY(-100px); opacity:0}
         } */
 
-        
-
-        
-        
-        /* #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
-        #home #portfolio{} */
-        /* #about {height:500px; padding:225px;} */
-
         #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
 
         section .title h2.main-txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
@@ -197,7 +189,7 @@
             background-color: #2828b5; position: absolute; top: 12px; left: 0;}
         section .title p.sub-txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
 
-        #about{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 80px 0px 80px 0px; overflow: visible;}
+        #about{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 80px 0px 80px 0px; overflow: visible; }
 
         section .title h2.about_txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none; position: relative;}
         section .title p.sub_txt::before { content: ''; display: block; width: 100px; height: 4px;
@@ -209,7 +201,8 @@
         /* #about_me_wrap { width: 95%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
             justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms} */
 
-        #about_me_wrap>img{ border-radius: 23px; height:700px; position: absolute; z-index: 10;}
+        #about_me_wrap>div { height:700px; width:390px; border-radius: 23px; z-index:10; background: url(./image/me1-2.png) -130px/cover; position: absolute; transition: 1s; background-color: #000;}
+        #about_me_wrap>div:hover { background: url(./image/me2.gif) center/cover; }
 
         
         #about_me_wrap>#profile,#history,#Hobby { margin: 0px 0px 15.50px 0; color:#262626;}
@@ -218,7 +211,7 @@
         
         /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
 
-        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:140px;}
+        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:102px;}
         #skill h3 { color:#262626; }
         #skill li { position: relative; width: 400px; color:#ffbb35 ; margin:34px 0px !important; }
 
@@ -271,6 +264,17 @@
         #section01 .contents figcaption dl.txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
 
         .about_hatch.bottom { bottom: -80px; right: 0;}
+
+        #portfolio {width:100%; height:700px; border: 1px solid darkred; display: flex; align-items: center;}
+        .swiper { width: 1000px; height: 500px;}
+        .swiper .swiper-slide { width:1000px; height:500px;}
+        /* .swiper .swiper-wrapper{ display: flex; } */
+        /* .swiper .ss_img { width:80%; height:500px; border:1px solid red; display: flex;} */
+        .swiper .ss_img { width:80%; height:500px; background: url(./image/pt_google.png) center/cover; margin:auto}
+        .swiper .ss_img2 { width:80%; height:500px; background: url(./image/pt_kakao.png) center/cover; margin:auto}
+        .swiper .ss_img3 { width:80%; height:500px; background: url(./image/pt_nate.png) center/cover; margin:auto}
+        /* .swiper .ss_wrap div{width:500px; height:500px; background: url(./image/pt_google.png) center/cover;} */
+
         
         #mail_wrap { background: var(--Grey1); }
         #mail_wrap #mail { max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 150px; }
@@ -431,9 +435,17 @@
                 </h2>
                 <p class="sub_txt">항상 현재에 안주하지 않고 끊임없이 연구 합니다</p>
             </div>
+            <section>
+                스터디나 교육, 도서를 통하여 HTML, CSS, JavaScript를 익히고,
+                다양한 웹홈페이지들 따라해보며 업무 실력을 길러 왔습니다.
+                
+                프론트와 백엔드 퍼블리셔 보안등 다양한 경험이 있습니다.
+                원활한 소통과 효율적인 작업을 지향하고 있습니다.
+
+            </section>
             <section id="about_me_wrap">
                 <h2 class="screen_out">Skill</h2>
-                <img src="./image/testimg.jpg">
+                <div></div>
                 <article id="profile">
                     <h3>Profile</h3>
                     <ul>
@@ -517,6 +529,23 @@
                     </figcaption>
                 </figure> -->
             </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><a href="pt/google.html"><div class="ss_img"></div></a></div>
+                  <div class="swiper-slide"><a href="pt/kakao.html"><div class="ss_img2"></div></a></div>
+                  <div class="swiper-slide"><a href="pt/nate.html"><div class="ss_img3"></div></a></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
         </section>
 
         <section id="mail_wrap" class="menu">
@@ -717,6 +746,32 @@
         });
         
     </script>
+    <script>
+        const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        // slidesPerView: 2,
+        // spaceBetween: 10,
+
+        loop: true,
+        // autoplay: {
+        //     delay: 2000,
+        // },
+
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        });
+    </script>
+    
 
     <script>
       $("nav li").click(function () {

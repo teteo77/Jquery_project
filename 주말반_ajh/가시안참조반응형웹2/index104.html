@@ -182,14 +182,6 @@
             100% {transform: translateY(-100px); opacity:0}
         } */
 
-        
-
-        
-        
-        /* #home #portfolio{width:60%; height:100%; background-color: gainsboro;}
-        #home #portfolio{} */
-        /* #about {height:500px; padding:225px;} */
-
         #section01{width: 90%; max-width: 1440px; height: auto; margin: 0 auto; padding: 160px 0px 240px 0px; overflow: visible;border:1px solid red}
 
         section .title h2.main-txt { font-size: 3rem; line-height: 3.6rem; font-weight: bold; text-transform: none;}
@@ -209,7 +201,8 @@
         /* #about_me_wrap { width: 95%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
             justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms} */
 
-        #about_me_wrap>img{ border-radius: 23px; height:700px; position: absolute; z-index: 10;}
+        #about_me_wrap>div { height:700px; width:390px; border-radius: 23px; z-index:10; background: url(./image/me1-2.png) -130px/cover; position: absolute; transition: 1s; background-color: #000;}
+        #about_me_wrap>div:hover { background: url(./image/me2.gif) center/cover; }
 
         
         #about_me_wrap>#profile,#history,#Hobby { margin: 0px 0px 15.50px 0; color:#262626;}
@@ -218,7 +211,7 @@
         
         /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
 
-        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:140px;}
+        #skill {max-width:400px; margin:0px 0px 50px 34px; margin-right:102px;}
         #skill h3 { color:#262626; }
         #skill li { position: relative; width: 400px; color:#ffbb35 ; margin:34px 0px !important; }
 
@@ -271,6 +264,17 @@
         #section01 .contents figcaption dl.txt_box dt {font-weight: 700; font-size: 1.5rem; line-height: 2rem; margin-bottom: 8px;} */
 
         .about_hatch.bottom { bottom: -80px; right: 0;}
+
+        #portfolio {width:100%; height:700px; border: 1px solid darkred; display: flex; align-items: center;}
+        .swiper { width: 1000px; height: 500px;}
+        .swiper .swiper-slide { width:1000px; height:500px;}
+        /* .swiper .swiper-wrapper{ display: flex; } */
+        /* .swiper .ss_img { width:80%; height:500px; border:1px solid red; display: flex;} */
+        .swiper .ss_img { width:80%; height:500px; background: url(./image/pt_google.png) center/cover; margin:auto}
+        .swiper .ss_img2 { width:80%; height:500px; background: url(./image/pt_kakao.png) center/cover; margin:auto}
+        .swiper .ss_img3 { width:80%; height:500px; background: url(./image/pt_nate.png) center/cover; margin:auto}
+        /* .swiper .ss_wrap div{width:500px; height:500px; background: url(./image/pt_google.png) center/cover;} */
+
         
         #mail_wrap { background: var(--Grey1); }
         #mail_wrap #mail { max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 150px; }
@@ -433,7 +437,7 @@
             </div>
             <section id="about_me_wrap">
                 <h2 class="screen_out">Skill</h2>
-                <img src="./image/testimg.jpg">
+                <div></div>
                 <article id="profile">
                     <h3>Profile</h3>
                     <ul>
@@ -517,6 +521,23 @@
                     </figcaption>
                 </figure> -->
             </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><a href="pt/google.html"><div class="ss_img"></div></a></div>
+                  <div class="swiper-slide"><a href="pt/kakao.html"><div class="ss_img2"></div></a></div>
+                  <div class="swiper-slide"><a href="pt/nate.html"><div class="ss_img3"></div></a></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
         </section>
 
         <section id="mail_wrap" class="menu">
@@ -717,6 +738,32 @@
         });
         
     </script>
+    <script>
+        const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        // slidesPerView: 2,
+        // spaceBetween: 10,
+
+        loop: true,
+        // autoplay: {
+        //     delay: 2000,
+        // },
+
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        });
+    </script>
+    
 
     <script>
       $("nav li").click(function () {

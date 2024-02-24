@@ -109,7 +109,7 @@
         #home #intro #intro_visualtxt dd{font: normal 21px/1.3 'Pretendard'; color: #616161; letter-spacing: -0.025em; margin-bottom: 60px; position: relative; top: 50px; /* opacity: 0; */}
         
         .word_roll {line-height: 50px;  font-size: 30px; font-weight: bold; display: flex; height:50px; overflow: hidden;}
-        .word_roll>span {animation:word_roll 10s infinite ease; margin-left:15px;}
+        .word_roll>span {animation:word_roll 10s infinite ease; margin-left:10px; margin-right: 10px;;}
         .word_roll>span span {display:block; line-height: 50px;}
         @keyframes word_roll {
             0% {transform: translateY(0)}
@@ -126,7 +126,7 @@
 
 
         /* class="visual-img_wrap visual-slide1" */
-        #home #intro_img {opacity:1; display:flex; top:21%; left:50%; position:absolute;}
+        #home #intro_img {opacity:1; display:flex; top:21%; left:54%; position:absolute;}
 
         /* class="visual-img_list" */
         /* 수정 해야할 부분========================================== */
@@ -137,12 +137,12 @@
             display: flex; flex-direction: column; flex-wrap: wrap; margin-top: -150px;  width:800px;
             position: absolute;}
 
-        #intro_img_wrap #intro_img_view { list-style:none; }
+        #intro_img_wrap #intro_img_view { list-style:none; display: flex; flex-wrap:wrap}
         #intro_img_wrap #intro_img_view img{box-shadow: 20px 20px 40px rgba(0,0,0,0.25);}
-        #intro_img_wrap #intro_img_view img:nth-child(1){ margin-bottom:75px;} 
-        #intro_img_wrap #intro_img_view img:nth-child(2){ margin-top:75px; margin-left:80px; }
-        #intro_img_wrap #intro_img_view img:nth-child(3){ margin-bottom:150px;}
-        #intro_img_wrap #intro_img_view img:nth-child(4){ margin-left:80px; margin-bottom:80px;}
+        #intro_img_wrap #intro_img_view div:nth-child(1){ width:309px; height: 450px; background: url(./image/11오렌지주스.png) no-repeat center/cover; margin-bottom:75px;} 
+        #intro_img_wrap #intro_img_view div:nth-child(2){width:309px; height:450px; background: url(./image/9벚꽃.png)no-repeat center/cover; margin-top:75px; margin-left:80px; }
+        #intro_img_wrap #intro_img_view div:nth-child(3){ width:309px; height:450px; background: url(./image/10네잎클로버.jpg) no-repeat center/cover; margin-bottom:150px;}
+        #intro_img_wrap #intro_img_view div:nth-child(4){ width:309px; height:450px; background: url(./image/12내고향.png) no-repeat center/cover; margin-left:80px; margin-top:80px;}
 
         #intro_img_wrap #intro_img_view2 {height:106%; 
             box-sizing: border-box; width:900px; position: absolute;}
@@ -205,14 +205,16 @@
         section .title p.sub_txt { width: 90%; margin-top: 16px; font-size: 1.15rem; line-height: 1.6rem; padding-left: 120px; position: relative; color: #777; width: 70%;}
 
         #about_me_wrap { width: 26.50%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
-            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms}
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#E0F2F1;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms}
+        /* #about_me_wrap { width: 95%; height:700px; margin: 30px auto 0px auto; display: flex; flex-wrap: wrap; flex-direction: column; align-content: flex-end;
+            justify-content: center; gap:50px; box-sizing: border-box; border-radius: 32px; background:#363437;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms} */
 
         #about_me_wrap>img{ border-radius: 23px; height:700px; position: absolute; z-index: 10;}
 
         
         #about_me_wrap>#profile,#history,#Hobby { margin: 0px 0px 15.50px 0; color:#262626;}
-        #about_me_wrap>article>ul>li{color:#ffbb35; font-weight: bold; margin:10px 0px 10px 10px; }
-        #about_me_wrap>article>h3 { height: 50px; margin-bottom:10px; font-size: 40px; background: #ffbb35; }
+        #about_me_wrap>article>ul>li{color:#4CAF50; font-weight: bold; margin:10px 0px 10px 10px; }
+        #about_me_wrap>article>h3 { height: 50px; margin-bottom:10px; font-size: 40px; background: #69F0AE; }
         
         /* #about_me_wrap article ul li{ margin-bottom: 7px; } */
 
@@ -272,10 +274,6 @@
 
         #portfolio {width:100%; height:500px; border: 1px solid darkred;}
         .swiper { width: 100%; height: 500px;}
-
-
-
-
         
         #mail_wrap { background: var(--Grey1); }
         #mail_wrap #mail { max-width: 100%; margin: auto; padding: 100px; display: flex; justify-content: center; gap: 150px; }
@@ -330,15 +328,15 @@
         #intro_contents li:nth-child(3).on div {animation:to_left 5s 1 ease forwards;} */
 
     </style>
-    <!-- 폰트 어썸 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- 구글 폰트 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap" rel="stylesheet" />
-    <!-- swiper cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap" rel="stylesheet" />
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
 <body>
@@ -389,7 +387,7 @@
                                     <dt><span class="slide-txt2">잘 부탁 드립니다!</span></dt> -->
                                     <dt><span class="slide-txt1">AN JI HYOCK</span></dt>
                                     <dt><span class="slide-txt2">PORTFOLIO</span></dt>
-                                    <dd>안녕하세요<br><p class="word_roll">저는 <span><span>성장하는</span><span>부지런한</span><span>끊기있는</span><span>노력하는</span></span> 안지혁 입니다 !</p></dd>
+                                    <dd>안녕하세요<br><p class="word_roll">저는 <span><span>성장하는</span><span>부지런한</span><span>끊기있는</span><span>노력하는</span></span>안지혁 입니다 !</p></dd>
                                 </dl>
                             </article>
                             <section id="intro_img">
@@ -397,10 +395,14 @@
                                 <article id="intro_img_wrap">
                                         <ul id="intro_img_list">
                                             <li id="intro_img_view">
-                                                <img src="./image/slideimage1.png">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <!-- <img src="./image/slideimage1.png">
                                                 <img src="./image/slideimage2.png">
                                                 <img src="./image/slideimage3.png">
-                                                <img src="./image/slideimage4.png">
+                                                <img src="./image/slideimage4.png"> -->
                                             </li>
                                             <!-- <li id="intro_img_view2">
                                                 <img src="./image/slideimage5.png">
@@ -438,16 +440,16 @@
                 <article id="profile">
                     <h3>Profile</h3>
                     <ul>
-                        <li>김민수</li>
-                        <li>00.00.00</li>
-                        <li>000-0000-0000</li>
+                        <li>안지혁</li>
+                        <li>96.01.31</li>
+                        <li>010-9921-7688</li>
                     </ul>
                 </article>
                 <article id="history">
                     <h3>History</h3>
                     <ul>
-                        <li>html/css/javascript입문</li>
-                        <li>Jquery입문</li>
+                        <li>html/css/javascript</li>
+                        <li>Jquery</li>
                         <li>react입문</li>
                         <li>Jquery 반응형웹 사이트 NCS과정 수료</li>
                     </ul>
@@ -456,8 +458,8 @@
                     <h3>Hobby</h3>
                     <ul>
                         <li>운동</li>
-                        <li></li>
-                        <li>다이어리</li>
+                        <li>영화</li>
+                        <li>스포츠</li>
                         <li></li>
                     </ul>
                 </article>
@@ -550,7 +552,7 @@
                 </p>
                 <p>
                   <span>EMAIL</span>
-                  kimminsu@naver.com
+                  teteocom@naver.com
                 </p>
                 <p>
                   <span>Thank you for visit</span>
@@ -571,7 +573,7 @@
                     placeholder="your message"
                     id="message"
                   ></textarea>
-                  <button>SEND MESSAGE</button>
+                  <button>기능이 작동하지 않아 전화, 문자메세지로 연락 주시면 감사하겠습니다</button>
                 </fieldset>
               </form>
               <!-- </section> -->
@@ -710,7 +712,7 @@
             $(window).scroll(function (){
                 let value = $(window).scrollTop();
             
-                if ((about_me_wrap-($(window).height()*0.74)) < value) {
+                if ((about_me_wrap-($(window).height()*1.0)) < value) {
                     $('#about_me_wrap').css('animation', 'slide 1.2s ease-out forwards');
                     $('#about_me_wrap').css('width', '95%');
                 }
@@ -733,11 +735,10 @@
             // console.log(t);
             if(t < skill_end) {
                 skill();
-            } 
+            }
         });
         
     </script>
-
     <script>
         const swiper = new Swiper(".swiper", {
         // Optional parameters
@@ -760,6 +761,8 @@
 
         });
     </script>
+    
+
     <script>
       $("nav li").click(function () {
         var menu = $("nav li").index(this);
