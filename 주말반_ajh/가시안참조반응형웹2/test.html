@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #about_me_wrap { width: 95%; height:700px; margin: 30px auto 0px auto; padding:100px; display: flex; flex-wrap: wrap; flex-direction: row;
+            justify-content: flex-start; gap:80px; box-sizing: border-box; border-radius: 32px; background:#E0F2F1;position: relative; overflow: hidden; transition: width 1s; transition-delay:1000ms; margin-top:500px;}
+        
+        #about_me_wrap #amw_2 strong {margin-left:50px;}
+        
+        #about_me_wrap article { display: flex; flex-direction: column; flex-wrap: wrap; width:202px; height:500px; }
+        #about_me_wrap article .a_pic{ width:200px; height:200px; background: url(./image/me1-2.png)center/cover; margin-bottom: 20px;}
+        #about_me_wrap #amw_1 span:nth-child(2) {font-size: 25px; border-bottom:1px solid black; padding-bottom: 3px; margin-bottom: 10px;}
+        
+        #about_me_wrap #amw_2 { width:398px; display: flex; flex-direction: column; flex-wrap: wrap; }
+        #about_me_wrap #amw_2 span:first-child { font-weight: bold; margin-bottom: 10px;}
+        #about_me_wrap #amw_2 span:nth-child(2) { margin-bottom:10px; } 
+        #about_me_wrap #amw_2 span:nth-child(3) { margin-bottom:10px; }
+
+        #about_me_wrap #amw_2 span:nth-child(4) { margin-bottom:10px; font-weight: bold;}
+        #about_me_wrap #amw_2 span:nth-child(6) { margin-bottom:10px; }
+        #about_me_wrap #amw_2 span:nth-child(7) { margin-bottom:10px; font-weight: bold;}
+        #about_me_wrap #amw_2 span:nth-child(9) { margin-bottom:10px;}
+        #about_me_wrap #amw_2 span:nth-child(10) { margin-bottom:10px; font-weight: bold;}
+        
+
+        #skill {max-width:400px; border:1px solid red; width:500px;}
+        #skill span {display:block;height: 10px;position: absolute; border-radius: 20px;}
+        #skill>li {height:40px;position: relative;}
+        #skill>li>span {font-weight: bold;color:#333; width:calc(100% - 110px); right:0;top:8px;background:#eee;}
+        #skill>li>span>span {text-indent: -999px;overflow: hidden;background:#666; width:1px;transition: ease all .3s;}
+        #skill>li:nth-of-type(1)>span>span{transition-delay: 0;}
+        #skill>li:nth-of-type(2)>span>span{transition-delay: 50ms;}
+        #skill>li:nth-of-type(3)>span>span{transition-delay: 100ms;}
+        #skill>li:nth-of-type(4)>span>span{transition-delay: 150ms;}
+        #skill>li:nth-of-type(5)>span>span{transition-delay: 200ms;}
+        #skill>li:nth-of-type(6)>span>span{transition-delay: 250ms;}
+        #skill>li:nth-of-type(7)>span>span{transition-delay: 300ms;}
+        #skill>li:nth-of-type(8)>span>span{transition-delay: 350ms;}
+        #skill>li:nth-of-type(9)>span>span{transition-delay: 400ms;}
+        #skill>li:nth-of-type(10)>span>span{transition-delay: 450ms;}
+    </style>
+</head>
+<body>
+
+    <section id="about_me_wrap">
+        <article id="amw_1">
+            <div class="a_pic"></div>
+            <span>김민수</span>
+            <span>Kim MinSu</span>
+            <span>0000.00.00/00세</span>
+            <span>000-0000-0000</span>
+            <span>kimminsu@testnet.com</span>
+        </article>
+        <article id="amw_2">
+            <span>About me</span>
+            <span>소통하는 디자인의 가치를 아는 디자이너</span>
+            <span>디자인은 커뮤니케이션 과정의 결과라고 생각합니다. 니즈를 파악하고 주제와 맞는 디자이너을 하는 것, 올연한 사고를 가지고 함께 디자인할 수 있는 역량을 키우며 준비해왔습니다</span>
+            <span>Education</span>
+            <span>2020. 02<strong>건국대 글로벌 영상디자인 졸업</strong></span>
+            <span>2014. 02<strong>화영고등학교 졸업</strong></span>
+            <span>Work</span>
+            <span>2016. 17<strong>영상디자인과 16. 17년도 임원진 활동</strong></span>
+            <span>2018. 03<strong>사회적기업 '니루' 여행사이트 제작</strong></span>
+            <span>Skill</span>
+                <ul id="skill">
+                    <li>Photoshop<span><span> : 90%</span></span></li>
+                    <li>Illustrator<span><span> : 60%</span></span></li>
+                    <li>HTML<span><span> : 30%</span></span></li>
+                    <li>CSS<span><span> : 90%</span></span></li>
+                    <li>Javascript<span><span> : 40%</span></span></li>
+                    <li>jQuery<span><span> : 60%</span></span></li>
+                    <li>After effect<span><span> : 80%</span></span></li>
+                    <li>Premiere<span><span> : 50%</span></span></li>
+                    <li>Cinema4D<span><span> : 50%</span></span></li>
+                    <li>Filming<span><span> : 70%</span></span></li>
+                </ul>
+        </article>
+    </section> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function skill() {
+            $("#skill span span").each(function(index, item){
+                var per = $(item).text().slice(3);
+                // console.log(per);
+                $(item).width(per);
+            })
+        }
+
+        var skill_top = $("#skill").offset().top;
+        var skill_start = skill_top - ($(window).height()*0.7);
+        var skill_end = skill_top + ($(window).height()*0.1);
+        $(window).scroll(function(){
+            var t = $(this).scrollTop();
+            // console.log(t);
+            if(t < skill_end) {
+                skill();
+            }
+        });
+    </script>
+</body>
+</html>
